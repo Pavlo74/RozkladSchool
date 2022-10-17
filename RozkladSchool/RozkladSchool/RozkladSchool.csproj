@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rozklad.Core\Rozklad.Core.csproj" />
+    <ProjectReference Include="..\Rozklad.Repository\Rozklad.Repository.csproj" />
   </ItemGroup>
 
 </Project>
