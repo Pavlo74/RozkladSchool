@@ -74,6 +74,63 @@ namespace Rozklad.Core
                     RoleId = USER_ROLE_ID,
                     UserId = USER_ID
                 });
+            builder.Entity<Timetable>().HasData(
+           new Timetable
+           {
+               TimetableId = 1,
+
+               DayId = 1,
+               ClassId = 1,
+               LessonId = 1,
+
+          
+               DisciplineId = 1,
+               CabinetId = 1
+
+
+           },
+           new Class
+           {
+               ClassId=1,
+               ClassName="text"
+           },
+         
+            new Lesson
+            {
+                LessonId = 1,
+                LessonNumber = 1,
+                //StartTime=,
+                //EndTime=,
+
+
+
+            },
+              new Day
+              {
+                  DayId = 1,
+                  DayName = "Monday"
+              },
+              new Discipline
+              {
+                  DisciplineId = 1,
+                  DisciplineName="Hist"
+
+              },
+            new Cabinet
+            {
+                CabinetId = 1,
+                Name = "hist"
+            });
+            
+   
+           
+            
+
+               
+
+
+
+
         }
     }
 }

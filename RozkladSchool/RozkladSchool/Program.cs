@@ -2,7 +2,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Rozklad.Core;
 using Rozklad.Repository;
+<<<<<<< Updated upstream
 using System.Text.Json.Serialization;
+=======
+>>>>>>> Stashed changes
 //using RozkladSchool.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +16,7 @@ builder.Services.AddDbContext<RozkladContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+<<<<<<< Updated upstream
 builder.Services.AddDefaultIdentity<User>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -31,6 +35,12 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 
 builder.Services.AddTransient<UsersRepository>();
 
+=======
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<RozkladContext>();
+builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<UpdateRepository>();
+>>>>>>> Stashed changes
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
