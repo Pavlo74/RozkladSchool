@@ -91,6 +91,11 @@ namespace Rozklad.Core
                 new IdentityUserRole<string>
                 {
                     RoleId = USER_ROLE_ID,
+                    UserId = MODERATOR_ID
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = USER_ROLE_ID,
                     UserId = USER_ID
                 });
         }
