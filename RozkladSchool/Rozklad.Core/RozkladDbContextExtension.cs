@@ -66,8 +66,8 @@ namespace Rozklad.Core
                 },
                 new IdentityUserRole<string>
                 {
-                    RoleId = ADMIN_ROLE_ID,
-                    UserId = USER_ID
+                    RoleId = USER_ROLE_ID,
+                    UserId = ADMIN_ID
                 },
                 new IdentityUserRole<string>
                 {
