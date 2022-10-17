@@ -13,6 +13,7 @@ namespace Rozklad.Core
         public static void Seed(this ModelBuilder builder)
         {
             string ADMIN_ROLE_ID = Guid.NewGuid().ToString();
+            string MODERATOR_ROLE_ID = Guid.NewGuid().ToString();
             string USER_ROLE_ID = Guid.NewGuid().ToString();
 
             builder.Entity<IdentityRole>().HasData(
@@ -22,6 +23,12 @@ namespace Rozklad.Core
                     Name = "Admin",
                     NormalizedName = "ADMIN"
                 },
+                  new IdentityRole
+                  {
+                      Id = MODERATOR_ROLE_ID,
+                      Name = "Moderator",
+                      NormalizedName = "MODERATOR"
+                  },
                 new IdentityRole
                 {
                     Id = USER_ROLE_ID,
@@ -31,6 +38,7 @@ namespace Rozklad.Core
 
             string ADMIN_ID = Guid.NewGuid().ToString();
             string USER_ID = Guid.NewGuid().ToString();
+            string MODERATOR_ID = Guid.NewGuid().ToString();
 
             var admin = new User
             {
@@ -40,6 +48,16 @@ namespace Rozklad.Core
                 EmailConfirmed = true,
                 NormalizedEmail = "admin@rozkladschool.com".ToUpper(),
                 NormalizedUserName = "admin@rozkladschool.com".ToUpper()
+            };
+
+            var moderator = new User
+            {
+                Id = MODERATOR_ID,
+                UserName = "moderator@rozkladschool.com",
+                Email = "moderator@rozkladschool.com",
+                EmailConfirmed = true,
+                NormalizedEmail = "moderator@rozkladschool.com".ToUpper(),
+                NormalizedUserName = "moderator@rozkladschool.com".ToUpper()
             };
 
             var user = new User
@@ -54,9 +72,10 @@ namespace Rozklad.Core
 
             PasswordHasher<User> hasher = new PasswordHasher<User>();
             admin.PasswordHash = hasher.HashPassword(admin, "Admin$pass1");
+            moderator.PasswordHash = hasher.HashPassword(moderator, "Moderator$pass1");
             user.PasswordHash = hasher.HashPassword(user, "User$pass1");
 
-            builder.Entity<User>().HasData(admin, user);
+            builder.Entity<User>().HasData(admin, moderator, user);
 
             builder.Entity<IdentityUserRole<string>>().HasData(
                 new IdentityUserRole<string>
