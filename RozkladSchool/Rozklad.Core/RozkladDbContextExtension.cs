@@ -103,6 +103,198 @@ namespace Rozklad.Core
                     RoleId = USER_ROLE_ID,
                     UserId = USER_ID
                 });
+
+
+            builder.Entity<Day>().HasData(
+               new Day
+               {
+                   DayId = 1,
+                   DayName = "Понеділок"
+               },
+               new Day
+               {
+                   DayId = 2,
+                   DayName = "Вівторок"
+
+               },
+               new Day
+               {
+                   DayId = 3,
+                   DayName = "Середа"
+               },
+               new Day
+               {
+                   DayId = 4,
+                   DayName = "Четвер"
+               },
+               new Day
+               {
+                   DayId = 5,
+                   DayName = "Пятниця"
+               });
+
+            builder.Entity<Lesson>().HasData(
+               new Lesson
+               {
+                   LessonId = 1,
+                   LessonNumber = 1,
+                   //StartTime=,
+                   //EndTime=,
+               },
+               new Lesson
+               {
+                   LessonId = 2,
+                   LessonNumber = 2,
+                   //StartTime=,
+                   //EndTime=,
+               },
+                new Lesson
+                  {
+                     LessonId = 3,
+                      LessonNumber = 3,
+                      //StartTime= DateTime.UtcNow,
+                      //EndTime=,
+                  },
+                new Lesson
+                     {
+                         LessonId = 4,
+                         LessonNumber = 4,
+                         //StartTime=,
+                         //EndTime=,
+                     },
+                new Lesson
+                        {
+                            LessonId = 5,
+                            LessonNumber = 5,
+                            //StartTime=,
+                            //EndTime=,
+                        }
+
+
+               );
+            builder.Entity<Cabinet>().HasData(
+               new Cabinet
+               {
+                  CabinetId = 1,
+                  Name="Географія"
+               },
+                       new Cabinet
+                       {
+                           CabinetId = 2,
+                           Name = "Біологія"
+                       },
+                               new Cabinet
+                               {
+                                   CabinetId = 3,
+                                   Name = "Математика"
+                               },
+                                       new Cabinet
+                                       {
+                                           CabinetId = 4,
+                                           Name = "Укр мова"
+                                       },
+                                               new Cabinet
+                                               {
+                                                   CabinetId = 5,
+                                                   Name = "Історія"
+                                               }
+
+
+               );
+
+            builder.Entity<Discipline>().HasData(
+              new Discipline
+              {
+                  DisciplineId=1,
+                  DisciplineName="Географія"
+              },
+                 new Discipline
+                 {
+                     DisciplineId = 2,
+                     DisciplineName = "Біологія"
+                 },
+                   new Discipline
+                   {
+                       DisciplineId = 3,
+                       DisciplineName = "Математика"
+                   },
+                     new Discipline
+                     {
+                         DisciplineId = 4,
+                         DisciplineName = "Укр мова"
+                     },
+                       new Discipline
+                       {
+                           DisciplineId = 5,
+                           DisciplineName = "Історія"
+                       }
+
+
+              );
+
+
+            builder.Entity<Class>().HasData(
+             new Class
+             {
+                 ClassId=1,
+                 ClassName=""
+             },
+               new Class
+               {
+                   ClassId = 2,
+                   ClassName = ""
+               }, new Class
+               {
+                   ClassId = 3,
+                   ClassName = ""
+               }, new Class
+               {
+                   ClassId = 4,
+                   ClassName = ""
+               }, new Class
+               {
+                   ClassId = 5,
+                   ClassName = ""
+               }
+
+
+
+             );
+
+            builder.Entity<Timetable>().HasData(
+             new Timetable
+             {
+                 TimetableId=1,
+                 ClassId=1,
+                 LessonId=1,
+                 DayId=1,
+                 DisciplineId=1,
+                 CabinetId=1
+             },
+             new Timetable
+             {
+                 TimetableId = 2,
+                 ClassId = 2,
+                 LessonId = 2,
+                 DayId = 2,
+                 DisciplineId = 2,
+                 CabinetId = 2
+             }
+
+             );
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 }

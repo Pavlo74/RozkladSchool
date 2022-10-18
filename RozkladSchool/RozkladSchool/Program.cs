@@ -2,7 +2,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Rozklad.Core;
 using Rozklad.Repository;
+
 using System.Text.Json.Serialization;
+
+
 //using RozkladSchool.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +15,7 @@ var connectionString = builder.Configuration.GetConnectionString("RozkladSchoolC
 builder.Services.AddDbContext<RozkladContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 
 builder.Services.AddDefaultIdentity<User>(options =>
 {
@@ -30,6 +34,11 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 
 
 builder.Services.AddTransient<UsersRepository>();
+
+
+builder.Services.AddTransient<UsersRepository>();
+builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<UpdateRepository>();
 
 var app = builder.Build();
 

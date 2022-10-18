@@ -275,8 +275,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "072185fd-2cda-4880-b76d-925abbc4844e", "8643cfd1-cc90-4b37-880a-981912aeeec5", "User", "USER" },
-                    { "c8c16eb5-4aee-4d37-b131-f99ef176d8b7", "b906f61d-b6e9-457c-9a09-bedb2fe86196", "Admin", "ADMIN" }
+                    { "0d144eaf-9c95-4978-b3d4-b66e3e212311", "f503e0f0-ebb6-4e5a-a59a-458eb99d4e8b", "User", "USER" },
+                    { "8dc34822-b296-4d6b-ae94-713297c29a0e", "7d4cf294-d6f3-457f-a6e6-f22f8867be69", "Admin", "ADMIN" },
+                    { "adc314cf-82a7-473a-b791-79eea8025fde", "bcd1f8f1-66e7-4107-8664-2ca3732dcad8", "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -284,24 +285,25 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "b4b8242e-1c46-4be0-870f-fdccd751c18c", 0, "78ec1ba8-cd05-4def-b96a-e4baa17c0356", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEA+ZsxPRJqaZIRjFduc8SgIAJJhFiOe24DULGLWFGNbjbVvHdr8V81anImUdtTP2hQ==", null, false, "330ee08a-d9bd-4027-a08c-9cd2a2c8d602", false, "user@rozkladschool.com" },
-                    { "f3cfcbc8-d53a-48b9-8305-ea4a11bc5a43", 0, "8841e4bf-70b4-414c-a048-ba48caa5f622", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEH4RaYlSDAvKeYlYr+JCZ7mkVgCYqAiSaw4vOC+7Eictqh4QqNWIs2nB4wKrEndBcA==", null, false, "ba3fa142-150e-4fa8-8537-fee2a165df06", false, "admin@rozkladschool.com" }
+                    { "6cf942d8-9f92-406e-9c25-d3b96c15ebc4", 0, "b3392c68-0de1-4f47-8823-02bae9065404", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEN9hKOXkjXFnYIGBGgiu1XKTnM4Mya0iJg3l0b9iyzbxS9BFPApQBJNnjrLvHyiC/g==", null, false, "6cac92a3-0d7d-49a7-8981-c93f327f323e", false, "moderator@rozkladschool.com" },
+                    { "77483c2d-fbf3-42ef-9e97-a8614cfa3f9f", 0, "9d3581d7-2adb-4a65-951a-3071f4d856d3", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEPMROVxIO2VIWVID5bDJzE9o9lpl/n4wHTwUn210E/O8IqXlWNn8HL/i86dQPL3oWg==", null, false, "1a6cd2f4-bc92-4a97-a56d-8269d06ecba0", false, "user@rozkladschool.com" },
+                    { "ceef0897-22c6-45e5-995f-157f48d375e4", 0, "af1c70b6-8f8d-4c93-a8ab-f5b2490dbed7", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEDFsd7nDuC1SilDI7G6ENpFi6F1M1IT4f3iHzmlK91R01LQRwyIYtAd86fQFDo93rw==", null, false, "1d583b22-c02d-4886-8c6d-6b5218f5f490", false, "admin@rozkladschool.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "072185fd-2cda-4880-b76d-925abbc4844e", "b4b8242e-1c46-4be0-870f-fdccd751c18c" });
+                values: new object[] { "0d144eaf-9c95-4978-b3d4-b66e3e212311", "77483c2d-fbf3-42ef-9e97-a8614cfa3f9f" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "c8c16eb5-4aee-4d37-b131-f99ef176d8b7", "b4b8242e-1c46-4be0-870f-fdccd751c18c" });
+                values: new object[] { "0d144eaf-9c95-4978-b3d4-b66e3e212311", "ceef0897-22c6-45e5-995f-157f48d375e4" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "c8c16eb5-4aee-4d37-b131-f99ef176d8b7", "f3cfcbc8-d53a-48b9-8305-ea4a11bc5a43" });
+                values: new object[] { "8dc34822-b296-4d6b-ae94-713297c29a0e", "ceef0897-22c6-45e5-995f-157f48d375e4" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
