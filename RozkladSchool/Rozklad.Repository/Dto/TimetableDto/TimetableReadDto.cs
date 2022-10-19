@@ -1,21 +1,18 @@
-﻿using System;
+﻿using Rozklad.Core;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rozklad.Core
+namespace Rozklad.Repository.Dto.TimetableDto
 {
-    public class Timetable
+    public class TimetableReadDto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TimetableId { get; set; }
 
         public int ClassId { get; set; }
-        public Class Class { get; set; }
+        public Class Class{ get; set; }
 
         public int LessonId { get; set; }
         public Lesson Lesson { get; set; }
@@ -23,10 +20,10 @@ namespace Rozklad.Core
         public int DayId { get; set; }
         public Day Day { get; set; }
 
-       // public string? IconPath { get; set; } 
+        //public string IconPath { get; set; }
 
         public int DisciplineId { get; set; }
-        public Discipline Discipline{ get; set; }
+        public Discipline Discipline { get; set; }
 
         public int CabinetId { get; set; }
         public Cabinet Cabinet { get; set; }

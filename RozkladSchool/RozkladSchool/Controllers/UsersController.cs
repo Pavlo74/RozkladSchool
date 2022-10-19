@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Rozklad.Core;
 using Rozklad.Repository;
 using Rozklad.Repository.Dto;
+using RozkladSchool.Models;
+using System.Diagnostics;
 
 namespace RozkladSchool.Controllers
 {
@@ -70,6 +72,12 @@ namespace RozkladSchool.Controllers
             }
             ViewBag.Roles = await usersRepository.GetRolesAsync();
             return View(model);
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

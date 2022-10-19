@@ -117,36 +117,32 @@ namespace Rozklad.Core
                   
                    DayId = 1,
                    DayName = "Понеділок",
-                // TimetableId=1
                 
-
-
 
                },
                new Day
                {
                    DayId = 2,
                    DayName = "Вівторок",
-                  // TimetableId = 2
-
+                  
                },
                new Day
                {
                    DayId = 3,
                    DayName = "Середа",
-                  // TimetableId = 3
+                  
                },
                new Day
                {
                    DayId = 4,
                    DayName = "Четвер",
-                  // TimetableId = 4
+                  
                },
                new Day
                {
                    DayId = 5,
                    DayName = "Пятниця",
-                  // TimetableId = 5
+                  
                });
 
             builder.Entity<Lesson>().HasData(
@@ -154,40 +150,40 @@ namespace Rozklad.Core
                {
                    LessonId = 1,
                    LessonNumber = 1,
-                   //StartTime=,
-                   //EndTime=,
+                   StartTime= "12.00",
+                   EndTime= "12.45",
                   // TimetableId = 1
                },
                new Lesson
                {
                    LessonId = 2,
                    LessonNumber = 2,
-                   //StartTime=,
-                   //EndTime=,
+                   StartTime= " ",
+                   EndTime= " ",
                   // TimetableId = 2
                },
                 new Lesson
                   {
                      LessonId = 3,
                       LessonNumber = 3,
-                    //StartTime= DateTime.UtcNow,
-                    //EndTime=,
+                    StartTime= "",
+                    EndTime= "",
                    // TimetableId = 3
                 },
                 new Lesson
                      {
                          LessonId = 4,
                          LessonNumber = 4,
-                    //StartTime=,
-                    //EndTime=,
+                    StartTime= " ",
+                    EndTime= " ",
                    // TimetableId = 4
                 },
                 new Lesson
                         {
                             LessonId = 5,
                             LessonNumber = 5,
-                    //StartTime=,
-                    //EndTime=,
+                    StartTime= " ",
+                    EndTime= " ",
                     //TimetableId = 5
                 }
 
@@ -268,7 +264,7 @@ namespace Rozklad.Core
              new Class
              { 
                  ClassId=1,
-                 ClassName="",
+                 ClassName="1-A",
                  //TimetableId = 1
 
 
@@ -277,22 +273,22 @@ namespace Rozklad.Core
                new Class
                {
                    ClassId = 2,
-                   ClassName = "",
+                   ClassName = "1-B",
                   // TimetableId = 2
                }, new Class
                {
                    ClassId = 3,
-                   ClassName = "",
+                   ClassName = "2-A",
                   // TimetableId = 3
                }, new Class
                {
                    ClassId = 4,
-                   ClassName = "",
+                   ClassName = "2-B",
                    //TimetableId = 4
                }, new Class
                {
                    ClassId = 5,
-                   ClassName = "",
+                   ClassName = "3-A",
                   // TimetableId = 5
                }
 
@@ -305,11 +301,10 @@ namespace Rozklad.Core
              {
                  TimetableId=1,
                  ClassId=1,
-             
                  LessonId =1,
                  DayId=1,
-                 DisciplineId=1,
-
+                 //IconPath = @"Images\1200h790_1-4_klass_t.png",
+                 DisciplineId =1,
                  CabinetId=1
              },
              new Timetable
@@ -318,9 +313,8 @@ namespace Rozklad.Core
                  ClassId = 2,
                  LessonId = 2,
                  DayId = 2,
+                 //IconPath= @"Images\1200TE790_5_klass_t.png",
                  DisciplineId = 2,
-               
-                
                  CabinetId = 2
              }
 

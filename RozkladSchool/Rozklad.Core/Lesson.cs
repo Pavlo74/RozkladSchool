@@ -12,9 +12,9 @@ namespace Rozklad.Core
         [Key]
         public int LessonId { get; set; }
         public int LessonNumber { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-
+        public string? StartTime { get; set; }
+        public string? EndTime { get; set; }
+        public virtual ICollection<Timetable> Timetables { get; set; }
         //public int TimetableId { get; set; }
         //public Timetable? Timetable { get; set; }
     }
