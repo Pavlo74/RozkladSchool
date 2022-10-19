@@ -289,7 +289,9 @@ namespace Rozklad.Core
              {
                  TimetableId=1,
                  ClassId=1,
-             
+                
+
+
                  LessonId =1,
                  DayId=1,
                  DisciplineId=1,

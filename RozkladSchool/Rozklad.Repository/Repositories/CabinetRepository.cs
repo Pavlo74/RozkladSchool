@@ -16,7 +16,7 @@ namespace Rozklad.Repository.Repositories
             _ctx = ctx;
         }
 
-        public async Task<IEnumerable<CabinetReadDto>> GetFuelTypesAsync()
+        public async Task<IEnumerable<CabinetReadDto>> GetCabinetTypesAsync()
         {
             var cabinetDto = _ctx.Cabinets.
                 Select(x => new CabinetReadDto

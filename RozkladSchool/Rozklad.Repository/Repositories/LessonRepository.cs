@@ -17,7 +17,7 @@ namespace Rozklad.Repository.Repositories
             _ctx = ctx;
         }
 
-        public async Task<IEnumerable<LessonReadDto>> GetFuelTypesAsync()
+        public async Task<IEnumerable<LessonReadDto>> GetLessonTypesAsync()
         {
             var lessonDto = _ctx.Lessons.
                 Select(x => new LessonReadDto

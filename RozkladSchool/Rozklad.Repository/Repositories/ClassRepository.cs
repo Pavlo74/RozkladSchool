@@ -17,7 +17,7 @@ namespace Rozklad.Repository.Repositories
             _ctx = ctx;
         }
 
-       public async Task<IEnumerable<ClassReadDto>> GetFuelTypesAsync()
+       public async Task<IEnumerable<ClassReadDto>> GetClassTypesAsync()
         {
             var classDto = _ctx.Classes.
                 Select(x => new ClassReadDto
