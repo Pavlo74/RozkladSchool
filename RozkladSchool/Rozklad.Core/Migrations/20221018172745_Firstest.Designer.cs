@@ -12,8 +12,8 @@ using Rozklad.Core;
 namespace Rozklad.Core.Migrations
 {
     [DbContext(typeof(RozkladContext))]
-    [Migration("20221017234026_first")]
-    partial class first
+    [Migration("20221018172745_Firstest")]
+    partial class Firstest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,22 +53,22 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8dc34822-b296-4d6b-ae94-713297c29a0e",
-                            ConcurrencyStamp = "7d4cf294-d6f3-457f-a6e6-f22f8867be69",
+                            Id = "af6a75e1-58a5-4998-88a9-fe65e1f3a404",
+                            ConcurrencyStamp = "95659aa5-131b-4f95-854b-fa1d7f8e6ad6",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "adc314cf-82a7-473a-b791-79eea8025fde",
-                            ConcurrencyStamp = "bcd1f8f1-66e7-4107-8664-2ca3732dcad8",
+                            Id = "0e3e731a-9e45-44ac-b138-a7b848ae47b1",
+                            ConcurrencyStamp = "1548c19c-504d-4775-b9b2-4d38d1403dbd",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
-                            Id = "0d144eaf-9c95-4978-b3d4-b66e3e212311",
-                            ConcurrencyStamp = "f503e0f0-ebb6-4e5a-a59a-458eb99d4e8b",
+                            Id = "4b554355-4a13-4178-b31e-c08c0514059b",
+                            ConcurrencyStamp = "f1d8a173-73aa-434c-8801-307d31a08feb",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -165,18 +165,18 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "ceef0897-22c6-45e5-995f-157f48d375e4",
-                            RoleId = "8dc34822-b296-4d6b-ae94-713297c29a0e"
+                            UserId = "bec216c3-faaa-482e-8439-eed102da4faa",
+                            RoleId = "af6a75e1-58a5-4998-88a9-fe65e1f3a404"
                         },
                         new
                         {
-                            UserId = "ceef0897-22c6-45e5-995f-157f48d375e4",
-                            RoleId = "0d144eaf-9c95-4978-b3d4-b66e3e212311"
+                            UserId = "bec216c3-faaa-482e-8439-eed102da4faa",
+                            RoleId = "4b554355-4a13-4178-b31e-c08c0514059b"
                         },
                         new
                         {
-                            UserId = "77483c2d-fbf3-42ef-9e97-a8614cfa3f9f",
-                            RoleId = "0d144eaf-9c95-4978-b3d4-b66e3e212311"
+                            UserId = "d17c5781-9fa4-4a1a-92fd-0b22b710adee",
+                            RoleId = "4b554355-4a13-4178-b31e-c08c0514059b"
                         });
                 });
 
@@ -220,6 +220,33 @@ namespace Rozklad.Core.Migrations
                     b.HasIndex("TimetableId");
 
                     b.ToTable("Cabinets");
+
+                    b.HasData(
+                        new
+                        {
+                            CabinetId = 1,
+                            Name = "Географія"
+                        },
+                        new
+                        {
+                            CabinetId = 2,
+                            Name = "Біологія"
+                        },
+                        new
+                        {
+                            CabinetId = 3,
+                            Name = "Математика"
+                        },
+                        new
+                        {
+                            CabinetId = 4,
+                            Name = "Укр мова"
+                        },
+                        new
+                        {
+                            CabinetId = 5,
+                            Name = "Історія"
+                        });
                 });
 
             modelBuilder.Entity("Rozklad.Core.Class", b =>
@@ -241,6 +268,33 @@ namespace Rozklad.Core.Migrations
                     b.HasIndex("TimetableId");
 
                     b.ToTable("Classes");
+
+                    b.HasData(
+                        new
+                        {
+                            ClassId = 1,
+                            ClassName = ""
+                        },
+                        new
+                        {
+                            ClassId = 2,
+                            ClassName = ""
+                        },
+                        new
+                        {
+                            ClassId = 3,
+                            ClassName = ""
+                        },
+                        new
+                        {
+                            ClassId = 4,
+                            ClassName = ""
+                        },
+                        new
+                        {
+                            ClassId = 5,
+                            ClassName = ""
+                        });
                 });
 
             modelBuilder.Entity("Rozklad.Core.Day", b =>
@@ -262,6 +316,33 @@ namespace Rozklad.Core.Migrations
                     b.HasIndex("TimetableId");
 
                     b.ToTable("Days");
+
+                    b.HasData(
+                        new
+                        {
+                            DayId = 1,
+                            DayName = "Понеділок"
+                        },
+                        new
+                        {
+                            DayId = 2,
+                            DayName = "Вівторок"
+                        },
+                        new
+                        {
+                            DayId = 3,
+                            DayName = "Середа"
+                        },
+                        new
+                        {
+                            DayId = 4,
+                            DayName = "Четвер"
+                        },
+                        new
+                        {
+                            DayId = 5,
+                            DayName = "Пятниця"
+                        });
                 });
 
             modelBuilder.Entity("Rozklad.Core.Discipline", b =>
@@ -283,6 +364,33 @@ namespace Rozklad.Core.Migrations
                     b.HasIndex("TimetableId");
 
                     b.ToTable("Disciplines");
+
+                    b.HasData(
+                        new
+                        {
+                            DisciplineId = 1,
+                            DisciplineName = "Географія"
+                        },
+                        new
+                        {
+                            DisciplineId = 2,
+                            DisciplineName = "Біологія"
+                        },
+                        new
+                        {
+                            DisciplineId = 3,
+                            DisciplineName = "Математика"
+                        },
+                        new
+                        {
+                            DisciplineId = 4,
+                            DisciplineName = "Укр мова"
+                        },
+                        new
+                        {
+                            DisciplineId = 5,
+                            DisciplineName = "Історія"
+                        });
                 });
 
             modelBuilder.Entity("Rozklad.Core.Lesson", b =>
@@ -310,6 +418,43 @@ namespace Rozklad.Core.Migrations
                     b.HasIndex("TimetableId");
 
                     b.ToTable("Lessons");
+
+                    b.HasData(
+                        new
+                        {
+                            LessonId = 1,
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LessonNumber = 1,
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            LessonId = 2,
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LessonNumber = 2,
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            LessonId = 3,
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LessonNumber = 3,
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            LessonId = 4,
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LessonNumber = 4,
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            LessonId = 5,
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LessonNumber = 5,
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("Rozklad.Core.Timetable", b =>
@@ -338,6 +483,26 @@ namespace Rozklad.Core.Migrations
                     b.HasKey("TimetableId");
 
                     b.ToTable("Timetables");
+
+                    b.HasData(
+                        new
+                        {
+                            TimetableId = 1,
+                            CabinetId = 1,
+                            ClassId = 1,
+                            DayId = 1,
+                            DisciplineId = 1,
+                            LessonId = 1
+                        },
+                        new
+                        {
+                            TimetableId = 2,
+                            CabinetId = 2,
+                            ClassId = 2,
+                            DayId = 2,
+                            DisciplineId = 2,
+                            LessonId = 2
+                        });
                 });
 
             modelBuilder.Entity("Rozklad.Core.User", b =>
@@ -413,49 +578,49 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ceef0897-22c6-45e5-995f-157f48d375e4",
+                            Id = "bec216c3-faaa-482e-8439-eed102da4faa",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "af1c70b6-8f8d-4c93-a8ab-f5b2490dbed7",
+                            ConcurrencyStamp = "62b380e9-573d-4b4a-adf6-469867f41cef",
                             Email = "admin@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "ADMIN@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDFsd7nDuC1SilDI7G6ENpFi6F1M1IT4f3iHzmlK91R01LQRwyIYtAd86fQFDo93rw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBU2Ir3N0RYvAT/0auNBABthONTn/Z6Z0Uo9zrttOJxa663wTaHZRGLj8cF5LC/HrQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1d583b22-c02d-4886-8c6d-6b5218f5f490",
+                            SecurityStamp = "3ce40fb9-459c-43bd-ab59-6a9a797473c0",
                             TwoFactorEnabled = false,
                             UserName = "admin@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "6cf942d8-9f92-406e-9c25-d3b96c15ebc4",
+                            Id = "9b1195f2-0bdb-4cbb-a8fe-57088fcf5726",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b3392c68-0de1-4f47-8823-02bae9065404",
+                            ConcurrencyStamp = "e683eed6-73d2-4109-9ed1-c9d5251de9b5",
                             Email = "moderator@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MODERATOR@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "MODERATOR@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN9hKOXkjXFnYIGBGgiu1XKTnM4Mya0iJg3l0b9iyzbxS9BFPApQBJNnjrLvHyiC/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKc8jDNaTCUExUme/x2/Eya4pHxo8DjhgvgH7IfpSNPIbQSzQc3u663INxQAZAD5nw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6cac92a3-0d7d-49a7-8981-c93f327f323e",
+                            SecurityStamp = "a120c247-cca9-4b21-8368-f4a70c0df3a1",
                             TwoFactorEnabled = false,
                             UserName = "moderator@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "77483c2d-fbf3-42ef-9e97-a8614cfa3f9f",
+                            Id = "d17c5781-9fa4-4a1a-92fd-0b22b710adee",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9d3581d7-2adb-4a65-951a-3071f4d856d3",
+                            ConcurrencyStamp = "60157bd7-b7d9-4c83-8f8d-ffc976e6b88e",
                             Email = "user@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "USER@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPMROVxIO2VIWVID5bDJzE9o9lpl/n4wHTwUn210E/O8IqXlWNn8HL/i86dQPL3oWg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENTMjMpKz6W9LIigi1aMPqp54SRWv5nYqZM8n26z2lsBr3Hr1iADt0Rt6FFs7cIFog==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1a6cd2f4-bc92-4a97-a56d-8269d06ecba0",
+                            SecurityStamp = "71e8ad5a-3f33-46fd-8254-ca639a8e55cf",
                             TwoFactorEnabled = false,
                             UserName = "user@rozkladschool.com"
                         });
