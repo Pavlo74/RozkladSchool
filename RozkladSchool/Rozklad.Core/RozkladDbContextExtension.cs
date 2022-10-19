@@ -114,29 +114,39 @@ namespace Rozklad.Core
             builder.Entity<Day>().HasData(
                new Day
                {
+                  
                    DayId = 1,
-                   DayName = "Понеділок"
+                   DayName = "Понеділок",
+                // TimetableId=1
+                
+
+
+
                },
                new Day
                {
                    DayId = 2,
-                   DayName = "Вівторок"
+                   DayName = "Вівторок",
+                  // TimetableId = 2
 
                },
                new Day
                {
                    DayId = 3,
-                   DayName = "Середа"
+                   DayName = "Середа",
+                  // TimetableId = 3
                },
                new Day
                {
                    DayId = 4,
-                   DayName = "Четвер"
+                   DayName = "Четвер",
+                  // TimetableId = 4
                },
                new Day
                {
                    DayId = 5,
-                   DayName = "Пятниця"
+                   DayName = "Пятниця",
+                  // TimetableId = 5
                });
 
             builder.Entity<Lesson>().HasData(
@@ -146,6 +156,7 @@ namespace Rozklad.Core
                    LessonNumber = 1,
                    //StartTime=,
                    //EndTime=,
+                  // TimetableId = 1
                },
                new Lesson
                {
@@ -153,28 +164,32 @@ namespace Rozklad.Core
                    LessonNumber = 2,
                    //StartTime=,
                    //EndTime=,
+                  // TimetableId = 2
                },
                 new Lesson
                   {
                      LessonId = 3,
                       LessonNumber = 3,
-                      //StartTime= DateTime.UtcNow,
-                      //EndTime=,
-                  },
+                    //StartTime= DateTime.UtcNow,
+                    //EndTime=,
+                   // TimetableId = 3
+                },
                 new Lesson
                      {
                          LessonId = 4,
                          LessonNumber = 4,
-                         //StartTime=,
-                         //EndTime=,
-                     },
+                    //StartTime=,
+                    //EndTime=,
+                   // TimetableId = 4
+                },
                 new Lesson
                         {
                             LessonId = 5,
                             LessonNumber = 5,
-                            //StartTime=,
-                            //EndTime=,
-                        }
+                    //StartTime=,
+                    //EndTime=,
+                    //TimetableId = 5
+                }
 
 
                );
@@ -182,27 +197,32 @@ namespace Rozklad.Core
                new Cabinet
                {
                   CabinetId = 1,
-                  Name="Географія"
+                  Name="Географія",
+                  // TimetableId = 1
                },
                        new Cabinet
                        {
                            CabinetId = 2,
-                           Name = "Біологія"
+                           Name = "Біологія",
+                          // TimetableId = 2
                        },
                                new Cabinet
                                {
                                    CabinetId = 3,
-                                   Name = "Математика"
+                                   Name = "Математика",
+                                   //TimetableId = 3
                                },
                                        new Cabinet
                                        {
                                            CabinetId = 4,
-                                           Name = "Укр мова"
+                                           Name = "Укр мова",
+                                          // TimetableId = 4
                                        },
                                                new Cabinet
                                                {
                                                    CabinetId = 5,
-                                                   Name = "Історія"
+                                                   Name = "Історія",
+                                                  // TimetableId = 5
                                                }
 
 
@@ -212,27 +232,32 @@ namespace Rozklad.Core
               new Discipline
               {
                   DisciplineId=1,
-                  DisciplineName="Географія"
+                  DisciplineName="Географія",
+                 // TimetableId = 1
               },
                  new Discipline
                  {
                      DisciplineId = 2,
-                     DisciplineName = "Біологія"
+                     DisciplineName = "Біологія",
+                     //TimetableId = 2
                  },
                    new Discipline
                    {
                        DisciplineId = 3,
-                       DisciplineName = "Математика"
+                       DisciplineName = "Математика",
+                      // TimetableId = 3
                    },
                      new Discipline
                      {
                          DisciplineId = 4,
-                         DisciplineName = "Укр мова"
+                         DisciplineName = "Укр мова",
+                         //TimetableId = 4
                      },
                        new Discipline
                        {
                            DisciplineId = 5,
-                           DisciplineName = "Історія"
+                           DisciplineName = "Історія",
+                          // TimetableId = 5
                        }
 
 
@@ -241,26 +266,34 @@ namespace Rozklad.Core
 
             builder.Entity<Class>().HasData(
              new Class
-             {
+             { 
                  ClassId=1,
-                 ClassName=""
+                 ClassName="",
+                 //TimetableId = 1
+
+
+
              },
                new Class
                {
                    ClassId = 2,
-                   ClassName = ""
+                   ClassName = "",
+                  // TimetableId = 2
                }, new Class
                {
                    ClassId = 3,
-                   ClassName = ""
+                   ClassName = "",
+                  // TimetableId = 3
                }, new Class
                {
                    ClassId = 4,
-                   ClassName = ""
+                   ClassName = "",
+                   //TimetableId = 4
                }, new Class
                {
                    ClassId = 5,
-                   ClassName = ""
+                   ClassName = "",
+                  // TimetableId = 5
                }
 
 
@@ -272,9 +305,11 @@ namespace Rozklad.Core
              {
                  TimetableId=1,
                  ClassId=1,
-                 LessonId=1,
+             
+                 LessonId =1,
                  DayId=1,
                  DisciplineId=1,
+
                  CabinetId=1
              },
              new Timetable
@@ -284,6 +319,8 @@ namespace Rozklad.Core
                  LessonId = 2,
                  DayId = 2,
                  DisciplineId = 2,
+               
+                
                  CabinetId = 2
              }
 

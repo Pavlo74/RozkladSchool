@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rozklad.Core;
 
@@ -12,15 +11,9 @@ using Rozklad.Core;
 namespace Rozklad.Core.Migrations
 {
     [DbContext(typeof(RozkladContext))]
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-    [Migration("20221018165529_output")]
-    partial class output
-========
-    [Migration("20221019131010_firstmig")]
-    partial class firstmig
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
+    partial class RozkladContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -133,37 +126,22 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            Id = "6934fd7d-d37c-49b0-9613-539f964eabd2",
-                            ConcurrencyStamp = "96bbd76c-10d7-4385-aeb1-7bc1c27c41f2",
-========
                             Id = "5e7ee416-f31d-4e6d-9614-62c77f0ec09f",
                             ConcurrencyStamp = "a99f5a28-bd9a-4c82-bb2b-4f972ae1072d",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            Id = "b771c012-2461-4258-a2c8-9772ebbadaaa",
-                            ConcurrencyStamp = "69745975-3b79-49e1-92b0-00fc2f831c8d",
-========
                             Id = "69797f60-b7a1-4c60-9ceb-99d534a9043b",
                             ConcurrencyStamp = "9309e9c1-336b-448d-91b2-ad508b4fd9c3",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            Id = "c9c3347a-89f9-4e49-a7d3-b7a90c549792",
-                            ConcurrencyStamp = "9f95f175-6d2a-474e-b442-99b276586c25",
-========
                             Id = "83f8e292-46dd-4a8f-afe5-04120f788094",
                             ConcurrencyStamp = "e7c0f7ba-ef8d-4d1a-a95d-6eb8cb02b546",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -260,35 +238,6 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            UserId = "ca7e6123-56af-40f7-ad79-545c53c035f1",
-                            RoleId = "6934fd7d-d37c-49b0-9613-539f964eabd2"
-                        },
-                        new
-                        {
-                            UserId = "ca7e6123-56af-40f7-ad79-545c53c035f1",
-                            RoleId = "b771c012-2461-4258-a2c8-9772ebbadaaa"
-                        },
-                        new
-                        {
-                            UserId = "ca7e6123-56af-40f7-ad79-545c53c035f1",
-                            RoleId = "c9c3347a-89f9-4e49-a7d3-b7a90c549792"
-                        },
-                        new
-                        {
-                            UserId = "79375854-e4c6-4614-b6f8-1eb4f3188e95",
-                            RoleId = "b771c012-2461-4258-a2c8-9772ebbadaaa"
-                        },
-                        new
-                        {
-                            UserId = "79375854-e4c6-4614-b6f8-1eb4f3188e95",
-                            RoleId = "c9c3347a-89f9-4e49-a7d3-b7a90c549792"
-                        },
-                        new
-                        {
-                            UserId = "aa4b6839-1a0b-49b3-aefc-589cf99c81f5",
-                            RoleId = "c9c3347a-89f9-4e49-a7d3-b7a90c549792"
-========
                             UserId = "8abee03e-a608-4cb6-8a20-309e5c6e920f",
                             RoleId = "5e7ee416-f31d-4e6d-9614-62c77f0ec09f"
                         },
@@ -301,7 +250,6 @@ namespace Rozklad.Core.Migrations
                         {
                             UserId = "c31d168a-fec8-47a2-a682-c1bdd9a567db",
                             RoleId = "83f8e292-46dd-4a8f-afe5-04120f788094"
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                         });
                 });
 
@@ -678,85 +626,49 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            Id = "ca7e6123-56af-40f7-ad79-545c53c035f1",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "316869f8-a1b3-4d12-9e94-2ec788a99c81",
-========
                             Id = "8abee03e-a608-4cb6-8a20-309e5c6e920f",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "293c9b8a-d053-4410-8ea6-a93939d68590",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             Email = "admin@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "ADMIN@ROZKLADSCHOOL.COM",
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ/oAfRAkzmg+jXjZzgynypdhpqfm74JSItEoLKCqSdTthRp+XDYv3Y0MLEPyQ/5IA==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "1f16b1a6-0050-451f-8415-778088db2147",
-========
                             PasswordHash = "AQAAAAEAACcQAAAAEAoiO/S+jdeb7xAKQ+y8xqr5fArePYRYh1BqchWWSMdTql4sfiKlC13nz3wKukGe/g==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "d17a7824-a5fb-4d25-b13b-d80298a9176b",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "admin@rozkladschool.com"
                         },
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            Id = "79375854-e4c6-4614-b6f8-1eb4f3188e95",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "0e6ba2d4-d810-4428-85a9-526e7a3fd2ad",
-========
                             Id = "4862ea87-77ea-4f1c-9e29-d4d433ebc856",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "2889c800-b333-49f8-aced-a52c7a9c7691",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             Email = "moderator@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MODERATOR@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "MODERATOR@ROZKLADSCHOOL.COM",
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEKPRYWCvm4D4tfg2yOfRCHe3QnzKlT9RWPZGl+rskUvIZmiTMpfDzSkSoT3p95xkbQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "8f6c0734-3e9e-4670-9e96-19a32c31a768",
-========
                             PasswordHash = "AQAAAAEAACcQAAAAEC87Ki5aJY7RanO5OzB1gmQDOVYa4rtt0oppQnPdgxWKwyX9DLnG+OwUnS/9+TEiWQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "a9c1d4d1-4688-4cf2-9753-dc18bedd30d8",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "moderator@rozkladschool.com"
                         },
                         new
                         {
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            Id = "aa4b6839-1a0b-49b3-aefc-589cf99c81f5",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "cae1e9f7-b2b9-4418-a4de-8e5b33fc704d",
-========
                             Id = "c31d168a-fec8-47a2-a682-c1bdd9a567db",
                             AccessFailedCount = 0,
                             ConcurrencyStamp = "417f1175-a397-4365-a92b-cda1812ff4e0",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             Email = "user@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "USER@ROZKLADSCHOOL.COM",
-<<<<<<<< HEAD:RozkladSchool/Rozklad.Core/Migrations/20221018165529_output.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEA92CN8BtopQrsEQkPsONSihFsfYM6Y4qqFx/b+J0jABppJFeClE0K3rN/y8NEMf1g==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "02aca63f-dbf2-49c5-8655-8e1c1a7404d8",
-========
                             PasswordHash = "AQAAAAEAACcQAAAAEEzsTxS/mTqJcMkk0GffGoe++PQwMRirI1ZyEiruhak79NepYT9qpUldUZtq2IuMfA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "cb6f7f9f-7b80-4235-86b6-54460d2b3ccb",
->>>>>>>> main:RozkladSchool/Rozklad.Core/Migrations/20221019131010_firstmig.Designer.cs
                             TwoFactorEnabled = false,
                             UserName = "user@rozkladschool.com"
                         });
