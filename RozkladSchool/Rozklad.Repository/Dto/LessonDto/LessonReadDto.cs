@@ -1,23 +1,19 @@
-﻿using System;
+﻿using Rozklad.Core;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rozklad.Core
+namespace Rozklad.Repository.Dto.LessonDto
 {
-    public class Lesson
+  public class LessonReadDto
     {
-        [Key]
         public int LessonId { get; set; }
         public int LessonNumber { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
         public ICollection<Timetable>? Timetables { get; set; }
-
-        /*public int TimetableId { get; set; }
-        public Timetable? Timetable { get; set; }*/
     }
 }

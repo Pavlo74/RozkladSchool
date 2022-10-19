@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Rozklad.Core.Migrations
 {
-    public partial class Firstest : Migration
+    public partial class firstmig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,73 @@ namespace Rozklad.Core.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cabinets",
+                columns: table => new
+                {
+                    CabinetId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cabinets", x => x.CabinetId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Classes",
+                columns: table => new
+                {
+                    ClassId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClassName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Classes", x => x.ClassId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Days",
+                columns: table => new
+                {
+                    DayId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DayName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Days", x => x.DayId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Disciplines",
+                columns: table => new
+                {
+                    DisciplineId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DisciplineName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Disciplines", x => x.DisciplineId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lessons",
+                columns: table => new
+                {
+                    LessonId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LessonNumber = table.Column<int>(type: "int", nullable: false),
+                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lessons", x => x.LessonId);
                 });
 
             migrationBuilder.CreateTable(
@@ -174,100 +241,123 @@ namespace Rozklad.Core.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cabinets",
+                name: "CabinetTimetable",
                 columns: table => new
                 {
-                    CabinetId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimetableId = table.Column<int>(type: "int", nullable: true)
+                    CabinetsCabinetId = table.Column<int>(type: "int", nullable: false),
+                    TimetablesTimetableId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cabinets", x => x.CabinetId);
+                    table.PrimaryKey("PK_CabinetTimetable", x => new { x.CabinetsCabinetId, x.TimetablesTimetableId });
                     table.ForeignKey(
-                        name: "FK_Cabinets_Timetables_TimetableId",
-                        column: x => x.TimetableId,
+                        name: "FK_CabinetTimetable_Cabinets_CabinetsCabinetId",
+                        column: x => x.CabinetsCabinetId,
+                        principalTable: "Cabinets",
+                        principalColumn: "CabinetId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CabinetTimetable_Timetables_TimetablesTimetableId",
+                        column: x => x.TimetablesTimetableId,
                         principalTable: "Timetables",
-                        principalColumn: "TimetableId");
+                        principalColumn: "TimetableId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Classes",
+                name: "ClassTimetable",
                 columns: table => new
                 {
-                    ClassId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClassName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimetableId = table.Column<int>(type: "int", nullable: true)
+                    ClassesClassId = table.Column<int>(type: "int", nullable: false),
+                    TimetablesTimetableId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Classes", x => x.ClassId);
+                    table.PrimaryKey("PK_ClassTimetable", x => new { x.ClassesClassId, x.TimetablesTimetableId });
                     table.ForeignKey(
-                        name: "FK_Classes_Timetables_TimetableId",
-                        column: x => x.TimetableId,
+                        name: "FK_ClassTimetable_Classes_ClassesClassId",
+                        column: x => x.ClassesClassId,
+                        principalTable: "Classes",
+                        principalColumn: "ClassId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ClassTimetable_Timetables_TimetablesTimetableId",
+                        column: x => x.TimetablesTimetableId,
                         principalTable: "Timetables",
-                        principalColumn: "TimetableId");
+                        principalColumn: "TimetableId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Days",
+                name: "DayTimetable",
                 columns: table => new
                 {
-                    DayId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimetableId = table.Column<int>(type: "int", nullable: true)
+                    DaysDayId = table.Column<int>(type: "int", nullable: false),
+                    TimetablesTimetableId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Days", x => x.DayId);
+                    table.PrimaryKey("PK_DayTimetable", x => new { x.DaysDayId, x.TimetablesTimetableId });
                     table.ForeignKey(
-                        name: "FK_Days_Timetables_TimetableId",
-                        column: x => x.TimetableId,
+                        name: "FK_DayTimetable_Days_DaysDayId",
+                        column: x => x.DaysDayId,
+                        principalTable: "Days",
+                        principalColumn: "DayId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DayTimetable_Timetables_TimetablesTimetableId",
+                        column: x => x.TimetablesTimetableId,
                         principalTable: "Timetables",
-                        principalColumn: "TimetableId");
+                        principalColumn: "TimetableId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Disciplines",
+                name: "DisciplineTimetable",
                 columns: table => new
                 {
-                    DisciplineId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    DisciplineName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TimetableId = table.Column<int>(type: "int", nullable: true)
+                    DisciplinesDisciplineId = table.Column<int>(type: "int", nullable: false),
+                    TimetablesTimetableId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Disciplines", x => x.DisciplineId);
+                    table.PrimaryKey("PK_DisciplineTimetable", x => new { x.DisciplinesDisciplineId, x.TimetablesTimetableId });
                     table.ForeignKey(
-                        name: "FK_Disciplines_Timetables_TimetableId",
-                        column: x => x.TimetableId,
+                        name: "FK_DisciplineTimetable_Disciplines_DisciplinesDisciplineId",
+                        column: x => x.DisciplinesDisciplineId,
+                        principalTable: "Disciplines",
+                        principalColumn: "DisciplineId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DisciplineTimetable_Timetables_TimetablesTimetableId",
+                        column: x => x.TimetablesTimetableId,
                         principalTable: "Timetables",
-                        principalColumn: "TimetableId");
+                        principalColumn: "TimetableId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Lessons",
+                name: "LessonTimetable",
                 columns: table => new
                 {
-                    LessonId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LessonNumber = table.Column<int>(type: "int", nullable: false),
-                    StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TimetableId = table.Column<int>(type: "int", nullable: true)
+                    LessonsLessonId = table.Column<int>(type: "int", nullable: false),
+                    TimetablesTimetableId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Lessons", x => x.LessonId);
+                    table.PrimaryKey("PK_LessonTimetable", x => new { x.LessonsLessonId, x.TimetablesTimetableId });
                     table.ForeignKey(
-                        name: "FK_Lessons_Timetables_TimetableId",
-                        column: x => x.TimetableId,
+                        name: "FK_LessonTimetable_Lessons_LessonsLessonId",
+                        column: x => x.LessonsLessonId,
+                        principalTable: "Lessons",
+                        principalColumn: "LessonId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LessonTimetable_Timetables_TimetablesTimetableId",
+                        column: x => x.TimetablesTimetableId,
                         principalTable: "Timetables",
-                        principalColumn: "TimetableId");
+                        principalColumn: "TimetableId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -275,9 +365,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "0e3e731a-9e45-44ac-b138-a7b848ae47b1", "1548c19c-504d-4775-b9b2-4d38d1403dbd", "Moderator", "MODERATOR" },
-                    { "4b554355-4a13-4178-b31e-c08c0514059b", "f1d8a173-73aa-434c-8801-307d31a08feb", "User", "USER" },
-                    { "af6a75e1-58a5-4998-88a9-fe65e1f3a404", "95659aa5-131b-4f95-854b-fa1d7f8e6ad6", "Admin", "ADMIN" }
+                    { "5e7ee416-f31d-4e6d-9614-62c77f0ec09f", "a99f5a28-bd9a-4c82-bb2b-4f972ae1072d", "Admin", "ADMIN" },
+                    { "69797f60-b7a1-4c60-9ceb-99d534a9043b", "9309e9c1-336b-448d-91b2-ad508b4fd9c3", "Moderator", "MODERATOR" },
+                    { "83f8e292-46dd-4a8f-afe5-04120f788094", "e7c0f7ba-ef8d-4d1a-a95d-6eb8cb02b546", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -285,69 +375,69 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "9b1195f2-0bdb-4cbb-a8fe-57088fcf5726", 0, "e683eed6-73d2-4109-9ed1-c9d5251de9b5", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEKc8jDNaTCUExUme/x2/Eya4pHxo8DjhgvgH7IfpSNPIbQSzQc3u663INxQAZAD5nw==", null, false, "a120c247-cca9-4b21-8368-f4a70c0df3a1", false, "moderator@rozkladschool.com" },
-                    { "bec216c3-faaa-482e-8439-eed102da4faa", 0, "62b380e9-573d-4b4a-adf6-469867f41cef", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEBU2Ir3N0RYvAT/0auNBABthONTn/Z6Z0Uo9zrttOJxa663wTaHZRGLj8cF5LC/HrQ==", null, false, "3ce40fb9-459c-43bd-ab59-6a9a797473c0", false, "admin@rozkladschool.com" },
-                    { "d17c5781-9fa4-4a1a-92fd-0b22b710adee", 0, "60157bd7-b7d9-4c83-8f8d-ffc976e6b88e", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAENTMjMpKz6W9LIigi1aMPqp54SRWv5nYqZM8n26z2lsBr3Hr1iADt0Rt6FFs7cIFog==", null, false, "71e8ad5a-3f33-46fd-8254-ca639a8e55cf", false, "user@rozkladschool.com" }
+                    { "4862ea87-77ea-4f1c-9e29-d4d433ebc856", 0, "2889c800-b333-49f8-aced-a52c7a9c7691", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEC87Ki5aJY7RanO5OzB1gmQDOVYa4rtt0oppQnPdgxWKwyX9DLnG+OwUnS/9+TEiWQ==", null, false, "a9c1d4d1-4688-4cf2-9753-dc18bedd30d8", false, "moderator@rozkladschool.com" },
+                    { "8abee03e-a608-4cb6-8a20-309e5c6e920f", 0, "293c9b8a-d053-4410-8ea6-a93939d68590", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEAoiO/S+jdeb7xAKQ+y8xqr5fArePYRYh1BqchWWSMdTql4sfiKlC13nz3wKukGe/g==", null, false, "d17a7824-a5fb-4d25-b13b-d80298a9176b", false, "admin@rozkladschool.com" },
+                    { "c31d168a-fec8-47a2-a682-c1bdd9a567db", 0, "417f1175-a397-4365-a92b-cda1812ff4e0", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEEzsTxS/mTqJcMkk0GffGoe++PQwMRirI1ZyEiruhak79NepYT9qpUldUZtq2IuMfA==", null, false, "cb6f7f9f-7b80-4235-86b6-54460d2b3ccb", false, "user@rozkladschool.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Cabinets",
-                columns: new[] { "CabinetId", "Name", "TimetableId" },
+                columns: new[] { "CabinetId", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Географія", null },
-                    { 2, "Біологія", null },
-                    { 3, "Математика", null },
-                    { 4, "Укр мова", null },
-                    { 5, "Історія", null }
+                    { 1, "Географія" },
+                    { 2, "Біологія" },
+                    { 3, "Математика" },
+                    { 4, "Укр мова" },
+                    { 5, "Історія" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Classes",
-                columns: new[] { "ClassId", "ClassName", "TimetableId" },
+                columns: new[] { "ClassId", "ClassName" },
                 values: new object[,]
                 {
-                    { 1, "", null },
-                    { 2, "", null },
-                    { 3, "", null },
-                    { 4, "", null },
-                    { 5, "", null }
+                    { 1, "" },
+                    { 2, "" },
+                    { 3, "" },
+                    { 4, "" },
+                    { 5, "" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Days",
-                columns: new[] { "DayId", "DayName", "TimetableId" },
+                columns: new[] { "DayId", "DayName" },
                 values: new object[,]
                 {
-                    { 1, "Понеділок", null },
-                    { 2, "Вівторок", null },
-                    { 3, "Середа", null },
-                    { 4, "Четвер", null },
-                    { 5, "Пятниця", null }
+                    { 1, "Понеділок" },
+                    { 2, "Вівторок" },
+                    { 3, "Середа" },
+                    { 4, "Четвер" },
+                    { 5, "Пятниця" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Disciplines",
-                columns: new[] { "DisciplineId", "DisciplineName", "TimetableId" },
+                columns: new[] { "DisciplineId", "DisciplineName" },
                 values: new object[,]
                 {
-                    { 1, "Географія", null },
-                    { 2, "Біологія", null },
-                    { 3, "Математика", null },
-                    { 4, "Укр мова", null },
-                    { 5, "Історія", null }
+                    { 1, "Географія" },
+                    { 2, "Біологія" },
+                    { 3, "Математика" },
+                    { 4, "Укр мова" },
+                    { 5, "Історія" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Lessons",
-                columns: new[] { "LessonId", "EndTime", "LessonNumber", "StartTime", "TimetableId" },
+                columns: new[] { "LessonId", "EndTime", "LessonNumber", "StartTime" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
@@ -362,17 +452,17 @@ namespace Rozklad.Core.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "4b554355-4a13-4178-b31e-c08c0514059b", "bec216c3-faaa-482e-8439-eed102da4faa" });
+                values: new object[] { "5e7ee416-f31d-4e6d-9614-62c77f0ec09f", "8abee03e-a608-4cb6-8a20-309e5c6e920f" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "af6a75e1-58a5-4998-88a9-fe65e1f3a404", "bec216c3-faaa-482e-8439-eed102da4faa" });
+                values: new object[] { "83f8e292-46dd-4a8f-afe5-04120f788094", "8abee03e-a608-4cb6-8a20-309e5c6e920f" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "4b554355-4a13-4178-b31e-c08c0514059b", "d17c5781-9fa4-4a1a-92fd-0b22b710adee" });
+                values: new object[] { "83f8e292-46dd-4a8f-afe5-04120f788094", "c31d168a-fec8-47a2-a682-c1bdd9a567db" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -414,29 +504,29 @@ namespace Rozklad.Core.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cabinets_TimetableId",
-                table: "Cabinets",
-                column: "TimetableId");
+                name: "IX_CabinetTimetable_TimetablesTimetableId",
+                table: "CabinetTimetable",
+                column: "TimetablesTimetableId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Classes_TimetableId",
-                table: "Classes",
-                column: "TimetableId");
+                name: "IX_ClassTimetable_TimetablesTimetableId",
+                table: "ClassTimetable",
+                column: "TimetablesTimetableId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Days_TimetableId",
-                table: "Days",
-                column: "TimetableId");
+                name: "IX_DayTimetable_TimetablesTimetableId",
+                table: "DayTimetable",
+                column: "TimetablesTimetableId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Disciplines_TimetableId",
-                table: "Disciplines",
-                column: "TimetableId");
+                name: "IX_DisciplineTimetable_TimetablesTimetableId",
+                table: "DisciplineTimetable",
+                column: "TimetablesTimetableId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Lessons_TimetableId",
-                table: "Lessons",
-                column: "TimetableId");
+                name: "IX_LessonTimetable_TimetablesTimetableId",
+                table: "LessonTimetable",
+                column: "TimetablesTimetableId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -457,6 +547,27 @@ namespace Rozklad.Core.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CabinetTimetable");
+
+            migrationBuilder.DropTable(
+                name: "ClassTimetable");
+
+            migrationBuilder.DropTable(
+                name: "DayTimetable");
+
+            migrationBuilder.DropTable(
+                name: "DisciplineTimetable");
+
+            migrationBuilder.DropTable(
+                name: "LessonTimetable");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
                 name: "Cabinets");
 
             migrationBuilder.DropTable(
@@ -470,12 +581,6 @@ namespace Rozklad.Core.Migrations
 
             migrationBuilder.DropTable(
                 name: "Lessons");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Timetables");
