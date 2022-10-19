@@ -275,9 +275,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "1d716313-b91b-4684-a657-7f5ba7334de4", "38a67747-5f30-4096-840a-703f57ec4991", "User", "USER" },
-                    { "7cdefa6f-3c71-4c4d-8e1e-8ddba5fbb1a8", "a1347b89-17f6-4974-a216-4706428e062b", "Moderator", "MODERATOR" },
-                    { "8ca24e88-8179-42b9-b10b-a7f2cbcb34d9", "966de2e3-1c27-41c3-82cc-ccb408446b44", "Admin", "ADMIN" }
+                    { "5d8364d0-642a-4fa8-a0cd-10728d91320a", "2754900d-adb7-4dfe-be5f-a0cb829cff71", "User", "USER" },
+                    { "bb0e3f2c-21ee-46ac-9c97-aaf5c23ce125", "f6d5df3f-f077-47af-8593-9443475ac377", "Admin", "ADMIN" },
+                    { "ef3bb4c1-7ef8-45b8-84cc-58e8a5a6f455", "9c9848c0-2fb9-4ee4-acfb-6b48103bce95", "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -285,9 +285,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "63549118-89a6-44a9-82c0-2e8f92876d28", 0, "84a01ef1-d2c7-4149-9ebc-c6de1f8facf9", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEI0XavAVURjvmC03GkZv50HZJx8Pqx6vDFlqKcogE9qCNqEQRZFZcF5aEbWc4SdC8A==", null, false, "be674d12-c96a-4494-a7cf-5e4e549e2400", false, "admin@rozkladschool.com" },
-                    { "aa3d7361-b8c9-4b20-b12d-789778b06647", 0, "d71b181f-863e-4386-a45b-2e1e43a529a5", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEFkE70ACxUkH+zOulJ6P2GRNh0ICclvWvnW+adXrmbYL6DKQFMVlSHMu/w4xio47KQ==", null, false, "49338698-82ef-4bd5-b70f-099bc84642e2", false, "user@rozkladschool.com" },
-                    { "aa9bb12a-27ce-4f75-b7ed-0ea771470648", 0, "ba43a189-8aa7-4b27-ad2a-e4843126275e", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEBHkJWRsR/At7LZjyBWWTIG4UguCvqvNdRJe0CwnB46ezHv9Of1/kjk4Dw706bCdOQ==", null, false, "ec297046-7626-4cea-ad32-ceb662ca9d78", false, "moderator@rozkladschool.com" }
+                    { "08b84508-f6ab-4289-a03a-e7a281f6982a", 0, "040a30e1-10fa-47f1-b58b-ed7ad68a254e", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEP0MmalUNUQ5G6odqj0llIpHnTpov5fQtgaxz5iLoyG4fJv1sruzi+ReQvzhr+ds+A==", null, false, "36b7fa25-224a-405b-a260-747d2a0726ab", false, "moderator@rozkladschool.com" },
+                    { "81d9d1a8-4b38-45ad-84ca-4f4a53960d25", 0, "a266ce4a-f9f9-4841-b030-bb1fffa7549d", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEEwMFjUOBxjSPLnLWyFIwA2qVJGjp3xlDs1RkhupjBsc/yJ1QSitgqmHUlqHrHgaRw==", null, false, "4e937273-03db-40f2-ae5b-ecb944ce5229", false, "user@rozkladschool.com" },
+                    { "9d355ca9-7109-40ed-a331-b53b003c8be6", 0, "fe30b8f3-cbec-4c72-95a0-f1d1f4689d91", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEEdhvdt0tqv32H5/G8F1c1zgWmm2yiZhWAtSafzKGcF72f7/UxM+05o8zW8wOtFCrA==", null, false, "c7cf7c83-15bf-4cf1-996f-08999035d475", false, "admin@rozkladschool.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -344,10 +344,10 @@ namespace Rozklad.Core.Migrations
                 values: new object[,]
                 {
                     { 1, "12.45", 1, "12.00" },
-                    { 2, " ", 2, " " },
-                    { 3, "", 3, "" },
-                    { 4, " ", 4, " " },
-                    { 5, " ", 5, " " }
+                    { 2, "13.45", 2, "13.00" },
+                    { 3, "14.45", 3, "14.00" },
+                    { 4, "15.45", 4, "15.00 " },
+                    { 5, "16.45", 5, "16.00" }
                 });
 
             migrationBuilder.InsertData(
@@ -355,12 +355,12 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "1d716313-b91b-4684-a657-7f5ba7334de4", "63549118-89a6-44a9-82c0-2e8f92876d28" },
-                    { "7cdefa6f-3c71-4c4d-8e1e-8ddba5fbb1a8", "63549118-89a6-44a9-82c0-2e8f92876d28" },
-                    { "8ca24e88-8179-42b9-b10b-a7f2cbcb34d9", "63549118-89a6-44a9-82c0-2e8f92876d28" },
-                    { "1d716313-b91b-4684-a657-7f5ba7334de4", "aa3d7361-b8c9-4b20-b12d-789778b06647" },
-                    { "1d716313-b91b-4684-a657-7f5ba7334de4", "aa9bb12a-27ce-4f75-b7ed-0ea771470648" },
-                    { "7cdefa6f-3c71-4c4d-8e1e-8ddba5fbb1a8", "aa9bb12a-27ce-4f75-b7ed-0ea771470648" }
+                    { "5d8364d0-642a-4fa8-a0cd-10728d91320a", "08b84508-f6ab-4289-a03a-e7a281f6982a" },
+                    { "ef3bb4c1-7ef8-45b8-84cc-58e8a5a6f455", "08b84508-f6ab-4289-a03a-e7a281f6982a" },
+                    { "5d8364d0-642a-4fa8-a0cd-10728d91320a", "81d9d1a8-4b38-45ad-84ca-4f4a53960d25" },
+                    { "5d8364d0-642a-4fa8-a0cd-10728d91320a", "9d355ca9-7109-40ed-a331-b53b003c8be6" },
+                    { "bb0e3f2c-21ee-46ac-9c97-aaf5c23ce125", "9d355ca9-7109-40ed-a331-b53b003c8be6" },
+                    { "ef3bb4c1-7ef8-45b8-84cc-58e8a5a6f455", "9d355ca9-7109-40ed-a331-b53b003c8be6" }
                 });
 
             migrationBuilder.InsertData(

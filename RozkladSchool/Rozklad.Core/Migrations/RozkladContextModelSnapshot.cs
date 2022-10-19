@@ -51,22 +51,22 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8ca24e88-8179-42b9-b10b-a7f2cbcb34d9",
-                            ConcurrencyStamp = "966de2e3-1c27-41c3-82cc-ccb408446b44",
+                            Id = "bb0e3f2c-21ee-46ac-9c97-aaf5c23ce125",
+                            ConcurrencyStamp = "f6d5df3f-f077-47af-8593-9443475ac377",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7cdefa6f-3c71-4c4d-8e1e-8ddba5fbb1a8",
-                            ConcurrencyStamp = "a1347b89-17f6-4974-a216-4706428e062b",
+                            Id = "ef3bb4c1-7ef8-45b8-84cc-58e8a5a6f455",
+                            ConcurrencyStamp = "9c9848c0-2fb9-4ee4-acfb-6b48103bce95",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
-                            Id = "1d716313-b91b-4684-a657-7f5ba7334de4",
-                            ConcurrencyStamp = "38a67747-5f30-4096-840a-703f57ec4991",
+                            Id = "5d8364d0-642a-4fa8-a0cd-10728d91320a",
+                            ConcurrencyStamp = "2754900d-adb7-4dfe-be5f-a0cb829cff71",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -163,33 +163,33 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "63549118-89a6-44a9-82c0-2e8f92876d28",
-                            RoleId = "8ca24e88-8179-42b9-b10b-a7f2cbcb34d9"
+                            UserId = "9d355ca9-7109-40ed-a331-b53b003c8be6",
+                            RoleId = "bb0e3f2c-21ee-46ac-9c97-aaf5c23ce125"
                         },
                         new
                         {
-                            UserId = "63549118-89a6-44a9-82c0-2e8f92876d28",
-                            RoleId = "7cdefa6f-3c71-4c4d-8e1e-8ddba5fbb1a8"
+                            UserId = "9d355ca9-7109-40ed-a331-b53b003c8be6",
+                            RoleId = "ef3bb4c1-7ef8-45b8-84cc-58e8a5a6f455"
                         },
                         new
                         {
-                            UserId = "63549118-89a6-44a9-82c0-2e8f92876d28",
-                            RoleId = "1d716313-b91b-4684-a657-7f5ba7334de4"
+                            UserId = "9d355ca9-7109-40ed-a331-b53b003c8be6",
+                            RoleId = "5d8364d0-642a-4fa8-a0cd-10728d91320a"
                         },
                         new
                         {
-                            UserId = "aa9bb12a-27ce-4f75-b7ed-0ea771470648",
-                            RoleId = "7cdefa6f-3c71-4c4d-8e1e-8ddba5fbb1a8"
+                            UserId = "08b84508-f6ab-4289-a03a-e7a281f6982a",
+                            RoleId = "ef3bb4c1-7ef8-45b8-84cc-58e8a5a6f455"
                         },
                         new
                         {
-                            UserId = "aa9bb12a-27ce-4f75-b7ed-0ea771470648",
-                            RoleId = "1d716313-b91b-4684-a657-7f5ba7334de4"
+                            UserId = "08b84508-f6ab-4289-a03a-e7a281f6982a",
+                            RoleId = "5d8364d0-642a-4fa8-a0cd-10728d91320a"
                         },
                         new
                         {
-                            UserId = "aa3d7361-b8c9-4b20-b12d-789778b06647",
-                            RoleId = "1d716313-b91b-4684-a657-7f5ba7334de4"
+                            UserId = "81d9d1a8-4b38-45ad-84ca-4f4a53960d25",
+                            RoleId = "5d8364d0-642a-4fa8-a0cd-10728d91320a"
                         });
                 });
 
@@ -418,30 +418,30 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             LessonId = 2,
-                            EndTime = " ",
+                            EndTime = "13.45",
                             LessonNumber = 2,
-                            StartTime = " "
+                            StartTime = "13.00"
                         },
                         new
                         {
                             LessonId = 3,
-                            EndTime = "",
+                            EndTime = "14.45",
                             LessonNumber = 3,
-                            StartTime = ""
+                            StartTime = "14.00"
                         },
                         new
                         {
                             LessonId = 4,
-                            EndTime = " ",
+                            EndTime = "15.45",
                             LessonNumber = 4,
-                            StartTime = " "
+                            StartTime = "15.00 "
                         },
                         new
                         {
                             LessonId = 5,
-                            EndTime = " ",
+                            EndTime = "16.45",
                             LessonNumber = 5,
-                            StartTime = " "
+                            StartTime = "16.00"
                         });
                 });
 
@@ -576,49 +576,49 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "63549118-89a6-44a9-82c0-2e8f92876d28",
+                            Id = "9d355ca9-7109-40ed-a331-b53b003c8be6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "84a01ef1-d2c7-4149-9ebc-c6de1f8facf9",
+                            ConcurrencyStamp = "fe30b8f3-cbec-4c72-95a0-f1d1f4689d91",
                             Email = "admin@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "ADMIN@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEI0XavAVURjvmC03GkZv50HZJx8Pqx6vDFlqKcogE9qCNqEQRZFZcF5aEbWc4SdC8A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEdhvdt0tqv32H5/G8F1c1zgWmm2yiZhWAtSafzKGcF72f7/UxM+05o8zW8wOtFCrA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "be674d12-c96a-4494-a7cf-5e4e549e2400",
+                            SecurityStamp = "c7cf7c83-15bf-4cf1-996f-08999035d475",
                             TwoFactorEnabled = false,
                             UserName = "admin@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "aa9bb12a-27ce-4f75-b7ed-0ea771470648",
+                            Id = "08b84508-f6ab-4289-a03a-e7a281f6982a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ba43a189-8aa7-4b27-ad2a-e4843126275e",
+                            ConcurrencyStamp = "040a30e1-10fa-47f1-b58b-ed7ad68a254e",
                             Email = "moderator@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MODERATOR@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "MODERATOR@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBHkJWRsR/At7LZjyBWWTIG4UguCvqvNdRJe0CwnB46ezHv9Of1/kjk4Dw706bCdOQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP0MmalUNUQ5G6odqj0llIpHnTpov5fQtgaxz5iLoyG4fJv1sruzi+ReQvzhr+ds+A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ec297046-7626-4cea-ad32-ceb662ca9d78",
+                            SecurityStamp = "36b7fa25-224a-405b-a260-747d2a0726ab",
                             TwoFactorEnabled = false,
                             UserName = "moderator@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "aa3d7361-b8c9-4b20-b12d-789778b06647",
+                            Id = "81d9d1a8-4b38-45ad-84ca-4f4a53960d25",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d71b181f-863e-4386-a45b-2e1e43a529a5",
+                            ConcurrencyStamp = "a266ce4a-f9f9-4841-b030-bb1fffa7549d",
                             Email = "user@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "USER@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFkE70ACxUkH+zOulJ6P2GRNh0ICclvWvnW+adXrmbYL6DKQFMVlSHMu/w4xio47KQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEwMFjUOBxjSPLnLWyFIwA2qVJGjp3xlDs1RkhupjBsc/yJ1QSitgqmHUlqHrHgaRw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49338698-82ef-4bd5-b70f-099bc84642e2",
+                            SecurityStamp = "4e937273-03db-40f2-ae5b-ecb944ce5229",
                             TwoFactorEnabled = false,
                             UserName = "user@rozkladschool.com"
                         });

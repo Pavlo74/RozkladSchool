@@ -158,32 +158,32 @@ namespace Rozklad.Core
                {
                    LessonId = 2,
                    LessonNumber = 2,
-                   StartTime= " ",
-                   EndTime= " ",
+                   StartTime= "13.00",
+                   EndTime= "13.45",
                   // TimetableId = 2
                },
                 new Lesson
                   {
                      LessonId = 3,
                       LessonNumber = 3,
-                    StartTime= "",
-                    EndTime= "",
+                    StartTime= "14.00",
+                    EndTime= "14.45",
                    // TimetableId = 3
                 },
                 new Lesson
                      {
                          LessonId = 4,
                          LessonNumber = 4,
-                    StartTime= " ",
-                    EndTime= " ",
+                    StartTime= "15.00 ",
+                    EndTime= "15.45",
                    // TimetableId = 4
                 },
                 new Lesson
                         {
                             LessonId = 5,
                             LessonNumber = 5,
-                    StartTime= " ",
-                    EndTime= " ",
+                    StartTime= "16.00",
+                    EndTime= "16.45",
                     //TimetableId = 5
                 }
 
