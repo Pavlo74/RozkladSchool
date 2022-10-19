@@ -14,5 +14,8 @@ namespace Rozklad.Core
         public int LessonNumber { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+
+        //public int TimetableId { get; set; }
+        //public Timetable? Timetable { get; set; }
     }
 }

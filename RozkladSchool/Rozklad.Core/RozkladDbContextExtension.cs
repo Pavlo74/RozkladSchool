@@ -85,13 +85,18 @@ namespace Rozklad.Core
                 },
                 new IdentityUserRole<string>
                 {
+                    RoleId = MODERATOR_ROLE_ID,
+                    UserId = ADMIN_ID
+                },
+                new IdentityUserRole<string>
+                {
                     RoleId = USER_ROLE_ID,
                     UserId = ADMIN_ID
                 },
                 new IdentityUserRole<string>
                 {
                     RoleId = MODERATOR_ROLE_ID,
-                    UserId = ADMIN_ID
+                    UserId = MODERATOR_ID
                 },
                 new IdentityUserRole<string>
                 {
@@ -102,7 +107,8 @@ namespace Rozklad.Core
                 {
                     RoleId = USER_ROLE_ID,
                     UserId = USER_ID
-                });
+                }
+                );
 
 
             builder.Entity<Day>().HasData(
