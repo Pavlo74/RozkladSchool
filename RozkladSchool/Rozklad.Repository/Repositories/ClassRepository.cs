@@ -18,13 +18,16 @@ namespace Rozklad.Repository.Repositories
             _ctx = ctx;
         }
 
-       public async Task<IEnumerable<ClassReadDto>> GetClassAsync()
+       public async Task<IEnumerable<ClassReadDto>> GetClassTypesAsync()
         {
             var classDto = _ctx.Classes.
                 Select(x => new ClassReadDto
                 {
                     ClassId = x.ClassId,
                     ClassName = x.ClassName,
+
+
+                  
                     Timetables = x.Timetables
                 }).ToList();
 

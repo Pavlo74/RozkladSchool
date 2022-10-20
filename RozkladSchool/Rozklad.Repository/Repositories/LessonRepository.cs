@@ -17,7 +17,7 @@ namespace Rozklad.Repository.Repositories
             _ctx = ctx;
         }
 
-        public async Task<IEnumerable<LessonReadDto>> GetLessonAsync()
+        public async Task<IEnumerable<LessonReadDto>> GetLessonTypesAsync()
         {
             var lessonDto = _ctx.Lessons.
                 Select(x => new LessonReadDto
@@ -26,6 +26,7 @@ namespace Rozklad.Repository.Repositories
                     LessonNumber = x.LessonNumber,
                     StartTime = x.StartTime,
                     EndTime=x.EndTime,
+
 
                     Timetables = x.Timetables
                 }).ToList();

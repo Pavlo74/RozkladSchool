@@ -17,7 +17,7 @@ namespace Rozklad.Repository.Repositories
         }
 
 
-        public async Task<IEnumerable<DayReadDto>> GetDayAsync()
+        public async Task<IEnumerable<DayReadDto>> GetDayTypesAsync()
         {
             var dayDto = _ctx.Days.
                 Select(x => new DayReadDto

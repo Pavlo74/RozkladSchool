@@ -1,3 +1,4 @@
+
 ﻿@using Rozklad.Core
 @using Rozklad.Repository
 @using Rozklad.Repository.Dto.CabinetDto
@@ -17,19 +18,23 @@
             @foreach (var u in Model)
             {
                 <div class="card h-100">
-                     <img class="card-img-top" src="@u.IconPath" alt="...">
+                    
                     <div class="card-body p-4">
                         <div class="text-center">
+
+                            <h5 class="fw-bolder">@u.Class.ClassId@u.Class.ClassName </h5>
+
                             <h5 class="fw-bolder">@u.Class.ClassName  </h5>
+
                              
                         </div>
                     </div>
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-<<<<<<< Updated upstream
+
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="Timetable">View options</a></div>
-=======
+
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="Users">View options</a></div>
->>>>>>> Stashed changes
+
                     </div>
                 </div>
             }
