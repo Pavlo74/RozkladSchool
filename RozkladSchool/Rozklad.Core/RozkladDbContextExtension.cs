@@ -316,7 +316,28 @@ namespace Rozklad.Core
                  IconPath= @"Images\1200TE790_5_klass_t.png",
                  DisciplineId = 2,
                  CabinetId = 2
-             }
+             },
+
+              new Timetable
+              {
+                  TimetableId = 3,
+                  ClassId = 1,
+                  LessonId =3,
+                  DayId = 3,
+                  IconPath = @"Images\1200TE790_5_klass_t.png",
+                  DisciplineId = 1,
+                  CabinetId = 4
+              },
+              new Timetable
+              {
+                  TimetableId = 4,
+                  ClassId = 1,
+                  LessonId = 4,
+                  DayId = 4,
+                  IconPath = @"Images\1200TE790_5_klass_t.png",
+                  DisciplineId = 5,
+                  CabinetId = 1
+              }
 
              );
 

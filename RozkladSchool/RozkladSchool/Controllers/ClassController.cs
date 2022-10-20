@@ -22,23 +22,7 @@ namespace RozkladSchool.Controllers
             return View(await _classRepository.GetClassAsync());
         }
 
-        /*[HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Create(ClassCreateDto model)
-        {
-            if (ModelState.IsValid)
-            {
-                Class class = await classRepository.CreateClassAsync(model.ClassName);
-                return RedirectToAction("Edit", "Users", new { id = class.Id});
-            }
-            return View(model);
-        }*/
+       
 
         public IActionResult Privacy()
         {

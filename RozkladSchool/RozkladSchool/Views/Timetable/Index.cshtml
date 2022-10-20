@@ -1,0 +1,30 @@
+﻿@using Rozklad.Repository.Dto.TimetableDto
+@model IEnumerable<TimetableReadDto>
+
+   @{
+}
+
+<h1>Розклад</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Days</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var u in Model)
+        {
+            <tr>
+                 <td>@u.Day.DayName </td>
+                 <td>@u.Discipline.DisciplineName </td>
+                 <td>@u.Lesson.LessonNumber </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>
+ 
+
