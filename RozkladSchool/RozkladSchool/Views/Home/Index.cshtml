@@ -7,6 +7,7 @@
 @using Rozklad.Repository.Dto.LessonDto
 @using Rozklad.Repository.Dto.TimetableDto
 @model IEnumerable<TimetableReadDto>
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -19,8 +20,8 @@
 
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <h5 class="fw-bolder">@u.Class.ClassName @u.Cabinet.Name @u.Day.DayName @u.Discipline.DisciplineName </h5>
-                             @u.TimetableId $
+                            <h5 class="fw-bolder">@u.Class  </h5>
+                             
                         </div>
                     </div>
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
