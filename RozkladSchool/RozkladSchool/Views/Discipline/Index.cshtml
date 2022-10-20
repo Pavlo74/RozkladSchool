@@ -1,0 +1,38 @@
+﻿@using Rozklad.Repository.Dto.DisciplineDto
+@model IEnumerable<DisciplineReadDto>
+
+@{
+}
+
+<div class="float-end">
+    <a href="/disciplines/create" class="btn btn-outline-primary">Додати дисципліну</a>
+</div>
+
+
+<h1>Список дисциплін</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>DisciplineId</th>
+            <th>DisciplineName</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var u in Model)
+        {
+            <tr>
+                <td>@u.DisciplineId </td>
+                <td>@u.DisciplineName </td>
+                
+                
+                <td>
+                    <a href="/users/edit/@u.DisciplineId" class="btn btn-warning">Редагувати</a>
+                    <a href="/users/delete/@u.DisciplineId" class="btn btn-danger">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
