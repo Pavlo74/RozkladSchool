@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Rozklad.Core;
 using Rozklad.Repository;
-
+using Rozklad.Repository.Repositories;
 using System.Text.Json.Serialization;
 
 
@@ -32,13 +32,15 @@ builder.Services.AddDefaultIdentity<User>(options =>
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-
-builder.Services.AddTransient<UsersRepository>();
-
-
-builder.Services.AddTransient<UsersRepository>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<UpdateRepository>();
+builder.Services.AddTransient<UsersRepository>();
+builder.Services.AddTransient<ClassRepository>();
+builder.Services.AddTransient<CabinetRepository>();
+builder.Services.AddTransient<DayRepository>();
+builder.Services.AddTransient<DisciplineRepository>();
+builder.Services.AddTransient<LessonRepository>();
+builder.Services.AddTransient<TimetableRepository>();
+
 
 var app = builder.Build();
 
