@@ -11,7 +11,7 @@ namespace Rozklad.Repository.Dto.DayDto
     {
         public int DayId { get; set; }
         public string? DayName { get; set; }
-        public ICollection<Timetable>? Timetables { get; set; }
+        public ICollection<Timetable> Timetables { get; set; }
 
     }
 }
