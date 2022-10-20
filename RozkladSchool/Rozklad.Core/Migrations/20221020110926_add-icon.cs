@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Rozklad.Core.Migrations
 {
-    public partial class output : Migration
+    public partial class addicon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -232,6 +232,7 @@ namespace Rozklad.Core.Migrations
                     ClassId = table.Column<int>(type: "int", nullable: false),
                     LessonId = table.Column<int>(type: "int", nullable: false),
                     DayId = table.Column<int>(type: "int", nullable: false),
+                    IconPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DisciplineId = table.Column<int>(type: "int", nullable: false),
                     CabinetId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -275,9 +276,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7c7a4057-f895-4d6e-9443-90c59b673c48", "1212af61-9912-4d6d-ad1e-1c0baadef468", "Moderator", "MODERATOR" },
-                    { "aecef6df-2e10-427b-8acc-788e48201185", "8a7c18a5-97a8-4071-ab05-5e172af1d4d5", "Admin", "ADMIN" },
-                    { "b34c3167-b24c-4ce2-b1f2-e6197c4316c9", "1d80495b-7d3a-4837-9afa-288e5454ef89", "User", "USER" }
+                    { "2fbbc482-c0b6-4ace-b8c6-28663d41ad98", "69b3cee7-830e-4abd-9d0a-d76c242528e0", "User", "USER" },
+                    { "a045b04b-c847-4d7f-8751-b1b6b0c529a4", "4f589d0c-f8a6-4370-9b94-c0b8feec4945", "Admin", "ADMIN" },
+                    { "b3407ff8-714d-4e90-8a66-6f41137d3a81", "00e2f188-47f6-484e-9944-8705c29f95b1", "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -285,9 +286,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "164e97af-12fb-4721-9f60-959d9242a6d2", 0, "1d164465-0d06-45f9-ad5c-d41135d1152f", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEFQSkWI5wZW0OA5UqO7z9ZY76S0lU3kkbHuyDfGjZ2TBnQBnUI11+jJqWAkWs2vxjw==", null, false, "ec1acb67-9a99-4980-a226-59ecb9141ae6", false, "moderator@rozkladschool.com" },
-                    { "1f163de8-bda2-4ba7-952e-509fb6b52e89", 0, "75a0a232-95a7-4af3-9855-f6b1f49f93f5", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEIoQhlYk3XbPVRjIxhAKGCho9Z171yT2rgyOgHTIAzCG94Bg70HK+XJvAWWWQt0DlQ==", null, false, "2369c9dc-7e3a-4332-a41d-9f1fa9900b9a", false, "admin@rozkladschool.com" },
-                    { "ec095578-8b11-41ce-8f8a-58c967d5d6a5", 0, "0acb7d05-4c76-482c-adef-98438c291c97", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEPnPm2rn7uXBNbGQcmIRYRhawoQCL/hxA3/IIgLmBWs0K8DC3QWdWz7j7GWnhWXaVg==", null, false, "3b98ad76-7d8f-42b1-bd35-bc978c5e67d3", false, "user@rozkladschool.com" }
+                    { "3294d846-8856-40c4-ba1b-b4c929593b76", 0, "1ca7dee0-5140-461f-ba2c-6dda71025424", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEOOXCxYegk+OiA70xk7760AXKIo8TibvNq3DtGYlnR1mYCZlSBmqxw752XXVJDhGaA==", null, false, "24c15b18-de64-46d2-8fc0-afbb725bede1", false, "moderator@rozkladschool.com" },
+                    { "7318a390-69a1-4b25-be35-444f38ee9c27", 0, "232260ba-d656-42d9-a794-665eb05aff08", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEAhNNqgFKqTPno65fwIePvCGVWgo2MructbayolpmzOEGcmZEYCSII0qrgvRnK98Jw==", null, false, "b1fccd98-defb-4e85-9a92-b1a9f3c1eb65", false, "user@rozkladschool.com" },
+                    { "e043861a-1988-4355-94b8-636e9b8be143", 0, "5310717d-315d-4ebb-9841-3ccf749456ac", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAECZEItLKRnaIDVC0W8v2byAfT1a9W5+FsYisIDdFcqTAQ7naFw7M2BwePWaNAs8gxQ==", null, false, "74932f26-84d8-46ae-bec4-07ad59b2deba", false, "admin@rozkladschool.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -355,21 +356,21 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "7c7a4057-f895-4d6e-9443-90c59b673c48", "164e97af-12fb-4721-9f60-959d9242a6d2" },
-                    { "b34c3167-b24c-4ce2-b1f2-e6197c4316c9", "164e97af-12fb-4721-9f60-959d9242a6d2" },
-                    { "7c7a4057-f895-4d6e-9443-90c59b673c48", "1f163de8-bda2-4ba7-952e-509fb6b52e89" },
-                    { "aecef6df-2e10-427b-8acc-788e48201185", "1f163de8-bda2-4ba7-952e-509fb6b52e89" },
-                    { "b34c3167-b24c-4ce2-b1f2-e6197c4316c9", "1f163de8-bda2-4ba7-952e-509fb6b52e89" },
-                    { "b34c3167-b24c-4ce2-b1f2-e6197c4316c9", "ec095578-8b11-41ce-8f8a-58c967d5d6a5" }
+                    { "2fbbc482-c0b6-4ace-b8c6-28663d41ad98", "3294d846-8856-40c4-ba1b-b4c929593b76" },
+                    { "b3407ff8-714d-4e90-8a66-6f41137d3a81", "3294d846-8856-40c4-ba1b-b4c929593b76" },
+                    { "2fbbc482-c0b6-4ace-b8c6-28663d41ad98", "7318a390-69a1-4b25-be35-444f38ee9c27" },
+                    { "2fbbc482-c0b6-4ace-b8c6-28663d41ad98", "e043861a-1988-4355-94b8-636e9b8be143" },
+                    { "a045b04b-c847-4d7f-8751-b1b6b0c529a4", "e043861a-1988-4355-94b8-636e9b8be143" },
+                    { "b3407ff8-714d-4e90-8a66-6f41137d3a81", "e043861a-1988-4355-94b8-636e9b8be143" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Timetables",
-                columns: new[] { "TimetableId", "CabinetId", "ClassId", "DayId", "DisciplineId", "LessonId" },
+                columns: new[] { "TimetableId", "CabinetId", "ClassId", "DayId", "DisciplineId", "IconPath", "LessonId" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 1, 1, 1 },
-                    { 2, 2, 2, 2, 2, 2 }
+                    { 1, 1, 1, 1, 1, "Images\\1200h790_1-4_klass_t.png", 1 },
+                    { 2, 2, 2, 2, 2, "Images\\1200TE790_5_klass_t.png", 2 }
                 });
 
             migrationBuilder.CreateIndex(
