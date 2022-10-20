@@ -18,15 +18,12 @@ namespace Rozklad.Repository.Repositories
             var timetableDto = _ctx.Timetables
                 .Select(x => new TimetableReadDto
                 {
-                    
                     Class = x.Class,
                     Lesson = x.Lesson,
                     Day = x.Day,
                     //IconPath = x.IconPath,
                     Discipline = x.Discipline,
-                    Cabinet = x.Cabinet
-                    
-                }).ToList();
+                    Cabinet = x.Cabinet}).ToList();
 
             return timetableDto;
         }
