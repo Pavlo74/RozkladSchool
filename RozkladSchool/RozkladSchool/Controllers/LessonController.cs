@@ -17,7 +17,7 @@ namespace RozkladSchool.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _lessonRepository.GetLessonTypesAsync());
+            return View(await _lessonRepository.GetLessonsAsync());
         }
 
 
