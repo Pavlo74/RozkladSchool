@@ -20,7 +20,7 @@ namespace Rozklad.Repository.Dto.TimetableDto
         public int DayId { get; set; }
         public Day Day { get; set; }
 
-        //public string IconPath { get; set; }
+        public string IconPath { get; set; }
 
         public int DisciplineId { get; set; }
         public Discipline Discipline { get; set; }

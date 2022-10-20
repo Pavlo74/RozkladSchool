@@ -1,4 +1,5 @@
-﻿using Rozklad.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using Rozklad.Core;
 using Rozklad.Repository.Dto.ClassDto;
 using System;
 using System.Collections.Generic;
@@ -32,5 +33,16 @@ namespace Rozklad.Repository.Repositories
 
             return classDto;
         }
+
+        /*public async Task<User> CreateClassAsync(string? className)
+        {
+            var newClass = new Class
+            {
+                ClassName = className,
+                
+            };
+
+            return await _ctx.Users.FirstAsync(x => x.Id == id);
+        }*/
     }
 }

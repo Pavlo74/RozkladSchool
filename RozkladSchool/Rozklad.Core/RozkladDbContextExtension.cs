@@ -287,6 +287,7 @@ namespace Rozklad.Core
             builder.Entity<Timetable>().HasData(
              new Timetable
              {
+<<<<<<< HEAD
                  TimetableId = 1,
                  ClassId = 1,
                  LessonId = 1,
@@ -294,6 +295,15 @@ namespace Rozklad.Core
                  //IconPath = @"Images\1200h790_1-4_klass_t.png",
                  DisciplineId = 1,
                  CabinetId = 1
+=======
+                 TimetableId=1,
+                 ClassId=1,
+                 LessonId =1,
+                 DayId=1,
+                 IconPath = @"Images\1200h790_1-4_klass_t.png",
+                 DisciplineId =1,
+                 CabinetId=1
+>>>>>>> main
              },
              new Timetable
              {
@@ -301,7 +311,7 @@ namespace Rozklad.Core
                  ClassId = 2,
                  LessonId = 2,
                  DayId = 2,
-                 //IconPath= @"Images\1200TE790_5_klass_t.png",
+                 IconPath= @"Images\1200TE790_5_klass_t.png",
                  DisciplineId = 2,
                  CabinetId = 2
              }
