@@ -12,8 +12,8 @@ using Rozklad.Core;
 namespace Rozklad.Core.Migrations
 {
     [DbContext(typeof(RozkladContext))]
-    [Migration("20221020113118_firstest")]
-    partial class firstest
+    [Migration("20221020124904_testmig")]
+    partial class testmig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,22 +53,22 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "135c5e61-4a86-4bef-af68-b4139496ebac",
-                            ConcurrencyStamp = "1bf5e9ee-543a-4f06-bb8e-d6735d102e54",
+                            Id = "d4d24cd2-8c69-49ca-a150-1876780357ea",
+                            ConcurrencyStamp = "6b0480ee-a2d8-41d8-b776-a9ac3777f712",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "5cce67aa-1262-4f71-be71-972b302b0aab",
-                            ConcurrencyStamp = "35837fc1-e36e-4a34-a34f-97deaf601c9b",
+                            Id = "212cee6e-aa55-4e9f-abe6-f82d2d5dc918",
+                            ConcurrencyStamp = "f8b14907-4dcc-49db-ad1d-518409800340",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
-                            Id = "b9375ef4-7c1e-49a3-bf9a-135ab717cf14",
-                            ConcurrencyStamp = "eae32a29-3639-4b0d-90f1-683578f50117",
+                            Id = "40777208-6069-481b-81ce-0a53c8c6552f",
+                            ConcurrencyStamp = "ba9a5434-6d8f-4091-8d91-871b8f4f9808",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -165,18 +165,18 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "7c43fd72-fee2-482e-a796-b12dd5144843",
-                            RoleId = "135c5e61-4a86-4bef-af68-b4139496ebac"
+                            UserId = "1c8353c3-fed8-4199-af09-59bda8861294",
+                            RoleId = "d4d24cd2-8c69-49ca-a150-1876780357ea"
                         },
                         new
                         {
-                            UserId = "7c43fd72-fee2-482e-a796-b12dd5144843",
-                            RoleId = "b9375ef4-7c1e-49a3-bf9a-135ab717cf14"
+                            UserId = "1c8353c3-fed8-4199-af09-59bda8861294",
+                            RoleId = "40777208-6069-481b-81ce-0a53c8c6552f"
                         },
                         new
                         {
-                            UserId = "1d80a69c-88a5-4f02-83e7-c8e71ff91d7f",
-                            RoleId = "b9375ef4-7c1e-49a3-bf9a-135ab717cf14"
+                            UserId = "79c6622f-b8c0-4ff6-bb49-3faf738ce6ff",
+                            RoleId = "40777208-6069-481b-81ce-0a53c8c6552f"
                         });
                 });
 
@@ -263,27 +263,27 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             ClassId = 1,
-                            ClassName = ""
+                            ClassName = "1-A"
                         },
                         new
                         {
                             ClassId = 2,
-                            ClassName = ""
+                            ClassName = "1-B"
                         },
                         new
                         {
                             ClassId = 3,
-                            ClassName = ""
+                            ClassName = "2-A"
                         },
                         new
                         {
                             ClassId = 4,
-                            ClassName = ""
+                            ClassName = "2-B"
                         },
                         new
                         {
                             ClassId = 5,
-                            ClassName = ""
+                            ClassName = "3-A"
                         });
                 });
 
@@ -398,27 +398,37 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             LessonId = 1,
-                            LessonNumber = 1
+                            EndTime = "12.45",
+                            LessonNumber = 1,
+                            StartTime = "12.00"
                         },
                         new
                         {
                             LessonId = 2,
-                            LessonNumber = 2
+                            EndTime = "13.45",
+                            LessonNumber = 2,
+                            StartTime = "13.00"
                         },
                         new
                         {
                             LessonId = 3,
-                            LessonNumber = 3
+                            EndTime = "14.45",
+                            LessonNumber = 3,
+                            StartTime = "14.00"
                         },
                         new
                         {
                             LessonId = 4,
-                            LessonNumber = 4
+                            EndTime = "15.45",
+                            LessonNumber = 4,
+                            StartTime = "15.00 "
                         },
                         new
                         {
                             LessonId = 5,
-                            LessonNumber = 5
+                            EndTime = "16.45",
+                            LessonNumber = 5,
+                            StartTime = "16.00"
                         });
                 });
 
@@ -553,49 +563,49 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7c43fd72-fee2-482e-a796-b12dd5144843",
+                            Id = "1c8353c3-fed8-4199-af09-59bda8861294",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "274a30ee-25b4-439e-a1b3-428281fe76ae",
+                            ConcurrencyStamp = "f445b41d-fa2c-42e1-bb58-42f3d0392d14",
                             Email = "admin@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "ADMIN@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEVFI31567Z9QVWQuQU/Z47yIbjv1vKvGNpXt7eKFWfDFRqWW31vaZrE3jKk6LTc1g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBtTjAo2VlbDo+t92yA9X4qYtJ14/fCtLy5wdjCqCJoH5J8rFI2RUnXw+w56TrFv2w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "95445243-f701-4439-a1d6-f0f9e79ac8e3",
+                            SecurityStamp = "8314e549-8eed-436b-94d0-cddc767c8bdc",
                             TwoFactorEnabled = false,
                             UserName = "admin@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "0315c1f6-0e68-44c8-9257-d47136a44d65",
+                            Id = "08f450f6-ae16-4519-bd44-4b320f2702f5",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2c6aa0ec-b91b-499e-8627-2e4dce321b06",
+                            ConcurrencyStamp = "93efe738-ae25-4973-b369-0b55aa09051d",
                             Email = "moderator@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MODERATOR@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "MODERATOR@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGI+3i6KgZ4JFdkZqhL0vmDxa6ISRXsszINbUmJmSwJY3f4cdLXsAZuOp2wXFOCRgg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN6bqt/XDJ9a2BIJIZiRKDZVtwGeHK2Trh3FGfJsA61P0OMGOiMsM86nxiGltczODg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8b192674-e380-40ae-b169-b0a4e7a0b616",
+                            SecurityStamp = "deff61dd-8628-444d-87b8-57439227c6fb",
                             TwoFactorEnabled = false,
                             UserName = "moderator@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "1d80a69c-88a5-4f02-83e7-c8e71ff91d7f",
+                            Id = "79c6622f-b8c0-4ff6-bb49-3faf738ce6ff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5635b948-035f-4e7d-967c-9bb43b6ebf82",
+                            ConcurrencyStamp = "d4babb42-52fb-423f-b100-8fb742b573f1",
                             Email = "user@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "USER@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEF6tWM9lq32aRS5+nBdEs4W8MAMeCJPurM0iSF/JWlTYALOi5ezi7OO2ANeFzH1VBQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAf+0mWeBMuJ+W4Bb9rnxWZ6oJHh2dYmeWr0jdJ97bUIHjMv4lRl/CHLOf/XJQIwfA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6d914bb6-c5f7-41cd-9ccd-1d529efaac87",
+                            SecurityStamp = "24923fd2-fa28-4224-9c5d-f528843bc9a4",
                             TwoFactorEnabled = false,
                             UserName = "user@rozkladschool.com"
                         });
