@@ -1,0 +1,41 @@
+﻿@using Rozklad.Repository.Dto.LessonDto
+@model IEnumerable<LessonReadDto>
+
+@{
+}
+
+<div class="float-end">
+    <a href="/lesson/create" class="btn btn-outline-primary">Додати урок</a>
+</div>
+
+
+<h1>Список уроків</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>LessonId</th>
+            <th>LessonNumber</th>
+            <th>StartTime</th>
+            <th>EndTime</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var u in Model)
+        {
+            <tr>
+                 <td>@u.LessonId </td>
+                <td>@u.LessonNumber </td>
+                <td>@u.StartTime </td>
+                <td>@u.EndTime </td>
+                
+                <td>
+                    <a href="/users/edit/@u.LessonId" class="btn btn-warning">Редагувати</a>
+                    <a href="/users/delete/@u.LessonId" class="btn btn-danger">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

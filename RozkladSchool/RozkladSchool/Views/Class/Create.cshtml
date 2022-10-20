@@ -1,0 +1,31 @@
+﻿@using Rozklad.Repository.Dto.ClassDto
+
+@model ClassCreateDto
+
+<div class="float-end">
+    <a href="/users/index" class="btn btn-outline-dark">Повернутися до списку</a>
+</div>
+<h1>Новий клас</h1>
+<hr />
+
+<div class="row">
+
+    <form asp-action="Create" class="col-md-4">
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            <label asp-for="ClassName" class="form-label"></label>
+            <input asp-for="ClassName" class="form-control" />
+            <span asp-validation-for="ClassName" class="text-danger"></span>
+        </div>
+        
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Створити</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
