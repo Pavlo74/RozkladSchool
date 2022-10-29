@@ -31,37 +31,40 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         }
-                        @if (User.IsInRole("Moderator"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Користувачі</a>
-                            </li>
-                           
-                        <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Class" asp-action="Index">Класи</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Cabinet" asp-action="Index">Кабінети</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Day" asp-action="Index">Дні</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Discipline" asp-action="Index">Дисципліни</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Lesson" asp-action="Index">Уроки</a>
-                            </li>
+                       
                          
                         }
                         @if (User.IsInRole("Admin"))
                         {
+                            
+                            
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Користувачі</a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cabinet" asp-action="Index">Кабінет</a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Class" asp-action="Index">Клас</a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Discipline" asp-action="Index">Дисципліна</a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pupil" asp-action="Index">Учні</a>
+                            </li>
+
+                            
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Teacher" asp-action="Index">Вчителі</a>
                             </li>
 
                             

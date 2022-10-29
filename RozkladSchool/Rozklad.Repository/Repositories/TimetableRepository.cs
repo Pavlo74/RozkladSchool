@@ -18,9 +18,13 @@ namespace Rozklad.Repository.Repositories
             var timetableDto = _ctx.Timetables
                 .Select(x => new TimetableReadDto
                 {
-                    Class = x.Class,
-                    Lesson = x.Lesson,
+                    Teacher = x.Teacher,
+                    Section = x.Section,
+                    ClassName = x.Section.Class.ClassName,
                     Day = x.Day,
+                    TimeStart = x.TimeStart,
+                    TimeEnd = x.TimeEnd,
+                    LessonNumber = x.LessonNumber,
                     IconPath = x.IconPath,
                     Discipline = x.Discipline,
                     Cabinet = x.Cabinet}).ToList();

@@ -1,16 +1,33 @@
 ﻿@using Rozklad.Repository.Dto.TimetableDto
+﻿@using Rozklad.Core
+@using Rozklad.Repository
+@using Rozklad.Repository.Dto.CabinetDto
+@using Rozklad.Repository.Dto.ClassDto
+@using Rozklad.Repository.Dto.TeacherDto
+@using Rozklad.Repository.Dto.PupilDto
+@using Rozklad.Repository.Dto.SectionDto
+
+
 @model IEnumerable<TimetableReadDto>
 
-   @{
+@{
 }
 
-<h1>Розклад</h1>
+
+<h1>Розклад уроків</h1>
 <hr />
 
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Days</th>
+           
+            <th>День</th>
+            <th>Дисципліна</th>
+            <th>Кабінет</th>
+               <th>Вчитель</th>      
+                     <th>Початок</th>
+                     <th>Закінчення</th>
+                     
             
         </tr>
     </thead>
@@ -18,11 +35,19 @@
         @foreach(var u in Model)
         {
             <tr>
-                 <td>@u.Day.DayName </td>
+               
+                  <td>@u.Day</td>
                  <td>@u.Discipline.DisciplineName </td>
-                 <td>@u.Lesson.LessonNumber </td>
-            </tr>
+                 <td>@u.Cabinet.Name</td>
+                  <td>@u.Teacher.TeacherName</td>
+                  <td> @u.TimeStart</td>
+                  <td>@u.TimeEnd</td>
+                  
             
+                
+                
+               
+            </tr>
         }
     </tbody>
 </table>

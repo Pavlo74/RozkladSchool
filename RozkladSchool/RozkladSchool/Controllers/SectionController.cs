@@ -5,19 +5,19 @@ using System.Diagnostics;
 
 namespace RozkladSchool.Controllers
 {
-    public class LessonController : Controller
+    public class SectionController : Controller
     {
-        private readonly ILogger<LessonController> _logger;
-        private readonly LessonRepository _lessonRepository;
-        public LessonController(ILogger<LessonController> logger, LessonRepository lessonRepository)
+        private readonly ILogger<SectionController> _logger;
+        private readonly SectionRepository _sectionRepository;
+        public SectionController(ILogger<SectionController> logger, SectionRepository sectionRepository)
         {
             _logger = logger;
-            _lessonRepository = lessonRepository;
+            _sectionRepository = sectionRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _lessonRepository.GetLessonAsync());
+            return View(await _sectionRepository.GetSectionAsync());
         }
 
 

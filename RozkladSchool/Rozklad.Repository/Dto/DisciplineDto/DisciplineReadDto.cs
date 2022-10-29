@@ -13,6 +13,6 @@ namespace Rozklad.Repository.Dto.DisciplineDto
         public int DisciplineId { get; set; }
         public string? DisciplineName { get; set; }
 
-        public ICollection<Timetable> Timetables { get; set; }
+        public ICollection<Timetable>? Timetables { get; set; }
     }
 }

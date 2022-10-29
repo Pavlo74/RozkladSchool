@@ -2,11 +2,13 @@
 @using Rozklad.Repository
 @using Rozklad.Repository.Dto.CabinetDto
 @using Rozklad.Repository.Dto.ClassDto
-@using Rozklad.Repository.Dto.DayDto
+@using Rozklad.Repository.Dto.TeacherDto
 @using Rozklad.Repository.Dto.DisciplineDto
-@using Rozklad.Repository.Dto.LessonDto
+@using Rozklad.Repository.Dto.PupilDto
+@using Rozklad.Repository.Dto.SectionDto
 @using Rozklad.Repository.Dto.TimetableDto
 @model IEnumerable<TimetableReadDto>
+
 
 @{
     ViewData["Title"] = "Home Page";
@@ -17,16 +19,22 @@
             @foreach (var u in Model)
             {
                 <div class="card h-100">
-                     <img class="card-img-top" src="@u.IconPath" alt="...">
+                    <img class="card-img-top" src="@u.IconPath" alt="...">
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <h5 class="fw-bolder">@u.Class.ClassName  </h5>
+
+                          
+
+                            <h5 class="fw-bolder"> @u.ClassName </h5>
+
                              
                         </div>
                     </div>
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 
                         <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="Timetable">View options</a></div>
+
+                 
 
                     </div>
                 </div>
@@ -35,5 +43,3 @@
         
     </div>
 </div>
-
-

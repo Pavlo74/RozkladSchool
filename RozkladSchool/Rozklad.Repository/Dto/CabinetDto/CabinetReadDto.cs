@@ -13,7 +13,7 @@ namespace Rozklad.Repository.Dto.CabinetDto
         public int CabinetId { get; set; }
         public string? Name { get; set; }
 
-        public ICollection<Timetable> Timetables { get; set; }
+        public ICollection<Timetable>? Timetables { get; set; }
         
     }
 }

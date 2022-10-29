@@ -12,6 +12,6 @@ namespace Rozklad.Repository.Dto.ClassDto
         public int ClassId { get; set; }
         public string? ClassName { get; set; }
        
-        public ICollection<Timetable> Timetables { get; set; }
+        public ICollection<Section>? Sections { get; set; }
     }
 }

@@ -5,19 +5,19 @@ using System.Diagnostics;
 
 namespace RozkladSchool.Controllers
 {
-    public class DayController : Controller
+    public class TeacherController : Controller
     {
-        private readonly ILogger<DayController> _logger;
-        private readonly DayRepository _dayRepository;
-        public DayController(ILogger<DayController> logger, DayRepository dayRepository)
+        private readonly ILogger<TeacherController> _logger;
+        private readonly TeacherRepository _teacherRepository;
+        public TeacherController(ILogger<TeacherController> logger, TeacherRepository teacherRepository)
         {
             _logger = logger;
-            _dayRepository = dayRepository;
+            _teacherRepository = teacherRepository;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _dayRepository.GetDayAsync());
+            return View(await _teacherRepository.GetTeacherAsync());
         }
 
 

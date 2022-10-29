@@ -22,7 +22,6 @@ namespace Rozklad.Repository.Repositories
                 Select(x => new CabinetReadDto
                 {
                    
-
                     CabinetId=x.CabinetId,
                     Name=x.Name,
                     Timetables=x.Timetables

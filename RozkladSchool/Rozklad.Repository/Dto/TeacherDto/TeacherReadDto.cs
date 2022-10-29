@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rozklad.Core;
 
-namespace Rozklad.Core
+namespace Rozklad.Repository.Dto.TeacherDto
 {
-    public class Cabinet
+    public class TeacherReadDto
     {
-        [Key]
-        public int CabinetId { get; set; }
-        public string? Name { get; set; }
+        public int TeacherId { get; set; }
+        public string? TeacherName { get; set; }
         public virtual ICollection<Timetable>? Timetables { get; set; }
-        
     }
 }

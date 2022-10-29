@@ -11,21 +11,24 @@ namespace Rozklad.Repository.Dto.TimetableDto
     {
         public int TimetableId { get; set; }
 
-        public int ClassId { get; set; }
-        public Class Class{ get; set; }
-
-        public int LessonId { get; set; }
-        public Lesson Lesson { get; set; }
-
-        public int DayId { get; set; }
-        public Day Day { get; set; }
-
-        public string IconPath { get; set; }
-
         public int DisciplineId { get; set; }
-        public Discipline Discipline { get; set; }
+        public Discipline? Discipline { get; set; }
+
+        public int TeacherId { get; set; }
+        public Teacher? Teacher { get; set; }
+
+        public string? ClassName { get; set; }
+
+        public int LessonNumber { get; set; }
+        public string? Day { get; set; }
+        public string? TimeStart { get; set; }
+        public string? TimeEnd { get; set; }
+        public string? IconPath { get; set; }
+        public int SectionId { get; set; }
+        public Section? Section { get; set; }
 
         public int CabinetId { get; set; }
-        public Cabinet Cabinet { get; set; }
+        public Cabinet? Cabinet { get; set; }
+
     }
 }

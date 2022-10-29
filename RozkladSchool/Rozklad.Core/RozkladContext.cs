@@ -21,10 +21,11 @@ namespace Rozklad.Core
         }
 
         public DbSet<Class> Classes { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
-        public DbSet<Day> Days { get; set; }
         public DbSet<Discipline> Disciplines { get; set; }
         public DbSet<Cabinet> Cabinets { get; set; }
+        public DbSet<Pupil> Pupils { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Timetable> Timetables { get; set; }
     }
 }

@@ -111,117 +111,105 @@ namespace Rozklad.Core
                 );
 
 
-            builder.Entity<Day>().HasData(
-               new Day
-               {
-                  
-                   DayId = 1,
-                   DayName = "Понеділок",
-                
 
-               },
-               new Day
-               {
-                   DayId = 2,
-                   DayName = "Вівторок",
-                  
-               },
-               new Day
-               {
-                   DayId = 3,
-                   DayName = "Середа",
-                  
-               },
-               new Day
-               {
-                   DayId = 4,
-                   DayName = "Четвер",
-                  
-               },
-               new Day
-               {
-                   DayId = 5,
-                   DayName = "Пятниця",
-                  
-               });
+            builder.Entity<Teacher>().HasData(
+             new Teacher
+             {
+                 TeacherId = 1,
+                 TeacherName = "Квашук О.В.",
+              },
 
-            builder.Entity<Lesson>().HasData(
-               new Lesson
-               {
-                   LessonId = 1,
-                   LessonNumber = 1,
-                   StartTime= "12.00",
-                   EndTime= "12.45",
-                  // TimetableId = 1
-               },
-               new Lesson
-               {
-                   LessonId = 2,
-                   LessonNumber = 2,
-                   StartTime= "13.00",
-                   EndTime= "13.45",
-                  // TimetableId = 2
-               },
-                new Lesson
-                  {
-                     LessonId = 3,
-                      LessonNumber = 3,
-                    StartTime= "14.00",
-                    EndTime= "14.45",
-                   // TimetableId = 3
-                },
-                new Lesson
-                     {
-                         LessonId = 4,
-                         LessonNumber = 4,
-                    StartTime= "15.00 ",
-                    EndTime= "15.45",
-                   // TimetableId = 4
-                },
-                new Lesson
+                       new Teacher
+                       {
+                           TeacherId = 2,
+                           TeacherName = "Зубенко І.Р.",
+                       },
+                        new Teacher
                         {
-                            LessonId = 5,
-                            LessonNumber = 5,
-                    StartTime= "16.00",
-                    EndTime= "16.45",
-                    //TimetableId = 5
-                }
+                            TeacherId = 3,
+                            TeacherName = "Попчук М.А.",
+                        }
+             );
 
+            builder.Entity<Pupil>().HasData(
+           new Pupil
+           {
+               PupilId = 1,
+               PupilName = "Белінський О.О",
+               SectionId = 1
+           },
 
-               );
+            new Pupil
+            {
+                PupilId = 2,
+                PupilName = "Кошубінський П.Р",
+                SectionId = 2
+            },
+             new Pupil
+             {
+                 PupilId = 3,
+                 PupilName = "Богач В.Е",
+                 SectionId = 3
+             }
+           );
+
+            builder.Entity<Section>().HasData(
+            new Section
+            {
+                SectionId = 1,
+                SectionName = "FirstSec",
+                ClassId = 1
+             },
+
+                      new Section
+                      {
+                          SectionId = 2,
+                          SectionName = "SecondSec",
+                          ClassId = 2
+                      },
+                       new Section
+                       {
+                           SectionId = 3,
+                           SectionName = "ThirdSec",
+                           ClassId = 3
+                       }
+            );
+
+            builder.Entity<Class>().HasData(
+           new Class
+           {
+               ClassId = 1,
+               ClassName = "1-A",
+           },
+
+           new Class
+           {
+               ClassId = 2,
+               ClassName = "1-Б",
+           },
+           new Class
+           {
+               ClassId = 3,
+               ClassName = "2-A",
+           });
+
             builder.Entity<Cabinet>().HasData(
                new Cabinet
                {
                   CabinetId = 1,
                   Name="Географія",
-                  // TimetableId = 1
                },
                        new Cabinet
                        {
                            CabinetId = 2,
                            Name = "Біологія",
-                          // TimetableId = 2
                        },
                                new Cabinet
                                {
                                    CabinetId = 3,
                                    Name = "Математика",
-                                   //TimetableId = 3
-                               },
-                                       new Cabinet
-                                       {
-                                           CabinetId = 4,
-                                           Name = "Укр мова",
-                                          // TimetableId = 4
-                                       },
-                                               new Cabinet
-                                               {
-                                                   CabinetId = 5,
-                                                   Name = "Історія",
-                                                  // TimetableId = 5
-                                               }
-
-
+                               }
+                                       
                );
 
             builder.Entity<Discipline>().HasData(
@@ -229,129 +217,69 @@ namespace Rozklad.Core
               {
                   DisciplineId=1,
                   DisciplineName="Географія",
-                 // TimetableId = 1
               },
                  new Discipline
                  {
                      DisciplineId = 2,
                      DisciplineName = "Біологія",
-                     //TimetableId = 2
                  },
                    new Discipline
                    {
                        DisciplineId = 3,
                        DisciplineName = "Математика",
-                      // TimetableId = 3
-                   },
-                     new Discipline
-                     {
-                         DisciplineId = 4,
-                         DisciplineName = "Укр мова",
-                         //TimetableId = 4
-                     },
-                       new Discipline
-                       {
-                           DisciplineId = 5,
-                           DisciplineName = "Історія",
-                          // TimetableId = 5
-                       }
-
-
+                   }
+                    
               );
 
 
-            builder.Entity<Class>().HasData(
-             new Class
-             { 
-                 ClassId=1,
-                 ClassName="1-A",
-                 //TimetableId = 1
-
-
-
-             },
-               new Class
-               {
-                   ClassId = 2,
-                   ClassName = "1-B",
-                  // TimetableId = 2
-               }, new Class
-               {
-                   ClassId = 3,
-                   ClassName = "2-A",
-                  // TimetableId = 3
-               }, new Class
-               {
-                   ClassId = 4,
-                   ClassName = "2-B",
-                   //TimetableId = 4
-               }, new Class
-               {
-                   ClassId = 5,
-                   ClassName = "3-A",
-                  // TimetableId = 5
-               }
-
-
-
-             );
+           
 
             builder.Entity<Timetable>().HasData(
              new Timetable
              {
-                 TimetableId=1,
-                 ClassId=1,
-                 LessonId =1,
-                 DayId=1,
-                 IconPath = @"Images\1200h790_1-4_klass_t.png",
-                 DisciplineId =1,
-                 CabinetId=1
+                 TimetableId= 1,
+                 DisciplineId= 1,
+                 TeacherId = 1,
+                 Day = "Понеділок",
+                 LessonNumber=1,
+                 TimeStart = "9:00",
+                 TimeEnd = "9:45",
+                 SectionId = 1,
+                 CabinetId = 1,
+                 IconPath = @"Images\1200h790_1-4_klass_t.png"
              },
              new Timetable
              {
                  TimetableId = 2,
-                 ClassId = 2,
-                 LessonId = 2,
-                 DayId = 2,
-                 IconPath= @"Images\1200TE790_5_klass_t.png",
                  DisciplineId = 2,
-                 CabinetId = 2
+                 TeacherId = 2,
+                 Day = "Вівторок",
+                 LessonNumber = 2,
+                 TimeStart = "10:00",
+                 TimeEnd = "10:45",
+                 SectionId = 2,
+                 CabinetId = 2,
+                 IconPath = @"Images\1200h790_1-4_klass_t.png"
+
              },
 
               new Timetable
               {
                   TimetableId = 3,
-                  ClassId = 1,
-                  LessonId =3,
-                  DayId = 3,
-                  IconPath = @"Images\1200TE790_5_klass_t.png",
-                  DisciplineId = 1,
-                  CabinetId = 4
-              },
-              new Timetable
-              {
-                  TimetableId = 4,
-                  ClassId = 1,
-                  LessonId = 4,
-                  DayId = 4,
-                  IconPath = @"Images\1200TE790_5_klass_t.png",
-                  DisciplineId = 5,
-                  CabinetId = 1
+                  DisciplineId = 3,
+                  TeacherId = 3,
+                  LessonNumber =3,
+                  Day = "Середа",
+                  TimeStart = "11:00",
+                  TimeEnd = "11:45",
+                  SectionId = 3,
+                  CabinetId = 3,
+                  IconPath = @"Images\1200h790_1-4_klass_t.png"
+
               }
+            
 
              );
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
     }

@@ -25,8 +25,23 @@ namespace Rozklad.Repository.Repositories
                 {
                     ClassId = x.ClassId,
                     ClassName = x.ClassName,
-                    Timetables = x.Timetables
+                    Sections = x.Sections
+                    
                 }).ToList();
+
+            return classDto;
+        }
+
+        public async Task<ClassReadDto> GetClassAsync(int id)
+        {
+            var u = await _ctx.Classes.FirstAsync(x => x.ClassId == id);
+
+            var classDto = new ClassReadDto
+            {
+                ClassId = u.ClassId,
+                ClassName = u.ClassName,
+                Sections= u.Sections
+            };
 
             return classDto;
         }

@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace Rozklad.Core
 {
-    public class Cabinet
+    public class Section
     {
         [Key]
-        public int CabinetId { get; set; }
-        public string? Name { get; set; }
+        public int SectionId { get; set; } 
+        public string? SectionName { get; set; }
+        public int ClassId { get; set; }
+        public Class? Class { get; set; }
+
         public virtual ICollection<Timetable>? Timetables { get; set; }
-        
+        public virtual ICollection<Pupil>? Pupils { get; set; }
     }
 }
