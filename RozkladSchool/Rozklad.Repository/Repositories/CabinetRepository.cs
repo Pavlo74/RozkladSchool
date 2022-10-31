@@ -16,18 +16,33 @@ namespace Rozklad.Repository.Repositories
             _ctx = ctx;
         }
 
-        public async Task<IEnumerable<CabinetReadDto>> GetCabinetAsync()
+        public async Task<Cabinet> AddCabinetAsync(Cabinet cabinet)
         {
-            var cabinetDto = _ctx.Cabinets.
-                Select(x => new CabinetReadDto
-                {
-                   
-                    CabinetId=x.CabinetId,
-                    Name=x.Name,
-                    Timetables=x.Timetables
-                }).ToList();
+            _ctx.Cabinets.Add(cabinet);
+            await _ctx.SaveChangesAsync();
+            return _ctx.Cabinets.FirstOrDefault(x => x.CabinetName == cabinet.CabinetName);
+        }
 
-            return cabinetDto;
+        public List<Cabinet> GetCabinets()
+        {
+            var cabinetList = _ctx.Cabinets.ToList();
+            return cabinetList;
+        }
+
+        public Cabinet GetCabinet(int id)
+        {
+            return _ctx.Cabinets.FirstOrDefault(x => x.CabinetId == id);
+        }
+
+        public Cabinet GetCabinetByName(string name)
+        {
+            return _ctx.Cabinets.FirstOrDefault(x => x.CabinetName == name);
+        }
+
+        public async Task DeleteCabinetAsync(int id)
+        {
+            _ctx.Remove(GetCabinet(id));
+            await _ctx.SaveChangesAsync();
         }
 
     }

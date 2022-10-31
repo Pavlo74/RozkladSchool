@@ -12,10 +12,10 @@ namespace Rozklad.Repository.Dto.TimetableDto
         
 
         [Required]
-        public string? ClassName { get; set; }
+        public string? ClassRoomName { get; set; }
 
         [Required]
-        public string? Name { get; set; }
+        public string? CabinetName { get; set; }
 
         [Required]
         public string? DisciplineName { get; set; }
@@ -40,6 +40,8 @@ namespace Rozklad.Repository.Dto.TimetableDto
 
         [Required]
         public decimal Price { get; set; }
+       
+        
 
        
 

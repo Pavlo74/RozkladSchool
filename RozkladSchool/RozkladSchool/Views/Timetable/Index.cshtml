@@ -5,10 +5,10 @@
 @using Rozklad.Repository.Dto.ClassDto
 @using Rozklad.Repository.Dto.TeacherDto
 @using Rozklad.Repository.Dto.PupilDto
-@using Rozklad.Repository.Dto.SectionDto
 
 
-@model IEnumerable<TimetableReadDto>
+
+@model IEnumerable<Timetable>
 
 @{
 }
@@ -37,16 +37,13 @@
             <tr>
                
                   <td>@u.Day</td>
-                 <td>@u.Discipline.DisciplineName </td>
-                 <td>@u.Cabinet.Name</td>
-                  <td>@u.Teacher.TeacherName</td>
+                <td>@u.Discipline.DisciplineName</td>
+                 <td>@u.Cabinet.CabinetName</td>
+                 <td>@u.Discipline.Teacher.TeacherName</td>
                   <td> @u.TimeStart</td>
                   <td>@u.TimeEnd</td>
                   
             
-                
-                
-               
             </tr>
         }
     </tbody>

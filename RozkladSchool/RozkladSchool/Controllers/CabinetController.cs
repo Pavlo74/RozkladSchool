@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Rozklad.Core;
+using Rozklad.Repository.Dto.CabinetDto;
 using Rozklad.Repository.Repositories;
 using RozkladSchool.Models;
 using System.Diagnostics;
@@ -15,11 +17,12 @@ namespace RozkladSchool.Controllers
             _cabinetRepository = cabinetRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _cabinetRepository.GetCabinetAsync());
+            return View(_cabinetRepository.GetCabinets());
         }
 
+        
 
         public IActionResult Privacy()
         {

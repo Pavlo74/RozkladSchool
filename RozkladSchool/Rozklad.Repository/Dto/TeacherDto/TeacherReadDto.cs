@@ -11,6 +11,6 @@ namespace Rozklad.Repository.Dto.TeacherDto
     {
         public int TeacherId { get; set; }
         public string? TeacherName { get; set; }
-        public virtual ICollection<Timetable>? Timetables { get; set; }
+        public virtual ICollection<Discipline>? Disciplines { get; set; }
     }
 }

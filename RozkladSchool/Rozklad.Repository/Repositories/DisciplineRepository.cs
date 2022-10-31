@@ -1,4 +1,5 @@
-﻿using Rozklad.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using Rozklad.Core;
 using Rozklad.Repository.Dto.DisciplineDto;
 using System;
 using System.Collections.Generic;
@@ -16,20 +17,34 @@ namespace Rozklad.Repository.Repositories
         {
             _ctx = ctx;
         }
-        public async Task<IEnumerable<DisciplineReadDto>> GetDisciplineAsync()
+
+        public async Task<Discipline> AddDisciplineAsync(Discipline discipline)
         {
-            var disciplineDto = _ctx.Disciplines.
-                Select(x => new DisciplineReadDto
-                {
-                   DisciplineId = x.DisciplineId,
-                   DisciplineName = x.DisciplineName,
+            _ctx.Disciplines.Add(discipline);
+            await _ctx.SaveChangesAsync();
+            return _ctx.Disciplines.FirstOrDefault(x => x.DisciplineName == discipline.DisciplineName);
+        }
 
+        public List<Discipline> GetDisciplines()
+        {
+            var disciplineList = _ctx.Disciplines.ToList();
+            return disciplineList;
+        }
 
+        public Discipline GetDiscipline(int id)
+        {
+            return _ctx.Disciplines.Include(x => x.Teacher).FirstOrDefault(x => x.DisciplineId == id);
+        }
 
-                    Timetables = x.Timetables
-                }).ToList();
+        public Discipline GetDisciplineByName(string name)
+        {
+            return _ctx.Disciplines.Include(x => x.Teacher).FirstOrDefault(x => x.DisciplineName == name);
+        }
 
-            return disciplineDto;
+        public async Task DeleteCabinetAsync(int id)
+        {
+            _ctx.Remove(GetDiscipline(id));
+            await _ctx.SaveChangesAsync();
         }
     }
 }

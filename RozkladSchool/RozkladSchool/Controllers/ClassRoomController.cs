@@ -1,28 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rozklad.Core;
-using Rozklad.Repository.Dto.ClassDto;
 using Rozklad.Repository.Repositories;
 using RozkladSchool.Models;
 using System.Diagnostics;
 
 namespace RozkladSchool.Controllers
 {
-    public class ClassController : Controller
+    public class ClassRoomController : Controller
     {
-        private readonly ILogger<ClassController> _logger;
-        private readonly ClassRepository _classRepository;
-        public ClassController(ILogger<ClassController> logger, ClassRepository classRepository)
+        private readonly ILogger<ClassRoomController> _logger;
+        private readonly ClassRoomRepository _classRoomRepository;
+        public ClassRoomController(ILogger<ClassRoomController> logger, ClassRoomRepository classRoomRepository)
         {
             _logger = logger;
-            _classRepository = classRepository;
+            _classRoomRepository = classRoomRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _classRepository.GetClassAsync());
+            return View(_classRoomRepository.GetClasses());
         }
 
-       
 
         public IActionResult Privacy()
         {
@@ -36,4 +33,3 @@ namespace RozkladSchool.Controllers
         }
     }
 }
-

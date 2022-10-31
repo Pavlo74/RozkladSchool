@@ -15,9 +15,9 @@ namespace RozkladSchool.Controllers
             _pupilRepository = pupilRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _pupilRepository.GetPupilAsync());
+            return View(_pupilRepository.GetPupils());
         }
 
 

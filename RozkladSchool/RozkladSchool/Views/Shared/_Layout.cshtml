@@ -37,10 +37,14 @@
                         @if (User.IsInRole("Admin"))
                         {
                             
+                              <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Timetable" asp-action="AddRozklad">Додати дані</a>
+                            </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Користувачі</a>
                             </li>
+
 
                             
                             <li class="nav-item">
@@ -49,7 +53,7 @@
 
                             
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Class" asp-action="Index">Клас</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ClassRoom" asp-action="Index">Клас</a>
                             </li>
 
                             

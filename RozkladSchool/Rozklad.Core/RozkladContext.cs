@@ -20,11 +20,11 @@ namespace Rozklad.Core
             base.OnModelCreating(builder);
         }
 
-        public DbSet<Class> Classes { get; set; }
+        public DbSet<ClassRoom> ClassRooms { get; set; }
         public DbSet<Discipline> Disciplines { get; set; }
         public DbSet<Cabinet> Cabinets { get; set; }
         public DbSet<Pupil> Pupils { get; set; }
-        public DbSet<Section> Sections { get; set; }
+        
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Timetable> Timetables { get; set; }
     }

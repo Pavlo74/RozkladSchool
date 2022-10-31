@@ -34,12 +34,12 @@ builder.Services.AddControllers().AddJsonOptions(x =>
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<UsersRepository>();
-builder.Services.AddTransient<ClassRepository>();
+builder.Services.AddTransient<ClassRoomRepository>();
 builder.Services.AddTransient<CabinetRepository>();
 builder.Services.AddTransient<TeacherRepository>();
 builder.Services.AddTransient<DisciplineRepository>();
 builder.Services.AddTransient<PupilRepository>();
-builder.Services.AddTransient<SectionRepository>();
+
 builder.Services.AddTransient<TimetableRepository>();
 
 

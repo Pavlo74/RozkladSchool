@@ -15,9 +15,9 @@ namespace RozkladSchool.Controllers
             _teacherRepository = teacherRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _teacherRepository.GetTeacherAsync());
+            return View(_teacherRepository.GetTeachers());
         }
 
 

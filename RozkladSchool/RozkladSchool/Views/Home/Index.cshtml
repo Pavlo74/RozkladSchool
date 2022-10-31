@@ -5,9 +5,9 @@
 @using Rozklad.Repository.Dto.TeacherDto
 @using Rozklad.Repository.Dto.DisciplineDto
 @using Rozklad.Repository.Dto.PupilDto
-@using Rozklad.Repository.Dto.SectionDto
+
 @using Rozklad.Repository.Dto.TimetableDto
-@model IEnumerable<TimetableReadDto>
+@model IEnumerable<Timetable>
 
 
 @{
@@ -25,7 +25,7 @@
 
                           
 
-                            <h5 class="fw-bolder"> @u.ClassName </h5>
+                            <h5 class="fw-bolder"> @u.ClassRoom.ClassRoomName </h5>
 
                              
                         </div>

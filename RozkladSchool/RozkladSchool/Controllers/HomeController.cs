@@ -15,9 +15,9 @@ namespace RozkladSchool.Controllers
             _timetableRepository = timetableRepository;
         }
 
-        public async Task <IActionResult> Index()
-        {
-            return View(await _timetableRepository.GetTimetableAsync());
+        public IActionResult Index()
+         {
+            return View(_timetableRepository.GetTimetables());
         }
 
         public IActionResult Privacy()

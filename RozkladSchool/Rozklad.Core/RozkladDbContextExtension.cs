@@ -136,78 +136,61 @@ namespace Rozklad.Core
            {
                PupilId = 1,
                PupilName = "Белінський О.О",
-               SectionId = 1
+               //SectionId = 1
            },
 
             new Pupil
             {
                 PupilId = 2,
                 PupilName = "Кошубінський П.Р",
-                SectionId = 2
+                //SectionId = 2
             },
              new Pupil
              {
                  PupilId = 3,
                  PupilName = "Богач В.Е",
-                 SectionId = 3
+                 //SectionId = 3
              }
            );
 
-            builder.Entity<Section>().HasData(
-            new Section
-            {
-                SectionId = 1,
-                SectionName = "FirstSec",
-                ClassId = 1
-             },
+           
 
-                      new Section
-                      {
-                          SectionId = 2,
-                          SectionName = "SecondSec",
-                          ClassId = 2
-                      },
-                       new Section
-                       {
-                           SectionId = 3,
-                           SectionName = "ThirdSec",
-                           ClassId = 3
-                       }
-            );
-
-            builder.Entity<Class>().HasData(
-           new Class
+            builder.Entity<ClassRoom>().HasData(
+           new ClassRoom
            {
-               ClassId = 1,
-               ClassName = "1-A",
+               ClassRoomId = 1,
+               ClassRoomName = "1-A",
+               PupilId = 1
            },
 
-           new Class
+           new ClassRoom
            {
-               ClassId = 2,
-               ClassName = "1-Б",
+               ClassRoomId = 2,
+               ClassRoomName = "1-Б",
+               PupilId = 2
            },
-           new Class
+           new ClassRoom
            {
-               ClassId = 3,
-               ClassName = "2-A",
+               ClassRoomId = 3,
+               ClassRoomName = "2-A",
+               PupilId = 3
            });
 
             builder.Entity<Cabinet>().HasData(
                new Cabinet
                {
                   CabinetId = 1,
-                  Name="Географія",
+                  CabinetName="Географія",
                },
                        new Cabinet
                        {
                            CabinetId = 2,
-                           Name = "Біологія",
+                           CabinetName = "Біологія",
                        },
                                new Cabinet
                                {
                                    CabinetId = 3,
-                                   Name = "Математика",
+                                   CabinetName = "Математика",
                                }
                                        
                );
@@ -217,34 +200,33 @@ namespace Rozklad.Core
               {
                   DisciplineId=1,
                   DisciplineName="Географія",
+                  TeacherId = 1
               },
                  new Discipline
                  {
                      DisciplineId = 2,
                      DisciplineName = "Біологія",
+                     TeacherId = 2
                  },
                    new Discipline
                    {
                        DisciplineId = 3,
                        DisciplineName = "Математика",
-                   }
-                    
+                       TeacherId = 3
+                   } 
               );
 
-
-           
 
             builder.Entity<Timetable>().HasData(
              new Timetable
              {
                  TimetableId= 1,
                  DisciplineId= 1,
-                 TeacherId = 1,
+                 ClassRoomId = 1,
                  Day = "Понеділок",
                  LessonNumber=1,
                  TimeStart = "9:00",
                  TimeEnd = "9:45",
-                 SectionId = 1,
                  CabinetId = 1,
                  IconPath = @"Images\1200h790_1-4_klass_t.png"
              },
@@ -252,12 +234,11 @@ namespace Rozklad.Core
              {
                  TimetableId = 2,
                  DisciplineId = 2,
-                 TeacherId = 2,
+                 ClassRoomId = 2,
                  Day = "Вівторок",
                  LessonNumber = 2,
                  TimeStart = "10:00",
                  TimeEnd = "10:45",
-                 SectionId = 2,
                  CabinetId = 2,
                  IconPath = @"Images\1200h790_1-4_klass_t.png"
 
@@ -267,18 +248,15 @@ namespace Rozklad.Core
               {
                   TimetableId = 3,
                   DisciplineId = 3,
-                  TeacherId = 3,
+                  ClassRoomId = 3,
                   LessonNumber =3,
                   Day = "Середа",
                   TimeStart = "11:00",
                   TimeEnd = "11:45",
-                  SectionId = 3,
                   CabinetId = 3,
                   IconPath = @"Images\1200h790_1-4_klass_t.png"
 
               }
-            
-
              );
 
         }
