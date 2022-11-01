@@ -10,7 +10,7 @@ namespace Rozklad.Repository.Repositories
 {
     public class PupilRepository
     {
-        private readonly RozkladContext _ctx;
+        /*private readonly RozkladContext _ctx;
         public PupilRepository(RozkladContext ctx)
         {
             _ctx = ctx;
@@ -43,6 +43,6 @@ namespace Rozklad.Repository.Repositories
         {
             _ctx.Remove(GetPupil(id));
             await _ctx.SaveChangesAsync();
-        }
+        }*/
     }
 }

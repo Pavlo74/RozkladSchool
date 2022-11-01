@@ -12,6 +12,7 @@ namespace Rozklad.Core
         [Key]
         public int CabinetId { get; set; }
         public string? CabinetName { get; set; }
+        public int RoomCapacity { get; set; }
         public virtual ICollection<Timetable>? Timetables { get; set; }
         
     }

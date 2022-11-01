@@ -12,7 +12,7 @@ namespace Rozklad.Repository.Repositories
     public class DisciplineRepository
     {
 
-        private readonly RozkladContext _ctx;
+        /*private readonly RozkladContext _ctx;
         public DisciplineRepository(RozkladContext ctx)
         {
             _ctx = ctx;
@@ -45,6 +45,6 @@ namespace Rozklad.Repository.Repositories
         {
             _ctx.Remove(GetDiscipline(id));
             await _ctx.SaveChangesAsync();
-        }
+        }*/
     }
 }

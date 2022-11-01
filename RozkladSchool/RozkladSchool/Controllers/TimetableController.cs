@@ -9,7 +9,7 @@ namespace RozkladSchool.Controllers
 {
     public class TimetableController : Controller
     { 
-        private readonly ILogger<TimetableController> _logger;
+        /*private readonly ILogger<TimetableController> _logger;
         private readonly TimetableRepository _timetableRepository;
         private readonly ClassRoomRepository _classRoomRepository;
         private readonly CabinetRepository _cabinetRepository;
@@ -137,7 +137,7 @@ namespace RozkladSchool.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        }*/
 
 
     }

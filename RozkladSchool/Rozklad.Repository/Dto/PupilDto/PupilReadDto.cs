@@ -11,6 +11,8 @@ namespace Rozklad.Repository.Dto.PupilDto
     {
         public int PupilId { get; set; }
         public string? PupilName { get; set; }
-        public virtual ICollection<ClassRoom>? ClassRooms { get; set; }
+        public int Year { get; set; }
+        public int ClassRoomId { get; set; }
+        public ClassRoom? ClassRoom { get; set; }
     }
 }

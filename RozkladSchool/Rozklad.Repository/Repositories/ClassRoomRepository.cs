@@ -10,7 +10,7 @@ namespace Rozklad.Repository.Repositories
 {
     public class ClassRoomRepository
     {
-        private readonly RozkladContext _ctx;
+       /* private readonly RozkladContext _ctx;
         public ClassRoomRepository(RozkladContext ctx)
         {
             _ctx = ctx;
@@ -45,6 +45,6 @@ namespace Rozklad.Repository.Repositories
         {
             _ctx.Remove(GetClass(id));
             await _ctx.SaveChangesAsync();
-        }
+        }*/
     }
 }

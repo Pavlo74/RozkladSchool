@@ -13,21 +13,18 @@ namespace Rozklad.Core
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TimetableId { get; set; }
-
-        public int DisciplineId { get; set; }
-        public Discipline? Discipline { get; set; }
-
+       
         public int LessonNumber { get; set; }
         public string? Day { get; set; }
         public string? TimeStart { get; set; }
         public string? TimeEnd { get; set; }
         public string? IconPath { get; set; }
-        public int ClassRoomId { get; set; }
-        public ClassRoom? ClassRoom { get; set; }
         public int CabinetId { get; set; }
         public Cabinet? Cabinet { get; set; }
+        public int LessonId { get; set; }
+        public Lesson? Lesson { get; set; }
 
-        
-        
+
+
     }
 }

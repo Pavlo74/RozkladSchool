@@ -7,7 +7,7 @@ namespace Rozklad.Repository.Repositories
 {
     public class TimetableRepository
     {
-        private readonly RozkladContext _ctx;
+        /*private readonly RozkladContext _ctx;
 
         public TimetableRepository(RozkladContext ctx)
         {
@@ -63,6 +63,33 @@ namespace Rozklad.Repository.Repositories
             await _ctx.SaveChangesAsync();
         }
 
-    }
+        public async Task UpdateAsync(TimetableReadDto timetableDto, string cabinetName, string disciplineName,
+           string classRoomName, string teacherName, string pupilName)
+        {
+            var timetable = _ctx.Timetables.Include(x => x.ClassRoom).ThenInclude(x => x.Pupil).Include(x => x.Discipline).ThenInclude(x => x.Teacher).
+                 Include(x => x.Cabinet).FirstOrDefault(x => x.TimetableId == timetableDto.TimetableId);
+
+            if (timetable.Cabinet.CabinetName != cabinetName)
+                timetable.Cabinet = _ctx.Cabinets.FirstOrDefault(x => x.CabinetName == cabinetName);
+           
+            if (timetable.ClassRoom.ClassRoomName != classRoomName)
+                timetable.ClassRoom = _ctx.ClassRooms.FirstOrDefault(x => x.ClassRoomName == classRoomName);
+           
+            if (timetable.ClassRoom.Pupil.PupilName != pupilName)
+                timetable.ClassRoom.Pupil = _ctx.Pupils.FirstOrDefault(x => x.PupilName == pupilName);
+
+            if (timetable.Discipline.DisciplineName != disciplineName)
+                timetable.Discipline = _ctx.Disciplines.FirstOrDefault(x => x.DisciplineName == disciplineName);
+
+            if (timetable.Discipline.Teacher.TeacherName != teacherName)
+                timetable.Discipline.Teacher = _ctx.Teachers.FirstOrDefault(x => x.TeacherName == teacherName);
+
+            if (timetable.Day != timetableDto.Day)
+                timetable.Day = timetableDto.Day;
+            
+            _ctx.SaveChanges();
+        }*/
+
+     }
 }
 

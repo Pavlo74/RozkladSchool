@@ -12,9 +12,9 @@ namespace Rozklad.Core
         [Key]
         public int ClassRoomId { get; set; }
         public string? ClassRoomName { get; set; }
-        public int PupilId { get; set; }
-        public Pupil Pupil { get; set; }
+        public int Year { get; set; }
 
+        public virtual ICollection<Pupil>? Pupils { get; set; }
         public virtual ICollection<Timetable>? Timetables { get; set; }
     }
 }

@@ -12,6 +12,8 @@ namespace Rozklad.Core
         [Key]
         public int PupilId { get; set; }
         public string? PupilName { get; set; }
-        public virtual ICollection<ClassRoom> ClassRooms { get; set; }
+        public int Year { get; set; }
+        public int ClassRoomId { get; set; }
+        public ClassRoom? ClassRoom { get; set; }
     }
 }

@@ -12,6 +12,6 @@ namespace Rozklad.Core
         [Key]
         public int TeacherId { get; set; }
         public string? TeacherName { get; set; }
-        public virtual ICollection<Discipline>? Disciplines { get; set; }
+        public virtual ICollection<Lesson>? Lessons { get; set; }
     }
 }

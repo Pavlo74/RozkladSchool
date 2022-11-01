@@ -12,10 +12,7 @@ namespace Rozklad.Core
         [Key]
         public int DisciplineId { get; set; }
         public string? DisciplineName { get; set; }
-        public int TeacherId { get; set; }
-        public Teacher? Teacher { get; set; }
-
-        public virtual ICollection<Timetable>? Timetables { get; set; }
+        public virtual ICollection<Lesson>? Lessons { get; set; }
 
     }
 }

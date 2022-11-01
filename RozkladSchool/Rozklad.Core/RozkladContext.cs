@@ -24,7 +24,8 @@ namespace Rozklad.Core
         public DbSet<Discipline> Disciplines { get; set; }
         public DbSet<Cabinet> Cabinets { get; set; }
         public DbSet<Pupil> Pupils { get; set; }
-        
+        public DbSet<PupilLesson> PupilLessons { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Timetable> Timetables { get; set; }
     }
