@@ -15,5 +15,38 @@
 
 
 
- 
+ <h1>Розклад уроків</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+           
+            <th>День</th>
+            <th>Дисципліна</th>
+            <th>Кабінет</th>
+               <th>Вчитель</th>      
+                     <th>Початок</th>
+                     <th>Закінчення</th>
+                     
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var u in Model)
+        {
+            <tr>
+               
+                  <td>@u.Day</td>
+                <td>@u.Lesson.Discipline.DisciplineName</td>
+                 <td>@u.Cabinet.CabinetName</td>
+                 <td>@u.Lesson.Teacher.TeacherName</td>
+                  <td> @u.TimeStart</td>
+                  <td>@u.TimeEnd</td>
+                  
+            
+            </tr>
+        }
+    </tbody>
+</table>
 

@@ -7,7 +7,7 @@ namespace RozkladSchool.Controllers
 {
     public class TeacherController : Controller
     {
-        /*private readonly ILogger<TeacherController> _logger;
+        private readonly ILogger<TeacherController> _logger;
         private readonly TeacherRepository _teacherRepository;
         public TeacherController(ILogger<TeacherController> logger, TeacherRepository teacherRepository)
         {
@@ -30,6 +30,6 @@ namespace RozkladSchool.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }*/
+        }
     }
 }

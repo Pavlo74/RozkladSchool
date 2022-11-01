@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Rozklad.Core.Migrations
 {
-    public partial class tye : Migration
+    public partial class ghghf : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -218,7 +218,8 @@ namespace Rozklad.Core.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PupilName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Year = table.Column<int>(type: "int", nullable: false),
-                    ClassRoomId = table.Column<int>(type: "int", nullable: false)
+                    ClassRoomId = table.Column<int>(type: "int", nullable: false),
+                    IconPath = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -240,7 +241,8 @@ namespace Rozklad.Core.Migrations
                     LessonName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Year = table.Column<int>(type: "int", nullable: false),
                     DisciplineId = table.Column<int>(type: "int", nullable: false),
-                    TeacherId = table.Column<int>(type: "int", nullable: false)
+                    TeacherId = table.Column<int>(type: "int", nullable: false),
+                    PupilId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -252,36 +254,16 @@ namespace Rozklad.Core.Migrations
                         principalColumn: "DisciplineId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_Lessons_Pupils_PupilId",
+                        column: x => x.PupilId,
+                        principalTable: "Pupils",
+                        principalColumn: "PupilId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Lessons_Teachers_TeacherId",
                         column: x => x.TeacherId,
                         principalTable: "Teachers",
                         principalColumn: "TeacherId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PupilLessons",
-                columns: table => new
-                {
-                    PupilLessonId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PupilId = table.Column<int>(type: "int", nullable: false),
-                    LessonId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PupilLessons", x => x.PupilLessonId);
-                    table.ForeignKey(
-                        name: "FK_PupilLessons_Lessons_LessonId",
-                        column: x => x.LessonId,
-                        principalTable: "Lessons",
-                        principalColumn: "LessonId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PupilLessons_Pupils_PupilId",
-                        column: x => x.PupilId,
-                        principalTable: "Pupils",
-                        principalColumn: "PupilId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -295,10 +277,8 @@ namespace Rozklad.Core.Migrations
                     Day = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TimeStart = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TimeEnd = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IconPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CabinetId = table.Column<int>(type: "int", nullable: false),
-                    LessonId = table.Column<int>(type: "int", nullable: false),
-                    ClassRoomId = table.Column<int>(type: "int", nullable: true)
+                    LessonId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -309,11 +289,6 @@ namespace Rozklad.Core.Migrations
                         principalTable: "Cabinets",
                         principalColumn: "CabinetId",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Timetables_ClassRooms_ClassRoomId",
-                        column: x => x.ClassRoomId,
-                        principalTable: "ClassRooms",
-                        principalColumn: "ClassRoomId");
                     table.ForeignKey(
                         name: "FK_Timetables_Lessons_LessonId",
                         column: x => x.LessonId,
@@ -327,9 +302,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "2a1691f9-5b80-4474-87ce-2521924f7662", "f87baa63-8f4d-4f14-9d07-34dbcee185d9", "Admin", "ADMIN" },
-                    { "2a7262f2-a364-4c16-8c8b-50cb5f8bc912", "5a7003af-8c2a-4db9-8ce3-571dc308db6a", "User", "USER" },
-                    { "813ef753-2bac-41fa-8c91-400e8154fd40", "840ab6c6-0e09-4de6-9586-c4fa8c26caf6", "Moderator", "MODERATOR" }
+                    { "91ac6f4d-eee6-44ba-9dd4-01d684957fea", "9509be73-8995-4b29-8868-6d9280627486", "Admin", "ADMIN" },
+                    { "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22", "5c90d634-9881-41f3-90d7-9d7ef2147634", "User", "USER" },
+                    { "c8873450-7d37-4bb0-bf05-f63b95e508cc", "626ffe1a-e191-41c9-a250-4687639196bd", "Moderator", "MODERATOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -337,9 +312,9 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "2aef4478-4f27-46b5-9e6a-9f6887ee592d", 0, "17727b03-bce9-44f6-8150-447e1b49bff1", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEHGTBcHeNlgIW+1qkzZTGCc8Sq2LaF/PYCOTw3xRNZqrKzFypV2osYxU5Ea36Ro9wg==", null, false, "733b5e60-2edf-4052-ba24-aee840919569", false, "admin@rozkladschool.com" },
-                    { "6782aef8-34b7-40b4-bd9c-bbf027ea5429", 0, "83f11467-9910-486e-aa6b-5c68b92ac33a", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEH/v+s0vRKMmhAsnuQBCCIBO1zNhuSCGhTMadRUpm+0D//DFe4Eu8Piii+R71dpM7A==", null, false, "b1233c88-827c-49f8-879f-29adccc03144", false, "user@rozkladschool.com" },
-                    { "c0655d4d-8d3c-4be5-a20e-5f470161ba66", 0, "9e6a78c5-5300-4aef-adba-b52fb24e587a", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEE975+Tr5Hf1lJKX1seSivI6xs5bKPTsFPnEdcFh+Elh+eNoGbh1CV8SAcU6M6Z+1Q==", null, false, "62df0d2f-70f7-4fc2-b55b-ed0cbba0e4a2", false, "moderator@rozkladschool.com" }
+                    { "17373436-a14b-4e95-bd3e-1b1ceeaca1fd", 0, "8426ab97-a6a4-4b2d-980c-96fc818de965", "admin@rozkladschool.com", true, null, null, false, null, "ADMIN@ROZKLADSCHOOL.COM", "ADMIN@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEDUaLDL8r42lLUEeJT0lLYYc6LCA7FRV3S/GZqyV3ETKgUEfDx84EgxnO7158BlJsQ==", null, false, "e1bf55fe-1364-4907-abc8-999188aea8e4", false, "admin@rozkladschool.com" },
+                    { "49c43f35-8a90-4eff-a277-c50542db7d6c", 0, "019749b8-5daf-4fcc-8373-d6a18af585bd", "user@rozkladschool.com", true, null, null, false, null, "USER@ROZKLADSCHOOL.COM", "USER@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAEM0A5EhN0IN2aCo85K79HDQFdVR6+aAxmS7mRi0d9jThYHwhLPwnnmRfWuyHBx9yLw==", null, false, "daa2c754-10dc-4cbf-a7d2-88152736ed1a", false, "user@rozkladschool.com" },
+                    { "e1013275-165a-419c-9e01-105c5295141f", 0, "6cb2d62d-a1cb-4413-8122-aa10201f9c9f", "moderator@rozkladschool.com", true, null, null, false, null, "MODERATOR@ROZKLADSCHOOL.COM", "MODERATOR@ROZKLADSCHOOL.COM", "AQAAAAEAACcQAAAAECRszaPd87+qQEdeJ6Hs0p3qL5DeKxoiU9OgFqrS7aTQ/DqyVLSd1fK9Rqck17oaHw==", null, false, "7d8a947f-a2a6-4712-8ece-d10078fc8f7d", false, "moderator@rozkladschool.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -387,48 +362,53 @@ namespace Rozklad.Core.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "2a1691f9-5b80-4474-87ce-2521924f7662", "2aef4478-4f27-46b5-9e6a-9f6887ee592d" },
-                    { "2a7262f2-a364-4c16-8c8b-50cb5f8bc912", "2aef4478-4f27-46b5-9e6a-9f6887ee592d" },
-                    { "813ef753-2bac-41fa-8c91-400e8154fd40", "2aef4478-4f27-46b5-9e6a-9f6887ee592d" },
-                    { "2a7262f2-a364-4c16-8c8b-50cb5f8bc912", "6782aef8-34b7-40b4-bd9c-bbf027ea5429" },
-                    { "2a7262f2-a364-4c16-8c8b-50cb5f8bc912", "c0655d4d-8d3c-4be5-a20e-5f470161ba66" },
-                    { "813ef753-2bac-41fa-8c91-400e8154fd40", "c0655d4d-8d3c-4be5-a20e-5f470161ba66" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Lessons",
-                columns: new[] { "LessonId", "DisciplineId", "LessonName", "TeacherId", "Year" },
-                values: new object[,]
-                {
-                    { 1, 1, "Географія, 1-й рік, 1-А клас", 1, 1 },
-                    { 2, 2, "Біологія, 1-й рік, 1-Б клас", 2, 1 },
-                    { 3, 3, "Математика, 2-й рік, 2-А клас", 3, 2 }
+                    { "91ac6f4d-eee6-44ba-9dd4-01d684957fea", "17373436-a14b-4e95-bd3e-1b1ceeaca1fd" },
+                    { "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22", "17373436-a14b-4e95-bd3e-1b1ceeaca1fd" },
+                    { "c8873450-7d37-4bb0-bf05-f63b95e508cc", "17373436-a14b-4e95-bd3e-1b1ceeaca1fd" },
+                    { "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22", "49c43f35-8a90-4eff-a277-c50542db7d6c" },
+                    { "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22", "e1013275-165a-419c-9e01-105c5295141f" },
+                    { "c8873450-7d37-4bb0-bf05-f63b95e508cc", "e1013275-165a-419c-9e01-105c5295141f" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Pupils",
-                columns: new[] { "PupilId", "ClassRoomId", "PupilName", "Year" },
+                columns: new[] { "PupilId", "ClassRoomId", "IconPath", "PupilName", "Year" },
                 values: new object[,]
                 {
-                    { 1, 1, "Белінський О.О", 1 },
-                    { 2, 2, "Кошубінський П.Р", 1 },
-                    { 3, 3, "Богач В.Е", 2 }
+                    { 1, 1, "Images\\1200h790_1-4_klass_t.png", "Белінський О.О", 1 },
+                    { 2, 2, "Images\\1200h790_1-4_klass_t.png", "Кошубінський П.Р", 1 },
+                    { 3, 3, "Images\\1200h790_1-4_klass_t.png", "Богач В.Е", 2 }
                 });
 
             migrationBuilder.InsertData(
-                table: "Timetables",
-                columns: new[] { "TimetableId", "CabinetId", "ClassRoomId", "Day", "IconPath", "LessonId", "LessonNumber", "TimeEnd", "TimeStart" },
-                values: new object[] { 1, 1, null, "Понеділок", "Images\\1200h790_1-4_klass_t.png", 1, 1, "9:45", "9:00" });
+                table: "Lessons",
+                columns: new[] { "LessonId", "DisciplineId", "LessonName", "PupilId", "TeacherId", "Year" },
+                values: new object[] { 1, 1, "Географія, 1-й рік, 1-А клас", 1, 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Lessons",
+                columns: new[] { "LessonId", "DisciplineId", "LessonName", "PupilId", "TeacherId", "Year" },
+                values: new object[] { 2, 2, "Біологія, 1-й рік, 1-Б клас", 2, 2, 1 });
+
+            migrationBuilder.InsertData(
+                table: "Lessons",
+                columns: new[] { "LessonId", "DisciplineId", "LessonName", "PupilId", "TeacherId", "Year" },
+                values: new object[] { 3, 3, "Математика, 2-й рік, 2-А клас", 3, 3, 2 });
 
             migrationBuilder.InsertData(
                 table: "Timetables",
-                columns: new[] { "TimetableId", "CabinetId", "ClassRoomId", "Day", "IconPath", "LessonId", "LessonNumber", "TimeEnd", "TimeStart" },
-                values: new object[] { 2, 2, null, "Вівторок", "Images\\1200h790_1-4_klass_t.png", 2, 2, "10:45", "10:00" });
+                columns: new[] { "TimetableId", "CabinetId", "Day", "LessonId", "LessonNumber", "TimeEnd", "TimeStart" },
+                values: new object[] { 1, 1, "Понеділок", 1, 1, "9:45", "9:00" });
 
             migrationBuilder.InsertData(
                 table: "Timetables",
-                columns: new[] { "TimetableId", "CabinetId", "ClassRoomId", "Day", "IconPath", "LessonId", "LessonNumber", "TimeEnd", "TimeStart" },
-                values: new object[] { 3, 3, null, "Середа", "Images\\1200h790_1-4_klass_t.png", 3, 3, "11:45", "11:00" });
+                columns: new[] { "TimetableId", "CabinetId", "Day", "LessonId", "LessonNumber", "TimeEnd", "TimeStart" },
+                values: new object[] { 2, 2, "Вівторок", 2, 2, "10:45", "10:00" });
+
+            migrationBuilder.InsertData(
+                table: "Timetables",
+                columns: new[] { "TimetableId", "CabinetId", "Day", "LessonId", "LessonNumber", "TimeEnd", "TimeStart" },
+                values: new object[] { 3, 3, "Середа", 3, 3, "11:45", "11:00" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -475,20 +455,14 @@ namespace Rozklad.Core.Migrations
                 column: "DisciplineId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Lessons_PupilId",
+                table: "Lessons",
+                column: "PupilId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Lessons_TeacherId",
                 table: "Lessons",
                 column: "TeacherId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PupilLessons_LessonId",
-                table: "PupilLessons",
-                column: "LessonId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PupilLessons_PupilId",
-                table: "PupilLessons",
-                column: "PupilId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Pupils_ClassRoomId",
@@ -499,11 +473,6 @@ namespace Rozklad.Core.Migrations
                 name: "IX_Timetables_CabinetId",
                 table: "Timetables",
                 column: "CabinetId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Timetables_ClassRoomId",
-                table: "Timetables",
-                column: "ClassRoomId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Timetables_LessonId",
@@ -529,9 +498,6 @@ namespace Rozklad.Core.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "PupilLessons");
-
-            migrationBuilder.DropTable(
                 name: "Timetables");
 
             migrationBuilder.DropTable(
@@ -541,22 +507,22 @@ namespace Rozklad.Core.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Pupils");
-
-            migrationBuilder.DropTable(
                 name: "Cabinets");
 
             migrationBuilder.DropTable(
                 name: "Lessons");
 
             migrationBuilder.DropTable(
-                name: "ClassRooms");
-
-            migrationBuilder.DropTable(
                 name: "Disciplines");
 
             migrationBuilder.DropTable(
+                name: "Pupils");
+
+            migrationBuilder.DropTable(
                 name: "Teachers");
+
+            migrationBuilder.DropTable(
+                name: "ClassRooms");
         }
     }
 }

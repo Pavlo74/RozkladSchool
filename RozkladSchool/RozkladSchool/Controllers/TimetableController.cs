@@ -9,16 +9,16 @@ namespace RozkladSchool.Controllers
 {
     public class TimetableController : Controller
     { 
-        /*private readonly ILogger<TimetableController> _logger;
+        private readonly ILogger<TimetableController> _logger;
         private readonly TimetableRepository _timetableRepository;
         private readonly ClassRoomRepository _classRoomRepository;
         private readonly CabinetRepository _cabinetRepository;
         private readonly DisciplineRepository _disciplineRepository;
         private readonly TeacherRepository _teacherRepository;
         private readonly PupilRepository _pupilRepository;
-        //private readonly SectionRepository _sectionRepository;
+        private readonly LessonRepository _lessonRepository;
         public TimetableController(ILogger<TimetableController> logger, TimetableRepository timetableRepository, ClassRoomRepository classRoomRepository, CabinetRepository cabinetRepository,
-            DisciplineRepository disciplineRepository, TeacherRepository teacherRepository, PupilRepository pupilRepository)
+            DisciplineRepository disciplineRepository, TeacherRepository teacherRepository, PupilRepository pupilRepository, LessonRepository lessonRepository)
         {
             _logger = logger;
             _timetableRepository = timetableRepository;
@@ -27,7 +27,7 @@ namespace RozkladSchool.Controllers
             _disciplineRepository = disciplineRepository;
             _teacherRepository = teacherRepository;
             _pupilRepository = pupilRepository;
-            //_sectionRepository = sectionRepository;
+            _lessonRepository = lessonRepository;
         }
 
         public IActionResult Index()
@@ -42,19 +42,21 @@ namespace RozkladSchool.Controllers
             ViewBag.Disciplines = _disciplineRepository.GetDisciplines();
             ViewBag.Teachers = _teacherRepository.GetTeachers();
             ViewBag.Pupils = _pupilRepository.GetPupils();
+            ViewBag.Lessons = _lessonRepository.GetLessons();
             return View();
         }
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> AddRozklad(TimetableCreateDto timetableDto, string cabinetName, string className,
-            string teacherName, string sectionName, string disciplineName, string pupilName)
+            string teacherName, string lessonName, string disciplineName, string pupilName)
         {
             ViewBag.Cabinets = _cabinetRepository.GetCabinets();
             ViewBag.Classes = _classRoomRepository.GetClasses();
             ViewBag.Disciplines = _disciplineRepository.GetDisciplines();
             ViewBag.Teachers = _teacherRepository.GetTeachers();
             ViewBag.Pupils = _pupilRepository.GetPupils();
+            ViewBag.Lessons = _lessonRepository.GetLessons();
 
             if (ModelState.IsValid)
             {
@@ -65,6 +67,13 @@ namespace RozkladSchool.Controllers
                     cabinet = await _cabinetRepository.AddCabinetAsync(cabinet);
                 }
 
+                var discipline = _disciplineRepository.GetDisciplineByName(disciplineName);
+                if (discipline == null)
+                {
+                    discipline = new Discipline() { DisciplineName = disciplineName };
+                    discipline = await _disciplineRepository.AddDisciplineAsync(discipline);
+                }
+
                 var pupil = _pupilRepository.GetPupilByName(pupilName);
                 if (pupil == null)
                 {
@@ -72,14 +81,6 @@ namespace RozkladSchool.Controllers
                     pupil = await _pupilRepository.AddPupilAsync(pupil);
                 }
 
-                var clas = _classRoomRepository.GetClassByName(className);
-                if (clas == null)
-                {
-                    clas = new ClassRoom() { ClassRoomName = className, Pupil = pupil };
-                    clas = await _classRoomRepository.AddClassAsync(clas);
-                }
-
-                
                 var teacher = _teacherRepository.GetTeacherByName(teacherName);
                 if (teacher == null)
                 {
@@ -87,22 +88,17 @@ namespace RozkladSchool.Controllers
                     teacher = await _teacherRepository.AddTeacherAsync(teacher);
                 }
 
-                
-
-               
-                var discipline = _disciplineRepository.GetDisciplineByName(disciplineName);
-                if (discipline == null)
+                var lesson = _lessonRepository.GetLessonByName(lessonName);
+                if (lesson == null)
                 {
-                    discipline = new Discipline() { DisciplineName = disciplineName, Teacher = teacher };
-                    discipline = await _disciplineRepository.AddDisciplineAsync(discipline);
+                    lesson = new Lesson() { LessonName = lessonName, Discipline = discipline, Teacher = teacher, Pupil = pupil };
+                    lesson = await _lessonRepository.AddLessonAsync(lesson);
                 }
-
 
                 var timetable = await _timetableRepository.AddTimetableAsync(new Timetable
                 {
                     Cabinet = cabinet,
-                    Discipline = discipline,
-                    ClassRoom = clas,
+                    Lesson = lesson,
                     LessonNumber = timetableDto.LessonNumber,
                     Day = timetableDto.Day,
                     TimeStart = timetableDto.TimeStart,
@@ -111,6 +107,37 @@ namespace RozkladSchool.Controllers
                 });
                 return RedirectToAction("Index", "Timetable", new { id = timetable.TimetableId });
             }
+            return View(timetableDto);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.Cabinets = _cabinetRepository.GetCabinets();
+            ViewBag.Classes = _classRoomRepository.GetClasses();
+            ViewBag.Disciplines = _disciplineRepository.GetDisciplines();
+            ViewBag.Teachers = _teacherRepository.GetTeachers();
+            ViewBag.Pupils = _pupilRepository.GetPupils();
+            ViewBag.Lessons = _lessonRepository.GetLessons();
+            return View(await _timetableRepository.GetTimetableDto(id));
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> Edit(TimetableReadDto timetableDto, string cabinetName, string className,
+            string teacherName, string lessonName, string disciplineName, string pupilName)
+        {
+            //if (ModelState.IsValid)
+            //{
+        await _timetableRepository.UpdateAsync(timetableDto, cabinetName, lessonName, disciplineName, teacherName, className);
+            return RedirectToAction();
+            //}
+            ViewBag.Cabinets = _cabinetRepository.GetCabinets();
+            ViewBag.Classes = _classRoomRepository.GetClasses();
+            ViewBag.Disciplines = _disciplineRepository.GetDisciplines();
+            ViewBag.Teachers = _teacherRepository.GetTeachers();
+            ViewBag.Pupils = _pupilRepository.GetPupils();
+            ViewBag.Lessons = _lessonRepository.GetLessons();
             return View(timetableDto);
         }
 
@@ -137,7 +164,7 @@ namespace RozkladSchool.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }*/
+        }
 
 
     }

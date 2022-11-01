@@ -12,15 +12,26 @@ namespace Rozklad.Repository.Dto.TimetableDto
         
 
         [Required]
-        
         public int LessonNumber { get; set; }
+        [Required]
         public string? Day { get; set; }
+        [Required]
         public string? TimeStart { get; set; }
+        [Required]
         public string? TimeEnd { get; set; }
+        [Required]
         public string? IconPath { get; set; }
-
+        [Required]
         public string? CabinetName { get; set; }
-
+        [Required]
+        public string? DisciplineName { get; set; }
+        [Required]
+        public string? TeacherName { get; set; }
+        [Required]
+        public string? ClassRoomName { get; set; }
+        [Required]
+        public string? PupilName { get; set; }
+        [Required]
         public string? LessonName { get; set; }
 
 

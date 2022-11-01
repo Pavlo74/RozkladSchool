@@ -1,4 +1,5 @@
-﻿using Rozklad.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using Rozklad.Core;
 using Rozklad.Repository.Dto.PupilDto;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,11 @@ namespace Rozklad.Repository.Repositories
 {
     public class PupilRepository
     {
-        /*private readonly RozkladContext _ctx;
+        private readonly RozkladContext _ctx;
         public PupilRepository(RozkladContext ctx)
         {
             _ctx = ctx;
         }
-
         public async Task<Pupil> AddPupilAsync(Pupil pupil)
         {
             _ctx.Pupils.Add(pupil);
@@ -23,26 +23,26 @@ namespace Rozklad.Repository.Repositories
             return _ctx.Pupils.FirstOrDefault(x => x.PupilName == pupil.PupilName);
         }
 
-        public List<Pupil> GetPupils()
-        {
-            var pupilList = _ctx.Pupils.ToList();
-            return pupilList;
-        }
-
         public Pupil GetPupil(int id)
         {
-            return _ctx.Pupils.FirstOrDefault(x => x.PupilId == id);
+            return _ctx.Pupils.Include(x => x.ClassRoom).FirstOrDefault(x => x.PupilId == id);
         }
 
         public Pupil GetPupilByName(string name)
         {
-            return _ctx.Pupils.FirstOrDefault(x => x.PupilName == name);
+            return _ctx.Pupils.Include(x => x.ClassRoom).FirstOrDefault(x => x.PupilName == name);
         }
 
-        public async Task DeleteTeacherAsync(int id)
+        public List<Pupil> GetPupils()
+        {
+            var pupilList = _ctx.Pupils.ToList(); 
+            return pupilList;
+        }
+
+        public async Task DeletePupilAsync(int id)
         {
             _ctx.Remove(GetPupil(id));
             await _ctx.SaveChangesAsync();
-        }*/
+        }
     }
 }

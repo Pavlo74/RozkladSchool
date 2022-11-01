@@ -7,7 +7,7 @@ namespace RozkladSchool.Controllers
 {
     public class ClassRoomController : Controller
     {
-        /*private readonly ILogger<ClassRoomController> _logger;
+        private readonly ILogger<ClassRoomController> _logger;
         private readonly ClassRoomRepository _classRoomRepository;
         public ClassRoomController(ILogger<ClassRoomController> logger, ClassRoomRepository classRoomRepository)
         {
@@ -30,6 +30,6 @@ namespace RozkladSchool.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }*/
+        }
     }
 }

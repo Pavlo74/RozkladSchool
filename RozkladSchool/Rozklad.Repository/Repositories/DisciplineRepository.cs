@@ -12,7 +12,7 @@ namespace Rozklad.Repository.Repositories
     public class DisciplineRepository
     {
 
-        /*private readonly RozkladContext _ctx;
+        private readonly RozkladContext _ctx;
         public DisciplineRepository(RozkladContext ctx)
         {
             _ctx = ctx;
@@ -33,18 +33,18 @@ namespace Rozklad.Repository.Repositories
 
         public Discipline GetDiscipline(int id)
         {
-            return _ctx.Disciplines.Include(x => x.Teacher).FirstOrDefault(x => x.DisciplineId == id);
+            return _ctx.Disciplines.FirstOrDefault(x => x.DisciplineId == id);
         }
 
         public Discipline GetDisciplineByName(string name)
         {
-            return _ctx.Disciplines.Include(x => x.Teacher).FirstOrDefault(x => x.DisciplineName == name);
+            return _ctx.Disciplines.FirstOrDefault(x => x.DisciplineName == name);
         }
 
-        public async Task DeleteCabinetAsync(int id)
+        public async Task DeleteDisciplineAsync(int id)
         {
             _ctx.Remove(GetDiscipline(id));
             await _ctx.SaveChangesAsync();
-        }*/
+        }
     }
 }

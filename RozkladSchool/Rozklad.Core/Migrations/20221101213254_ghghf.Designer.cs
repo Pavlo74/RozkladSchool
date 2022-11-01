@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rozklad.Core;
 
@@ -11,9 +12,10 @@ using Rozklad.Core;
 namespace Rozklad.Core.Migrations
 {
     [DbContext(typeof(RozkladContext))]
-    partial class RozkladContextModelSnapshot : ModelSnapshot
+    [Migration("20221101213254_ghghf")]
+    partial class ghghf
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,22 +53,22 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a2ec1c14-d8a6-4bfe-ba68-8cdd5b9f7fe6",
-                            ConcurrencyStamp = "a3bbf469-c1ff-4307-96cb-f13a66c0f07c",
+                            Id = "91ac6f4d-eee6-44ba-9dd4-01d684957fea",
+                            ConcurrencyStamp = "9509be73-8995-4b29-8868-6d9280627486",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4bd71e05-0f77-460e-9b56-f35ebd059d84",
-                            ConcurrencyStamp = "54bac86c-68c6-4f3e-9e9d-d9e1630617eb",
+                            Id = "c8873450-7d37-4bb0-bf05-f63b95e508cc",
+                            ConcurrencyStamp = "626ffe1a-e191-41c9-a250-4687639196bd",
                             Name = "Moderator",
                             NormalizedName = "MODERATOR"
                         },
                         new
                         {
-                            Id = "5217c34f-c94b-4cd0-97de-41d6c2e96a9e",
-                            ConcurrencyStamp = "0137c60e-3414-4472-9fc7-72a6128fcb78",
+                            Id = "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22",
+                            ConcurrencyStamp = "5c90d634-9881-41f3-90d7-9d7ef2147634",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -163,33 +165,33 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "dbe06bc0-6547-4a20-9106-88d63961f350",
-                            RoleId = "a2ec1c14-d8a6-4bfe-ba68-8cdd5b9f7fe6"
+                            UserId = "17373436-a14b-4e95-bd3e-1b1ceeaca1fd",
+                            RoleId = "91ac6f4d-eee6-44ba-9dd4-01d684957fea"
                         },
                         new
                         {
-                            UserId = "dbe06bc0-6547-4a20-9106-88d63961f350",
-                            RoleId = "4bd71e05-0f77-460e-9b56-f35ebd059d84"
+                            UserId = "17373436-a14b-4e95-bd3e-1b1ceeaca1fd",
+                            RoleId = "c8873450-7d37-4bb0-bf05-f63b95e508cc"
                         },
                         new
                         {
-                            UserId = "dbe06bc0-6547-4a20-9106-88d63961f350",
-                            RoleId = "5217c34f-c94b-4cd0-97de-41d6c2e96a9e"
+                            UserId = "17373436-a14b-4e95-bd3e-1b1ceeaca1fd",
+                            RoleId = "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22"
                         },
                         new
                         {
-                            UserId = "5d3aa3d8-a40f-4640-b9ab-57cc7a2dabac",
-                            RoleId = "4bd71e05-0f77-460e-9b56-f35ebd059d84"
+                            UserId = "e1013275-165a-419c-9e01-105c5295141f",
+                            RoleId = "c8873450-7d37-4bb0-bf05-f63b95e508cc"
                         },
                         new
                         {
-                            UserId = "5d3aa3d8-a40f-4640-b9ab-57cc7a2dabac",
-                            RoleId = "5217c34f-c94b-4cd0-97de-41d6c2e96a9e"
+                            UserId = "e1013275-165a-419c-9e01-105c5295141f",
+                            RoleId = "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22"
                         },
                         new
                         {
-                            UserId = "82148c97-32d1-4c4c-b455-f7492454b490",
-                            RoleId = "5217c34f-c94b-4cd0-97de-41d6c2e96a9e"
+                            UserId = "49c43f35-8a90-4eff-a277-c50542db7d6c",
+                            RoleId = "a432d9e5-62a1-4cd4-8b92-dc5d910e5b22"
                         });
                 });
 
@@ -236,19 +238,19 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             CabinetId = 1,
-                            CabinetName = "GeographyLab",
+                            CabinetName = "Географія",
                             RoomCapacity = 0
                         },
                         new
                         {
                             CabinetId = 2,
-                            CabinetName = "BiologyLab",
+                            CabinetName = "Біологія",
                             RoomCapacity = 0
                         },
                         new
                         {
                             CabinetId = 3,
-                            CabinetName = "MathLab",
+                            CabinetName = "Математика",
                             RoomCapacity = 0
                         });
                 });
@@ -281,7 +283,7 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             ClassRoomId = 2,
-                            ClassRoomName = "1-B",
+                            ClassRoomName = "1-Б",
                             Year = 1
                         },
                         new
@@ -311,17 +313,17 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             DisciplineId = 1,
-                            DisciplineName = "Geography"
+                            DisciplineName = "Географія"
                         },
                         new
                         {
                             DisciplineId = 2,
-                            DisciplineName = "Biology"
+                            DisciplineName = "Біологія"
                         },
                         new
                         {
                             DisciplineId = 3,
-                            DisciplineName = "Math"
+                            DisciplineName = "Математика"
                         });
                 });
 
@@ -363,7 +365,7 @@ namespace Rozklad.Core.Migrations
                         {
                             LessonId = 1,
                             DisciplineId = 1,
-                            LessonName = "Geography, 1-st year, 1-A clas",
+                            LessonName = "Географія, 1-й рік, 1-А клас",
                             PupilId = 1,
                             TeacherId = 1,
                             Year = 1
@@ -372,7 +374,7 @@ namespace Rozklad.Core.Migrations
                         {
                             LessonId = 2,
                             DisciplineId = 2,
-                            LessonName = "Biology, 1-st year, 1-B clas",
+                            LessonName = "Біологія, 1-й рік, 1-Б клас",
                             PupilId = 2,
                             TeacherId = 2,
                             Year = 1
@@ -381,7 +383,7 @@ namespace Rozklad.Core.Migrations
                         {
                             LessonId = 3,
                             DisciplineId = 3,
-                            LessonName = "Math, 2-st year, 2-A clas",
+                            LessonName = "Математика, 2-й рік, 2-А клас",
                             PupilId = 3,
                             TeacherId = 3,
                             Year = 2
@@ -420,7 +422,7 @@ namespace Rozklad.Core.Migrations
                             PupilId = 1,
                             ClassRoomId = 1,
                             IconPath = "Images\\1200h790_1-4_klass_t.png",
-                            PupilName = "Belinskiy O.O",
+                            PupilName = "Белінський О.О",
                             Year = 1
                         },
                         new
@@ -428,7 +430,7 @@ namespace Rozklad.Core.Migrations
                             PupilId = 2,
                             ClassRoomId = 2,
                             IconPath = "Images\\1200h790_1-4_klass_t.png",
-                            PupilName = "Koshubinskiy P.R",
+                            PupilName = "Кошубінський П.Р",
                             Year = 1
                         },
                         new
@@ -436,7 +438,7 @@ namespace Rozklad.Core.Migrations
                             PupilId = 3,
                             ClassRoomId = 3,
                             IconPath = "Images\\1200h790_1-4_klass_t.png",
-                            PupilName = "Bohach V.E",
+                            PupilName = "Богач В.Е",
                             Year = 2
                         });
                 });
@@ -460,17 +462,17 @@ namespace Rozklad.Core.Migrations
                         new
                         {
                             TeacherId = 1,
-                            TeacherName = "Kvashuk O.V."
+                            TeacherName = "Квашук О.В."
                         },
                         new
                         {
                             TeacherId = 2,
-                            TeacherName = "Zubenko I.R."
+                            TeacherName = "Зубенко І.Р."
                         },
                         new
                         {
                             TeacherId = 3,
-                            TeacherName = "Popchuk M.A."
+                            TeacherName = "Попчук М.А."
                         });
                 });
 
@@ -513,7 +515,7 @@ namespace Rozklad.Core.Migrations
                         {
                             TimetableId = 1,
                             CabinetId = 1,
-                            Day = "Monday",
+                            Day = "Понеділок",
                             LessonId = 1,
                             LessonNumber = 1,
                             TimeEnd = "9:45",
@@ -523,7 +525,7 @@ namespace Rozklad.Core.Migrations
                         {
                             TimetableId = 2,
                             CabinetId = 2,
-                            Day = "Tuesday",
+                            Day = "Вівторок",
                             LessonId = 2,
                             LessonNumber = 2,
                             TimeEnd = "10:45",
@@ -533,7 +535,7 @@ namespace Rozklad.Core.Migrations
                         {
                             TimetableId = 3,
                             CabinetId = 3,
-                            Day = "Wednesday",
+                            Day = "Середа",
                             LessonId = 3,
                             LessonNumber = 3,
                             TimeEnd = "11:45",
@@ -614,49 +616,49 @@ namespace Rozklad.Core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dbe06bc0-6547-4a20-9106-88d63961f350",
+                            Id = "17373436-a14b-4e95-bd3e-1b1ceeaca1fd",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ae7bd489-8e1f-443a-aa5a-a2110e09e32b",
+                            ConcurrencyStamp = "8426ab97-a6a4-4b2d-980c-96fc818de965",
                             Email = "admin@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "ADMIN@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEImcnToRINk8h64WNPtX5UzOtIxXMbW2OlDXMonShVMAMuzOyJFvyifKd693WllQsw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDUaLDL8r42lLUEeJT0lLYYc6LCA7FRV3S/GZqyV3ETKgUEfDx84EgxnO7158BlJsQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2cd0004c-ab21-46dd-853d-e2e4b623d060",
+                            SecurityStamp = "e1bf55fe-1364-4907-abc8-999188aea8e4",
                             TwoFactorEnabled = false,
                             UserName = "admin@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "5d3aa3d8-a40f-4640-b9ab-57cc7a2dabac",
+                            Id = "e1013275-165a-419c-9e01-105c5295141f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f11cb17f-e222-41d5-8e8d-757e0bef0d7a",
+                            ConcurrencyStamp = "6cb2d62d-a1cb-4413-8122-aa10201f9c9f",
                             Email = "moderator@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MODERATOR@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "MODERATOR@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFyGprb28wyLvZSJipaVhZF2mQgWk+0gY/w8KpCyK751kG345ogEn3fHir2D7SjJxg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAECRszaPd87+qQEdeJ6Hs0p3qL5DeKxoiU9OgFqrS7aTQ/DqyVLSd1fK9Rqck17oaHw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "76b59026-9922-47a7-b1ad-62d75c8bae8f",
+                            SecurityStamp = "7d8a947f-a2a6-4712-8ece-d10078fc8f7d",
                             TwoFactorEnabled = false,
                             UserName = "moderator@rozkladschool.com"
                         },
                         new
                         {
-                            Id = "82148c97-32d1-4c4c-b455-f7492454b490",
+                            Id = "49c43f35-8a90-4eff-a277-c50542db7d6c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c24fc272-2ab5-470d-afca-2580f452c7e4",
+                            ConcurrencyStamp = "019749b8-5daf-4fcc-8373-d6a18af585bd",
                             Email = "user@rozkladschool.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@ROZKLADSCHOOL.COM",
                             NormalizedUserName = "USER@ROZKLADSCHOOL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO7Mc/0E/w04TLhz406XTWDoThk0kwSiT01ndX0Q+R96ZY2V76a94nTbEOFfk8K/HA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEM0A5EhN0IN2aCo85K79HDQFdVR6+aAxmS7mRi0d9jThYHwhLPwnnmRfWuyHBx9yLw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b6fcd712-7144-4a4c-9ee7-9c21476f01b5",
+                            SecurityStamp = "daa2c754-10dc-4cbf-a7d2-88152736ed1a",
                             TwoFactorEnabled = false,
                             UserName = "user@rozkladschool.com"
                         });

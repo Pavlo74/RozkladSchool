@@ -17,8 +17,9 @@ namespace Rozklad.Core
         public Discipline? Discipline { get; set; }
         public int TeacherId { get; set; }
         public Teacher? Teacher { get; set; }
-        
-        public PupilLesson? PupilLesson { get; set; }
+
+        public int PupilId { get; set; }
+        public Pupil? Pupil { get; set; }
 
         public virtual ICollection<Timetable>? Timetables { get; set; }
     }
