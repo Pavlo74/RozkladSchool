@@ -95,6 +95,7 @@ namespace Rozklad.Core
                 });
 
 
+<<<<<<< HEAD
             builder.Entity<Day>().HasData(
                new Day
                {
@@ -174,79 +175,130 @@ namespace Rozklad.Core
                     EndTime = "16.45",
                     //TimetableId = 5
                 }
+=======
 
+            builder.Entity<Teacher>().HasData(
+             new Teacher
+             {
+                 TeacherId = 1,
+                 TeacherName = "Kvashuk O.V.",
+                 
+              },
 
-               );
+                       new Teacher
+                       {
+                           TeacherId = 2,
+                           TeacherName = "Zubenko I.R.",
+                       },
+                        new Teacher
+                        {
+                            TeacherId = 3,
+                            TeacherName = "Popchuk M.A.",
+                        }
+             );
+>>>>>>> admin
+
+            builder.Entity<Pupil>().HasData(
+           new Pupil
+           {
+               PupilId = 1,
+               PupilName = "Belinskiy O.O",
+               Year = 1,
+               ClassRoomId = 1,
+               IconPath = @"Images\1200h790_1-4_klass_t.png"
+               //SectionId = 1
+           },
+
+            new Pupil
+            {
+                PupilId = 2,
+                PupilName = "Koshubinskiy P.R",
+                Year = 1,
+                ClassRoomId = 2,
+                IconPath = @"Images\1200h790_1-4_klass_t.png"
+                //SectionId = 2
+            },
+             new Pupil
+             {
+                 PupilId = 3,
+                 PupilName = "Bohach V.E",
+                 Year = 2,
+                 ClassRoomId = 3,
+                 IconPath = @"Images\1200h790_1-4_klass_t.png"
+                 //SectionId = 3
+             }
+           );
+
+           
+
+            builder.Entity<ClassRoom>().HasData(
+           new ClassRoom
+           {
+               ClassRoomId = 1,
+               ClassRoomName = "1-A",
+               Year = 1
+               
+
+           },
+
+           new ClassRoom
+           {
+               ClassRoomId = 2,
+               ClassRoomName = "1-B",
+               Year = 1
+               
+
+           },
+           new ClassRoom
+           {
+               ClassRoomId = 3,
+               ClassRoomName = "2-A",
+               Year = 2
+               
+
+           });
+
             builder.Entity<Cabinet>().HasData(
                new Cabinet
                {
                   CabinetId = 1,
-                  Name="Географія",
-                  // TimetableId = 1
+                  CabinetName="GeographyLab",
                },
                        new Cabinet
                        {
                            CabinetId = 2,
-                           Name = "Біологія",
-                          // TimetableId = 2
+                           CabinetName = "BiologyLab",
                        },
                                new Cabinet
                                {
                                    CabinetId = 3,
-                                   Name = "Математика",
-                                   //TimetableId = 3
-                               },
-                                       new Cabinet
-                                       {
-                                           CabinetId = 4,
-                                           Name = "Укр мова",
-                                          // TimetableId = 4
-                                       },
-                                               new Cabinet
-                                               {
-                                                   CabinetId = 5,
-                                                   Name = "Історія",
-                                                  // TimetableId = 5
-                                               }
-
-
+                                   CabinetName = "MathLab",
+                               }
+                                       
                );
 
             builder.Entity<Discipline>().HasData(
               new Discipline
               {
                   DisciplineId=1,
-                  DisciplineName="Географія",
-                 // TimetableId = 1
+                  DisciplineName="Geography"
+                  
               },
                  new Discipline
                  {
                      DisciplineId = 2,
-                     DisciplineName = "Біологія",
-                     //TimetableId = 2
+                     DisciplineName = "Biology"
+                    
                  },
                    new Discipline
                    {
                        DisciplineId = 3,
-                       DisciplineName = "Математика",
-                      // TimetableId = 3
-                   },
-                     new Discipline
-                     {
-                         DisciplineId = 4,
-                         DisciplineName = "Укр мова",
-                         //TimetableId = 4
-                     },
-                       new Discipline
-                       {
-                           DisciplineId = 5,
-                           DisciplineName = "Історія",
-                          // TimetableId = 5
-                       }
-
-
+                       DisciplineName = "Math"
+                      
+                   } 
               );
 
+<<<<<<< HEAD
 
             builder.Entity<Class>().HasData(
              new Class
@@ -282,11 +334,42 @@ namespace Rozklad.Core
 
 
 
+=======
+            builder.Entity<Lesson>().HasData(
+             new Lesson
+             {
+                 LessonId = 1,
+                 LessonName = "Geography, 1-st year, 1-A clas",
+                 Year = 1,
+                 DisciplineId = 1,
+                 TeacherId = 1,
+                 PupilId = 1
+             },
+                new Lesson
+                {
+                    LessonId= 2,
+                    LessonName = "Biology, 1-st year, 1-B clas",
+                    Year = 1,
+                    DisciplineId = 2,
+                    TeacherId = 2,
+                    PupilId = 2
+                },
+                  new Lesson
+                  {
+                      LessonId = 3,
+                      LessonName = "Math, 2-st year, 2-A clas",
+                      Year = 2,
+                      DisciplineId = 3,
+                      TeacherId=3,
+                      PupilId = 3
+                  }
+>>>>>>> admin
              );
 
             builder.Entity<Timetable>().HasData(
              new Timetable
              {
+<<<<<<< HEAD
 
                  TimetableId = 1,
                  ClassId = 1,
@@ -297,31 +380,50 @@ namespace Rozklad.Core
                  CabinetId = 1,
 
                 
+=======
+                 TimetableId= 1,
+                 
+                 Day = "Monday",
+                 LessonNumber=1,
+                 TimeStart = "9:00",
+                 TimeEnd = "9:45",
+                 CabinetId = 1,
+                 LessonId = 1,
+                 UserId = ADMIN_ID
+                 
+                 
+                 
+>>>>>>> admin
              },
              new Timetable
              {
                  TimetableId = 2,
-                 ClassId = 2,
+                
+                 Day = "Tuesday",
+                 LessonNumber = 2,
+                 TimeStart = "10:00",
+                 TimeEnd = "10:45",
+                 CabinetId = 2,
                  LessonId = 2,
-                 DayId = 2,
-                 IconPath= @"Images\1200TE790_5_klass_t.png",
-                 DisciplineId = 2,
-                 CabinetId = 2
-             }
+                 UserId = ADMIN_ID
+                 
 
+             },
+
+              new Timetable
+              {
+                  TimetableId = 3,
+                 
+                  LessonNumber =3,
+                  Day = "Wednesday",
+                  TimeStart = "11:00",
+                  TimeEnd = "11:45",
+                  CabinetId = 3,
+                  LessonId = 3,
+                  UserId = ADMIN_ID
+                  
+              }
              );
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
     }

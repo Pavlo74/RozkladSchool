@@ -5,20 +5,21 @@ using System.Diagnostics;
 
 namespace RozkladSchool.Controllers
 {
-    public class HomeController : Controller
+    public class TeacherController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly TimetableRepository _timetableRepository;
-        public HomeController(ILogger<HomeController> logger, TimetableRepository timetableRepository)
+        private readonly ILogger<TeacherController> _logger;
+        private readonly TeacherRepository _teacherRepository;
+        public TeacherController(ILogger<TeacherController> logger, TeacherRepository teacherRepository)
         {
             _logger = logger;
-            _timetableRepository = timetableRepository;
+            _teacherRepository = teacherRepository;
         }
 
         public IActionResult Index()
-         {
-            return View(_timetableRepository.GetTimetables());
+        {
+            return View(_teacherRepository.GetTeachers());
         }
+
 
         public IActionResult Privacy()
         {

@@ -76,6 +76,12 @@ namespace Rozklad.Repository
             return userDto;
         }
 
+
+        public User GetUserByEmail(string email)
+        {
+            return _ctx.Users.FirstOrDefault(x => x.Email == email);
+        }
+
         public async Task<IEnumerable<UserReadDto>> GetUsersAsync()
         {
             var users = new List<UserReadDto>();

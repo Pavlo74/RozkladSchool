@@ -15,9 +15,13 @@ namespace RozkladSchool.Controllers
             _lessonRepository = lessonRepository;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
+<<<<<<< HEAD
             return View(await _lessonRepository.GetLessonsAsync());
+=======
+            return View(_lessonRepository.GetLessons());
+>>>>>>> admin
         }
 
 

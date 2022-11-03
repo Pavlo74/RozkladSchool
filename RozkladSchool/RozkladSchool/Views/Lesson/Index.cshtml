@@ -1,11 +1,12 @@
-﻿@using Rozklad.Repository.Dto.LessonDto
-@model IEnumerable<LessonReadDto>
+﻿@using Rozklad.Core
+@using Rozklad.Repository.Dto.PupilDto
+@model IEnumerable<Lesson>
 
 @{
 }
 
 <div class="float-end">
-    <a href="/lesson/create" class="btn btn-outline-primary">Додати урок</a>
+    <a href="/cabinet/create" class="btn btn-outline-primary">Додати урок</a>
 </div>
 
 
@@ -16,9 +17,8 @@
     <thead>
         <tr>
             <th>LessonId</th>
-            <th>LessonNumber</th>
-            <th>StartTime</th>
-            <th>EndTime</th>
+            <th>LessonName</th>
+            <th>Year</th>
             
         </tr>
     </thead>
@@ -26,10 +26,10 @@
         @foreach(var u in Model)
         {
             <tr>
-                 <td>@u.LessonId </td>
-                <td>@u.LessonNumber </td>
-                <td>@u.StartTime </td>
-                <td>@u.EndTime </td>
+                <td>@u.LessonId </td>
+                <td>@u.LessonName </td>
+                <td>@u.Year </td>
+                
                 
                 <td>
                     <a href="/users/edit/@u.LessonId" class="btn btn-warning">Редагувати</a>

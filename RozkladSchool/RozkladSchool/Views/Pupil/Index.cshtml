@@ -1,0 +1,39 @@
+﻿@using Rozklad.Core
+@using Rozklad.Repository.Dto.PupilDto
+@model IEnumerable<Pupil>
+
+@{
+}
+
+<div class="float-end">
+    <a href="/cabinet/create" class="btn btn-outline-primary">Додати учня</a>
+</div>
+
+
+<h1>Список учнів</h1>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>PupilId</th>
+            <th>PupilName</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var u in Model)
+        {
+            <tr>
+                <td>@u.PupilId </td>
+                <td>@u.PupilName </td>
+                
+                
+                <td>
+                    <a href="/users/edit/@u.PupilId" class="btn btn-warning">Редагувати</a>
+                    <a href="/users/delete/@u.PupilId" class="btn btn-danger">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

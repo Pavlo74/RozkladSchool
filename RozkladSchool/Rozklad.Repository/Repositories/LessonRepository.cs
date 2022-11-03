@@ -1,5 +1,5 @@
-﻿using Rozklad.Core;
-using Rozklad.Repository.Dto.LessonDto;
+﻿using Microsoft.EntityFrameworkCore;
+using Rozklad.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,28 +10,49 @@ namespace Rozklad.Repository.Repositories
 {
     public class LessonRepository
     {
-
         private readonly RozkladContext _ctx;
         public LessonRepository(RozkladContext ctx)
         {
             _ctx = ctx;
         }
+<<<<<<< HEAD
 
         public async Task<IEnumerable<LessonReadDto>> GetLessonsAsync()
+=======
+        public async Task<Lesson> AddLessonAsync(Lesson lesson)
+>>>>>>> admin
         {
-            var lessonDto = _ctx.Lessons.
-                Select(x => new LessonReadDto
-                {
-                    LessonId = x.LessonId,
-                    LessonNumber = x.LessonNumber,
-                    StartTime = x.StartTime,
-                    EndTime=x.EndTime,
+            _ctx.Lessons.Add(lesson);
+            await _ctx.SaveChangesAsync();
+            return _ctx.Lessons.FirstOrDefault(x => x.LessonName == lesson.LessonName);
+        }
 
+<<<<<<< HEAD
 
                     Timetables = x.Timetables
                 }).ToList();
+=======
+        public Lesson GetLesson(int id)
+        {
+            return _ctx.Lessons.Include(x => x.Discipline).Include(x => x.Teacher).Include(x => x.Pupil).FirstOrDefault(x => x.LessonId == id);
+        }
+>>>>>>> admin
 
-            return lessonDto;
+        public Lesson GetLessonByName(string name)
+        {
+            return _ctx.Lessons.Include(x => x.Discipline).Include(x => x.Teacher).Include(x => x.Pupil).FirstOrDefault(x => x.LessonName == name);
+        }
+
+        public List<Lesson> GetLessons()
+        {
+            var lessonList = _ctx.Lessons.ToList();
+            return lessonList;
+        }
+
+        public async Task DeleteVehicleModelAsync(int id)
+        {
+            _ctx.Remove(GetLesson(id));
+            await _ctx.SaveChangesAsync();
         }
     }
 }

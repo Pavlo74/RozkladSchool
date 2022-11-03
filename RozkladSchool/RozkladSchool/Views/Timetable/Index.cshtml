@@ -3,18 +3,28 @@
 @using Rozklad.Repository
 @using Rozklad.Repository.Dto.CabinetDto
 @using Rozklad.Repository.Dto.ClassDto
+<<<<<<< HEAD
 @using Rozklad.Repository.Dto.DayDto
 @using Rozklad.Repository.Dto.DisciplineDto
 @using Rozklad.Repository.Dto.LessonDto
 
 
 @model IEnumerable<TimetableReadDto>
+=======
+@using Rozklad.Repository.Dto.TeacherDto
+@using Rozklad.Repository.Dto.PupilDto
+
+
+
+@model IEnumerable<Timetable>
+>>>>>>> admin
 
 @{
 }
 
 
 
+<<<<<<< HEAD
 
 <div class="float-end">
     <a href="/days/create" class="btn btn-outline-primary">Додати день</a>
@@ -22,17 +32,30 @@
 
 
 <h1>Розклад уроків</h1>
+=======
+ <h1>Розклад уроків</h1>
+>>>>>>> admin
 <hr />
 
 <table class="table table-bordered">
     <thead>
         <tr>
            
+<<<<<<< HEAD
             <th>Урок</th>
             <th>Клас</th>
                <th>День</th>
                   <th> Предмет</th>
                      <th>Кабінет</th>
+=======
+            <th>День</th>
+            <th>Дисципліна</th>
+            <th>Кабінет</th>
+               <th>Вчитель</th>      
+                     <th>Початок</th>
+                     <th>Закінчення</th>
+                     
+>>>>>>> admin
             
         </tr>
     </thead>
@@ -41,6 +64,7 @@
         {
             <tr>
                
+<<<<<<< HEAD
                  <td>@u.Lesson.LessonNumber </td>
                  <td>@u.Class.ClassName  </td>
                 
@@ -55,3 +79,20 @@
         }
     </tbody>
 </table>
+=======
+                  <td>@u.Day</td>
+                  <td>@u.LessonNumber</td>
+                 
+                <td>@u.Lesson.Discipline.DisciplineName</td>
+                 <td>@u.Cabinet.CabinetName</td>
+                 <td>@u.Lesson.Teacher.TeacherName</td>
+                  <td> @u.TimeStart</td>
+                  <td>@u.TimeEnd</td>
+                  
+            
+            </tr>
+        }
+    </tbody>
+</table>
+
+>>>>>>> admin

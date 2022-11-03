@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace Rozklad.Core
 {
-    public class Discipline
+    public class Teacher
     {
         [Key]
-        public int DisciplineId { get; set; }
-        public string? DisciplineName { get; set; }
+        public int TeacherId { get; set; }
+        public string? TeacherName { get; set; }
         public virtual ICollection<Lesson>? Lessons { get; set; }
-
     }
 }

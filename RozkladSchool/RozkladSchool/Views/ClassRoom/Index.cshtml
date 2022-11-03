@@ -1,5 +1,6 @@
-﻿@using Rozklad.Repository.Dto.ClassDto
-@model IEnumerable<ClassReadDto>
+﻿@using Rozklad.Core
+@using Rozklad.Repository.Dto.ClassDto
+@model IEnumerable<ClassRoom>
 
 @{
 }
@@ -24,13 +25,13 @@
         @foreach(var u in Model)
         {
             <tr>
-                 <td>@u.ClassId </td>
-                <td>@u.ClassName </td>
+                 <td>@u.ClassRoomId </td>
+                <td>@u.ClassRoomName </td>
                 
                 
                 <td>
-                    <a href="/users/edit/@u.ClassId" class="btn btn-warning">Редагувати</a>
-                    <a href="/users/delete/@u.ClassId" class="btn btn-danger">Видалити</a>
+                    <a href="/users/edit/@u.ClassRoomId" class="btn btn-warning">Редагувати</a>
+                    <a href="/users/delete/@u.ClassRoomId" class="btn btn-danger">Видалити</a>
                 </td>
             </tr>
         }

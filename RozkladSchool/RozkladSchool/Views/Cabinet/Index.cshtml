@@ -1,5 +1,6 @@
-﻿@using Rozklad.Repository.Dto.CabinetDto
-@model IEnumerable<CabinetReadDto>
+﻿@using Rozklad.Core
+@using Rozklad.Repository.Dto.CabinetDto
+@model IEnumerable<Cabinet>
 
 @{
 }
@@ -25,7 +26,7 @@
         {
             <tr>
                 <td>@u.CabinetId </td>
-                <td>@u.Name </td>
+                <td>@u.CabinetName </td>
                 
                 
                 <td>
