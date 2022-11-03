@@ -15,17 +15,28 @@ namespace Rozklad.Repository.Repositories
         {
             _ctx = ctx;
         }
+<<<<<<< HEAD
+
+        public async Task<IEnumerable<LessonReadDto>> GetLessonsAsync()
+=======
         public async Task<Lesson> AddLessonAsync(Lesson lesson)
+>>>>>>> admin
         {
             _ctx.Lessons.Add(lesson);
             await _ctx.SaveChangesAsync();
             return _ctx.Lessons.FirstOrDefault(x => x.LessonName == lesson.LessonName);
         }
 
+<<<<<<< HEAD
+
+                    Timetables = x.Timetables
+                }).ToList();
+=======
         public Lesson GetLesson(int id)
         {
             return _ctx.Lessons.Include(x => x.Discipline).Include(x => x.Teacher).Include(x => x.Pupil).FirstOrDefault(x => x.LessonId == id);
         }
+>>>>>>> admin
 
         public Lesson GetLessonByName(string name)
         {
