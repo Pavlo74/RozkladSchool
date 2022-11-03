@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNetCore.Mvc;
-=======
+
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Rozklad.Core;
 using Rozklad.Repository;
 using Rozklad.Repository.Dto.TimetableDto;
->>>>>>> admin
+
 using Rozklad.Repository.Repositories;
 using RozkladSchool.Models;
 using System.Diagnostics;
@@ -14,7 +12,7 @@ using System.Diagnostics;
 namespace RozkladSchool.Controllers
 {
     public class TimetableController : Controller
-<<<<<<< HEAD
+
     {
        
         private readonly ILogger<TimetableController> _logger;
@@ -30,9 +28,8 @@ namespace RozkladSchool.Controllers
             return View(await _timetableRepository.GetTimetableAsync());
         }
 
-        public IActionResult Privacy()
-=======
-    { 
+        
+ 
         private readonly ILogger<TimetableController> _logger;
         private readonly TimetableRepository _timetableRepository;
         private readonly ClassRoomRepository _classRoomRepository;
@@ -62,7 +59,7 @@ namespace RozkladSchool.Controllers
         }
 
         public IActionResult Index()
->>>>>>> admin
+
         {
             return View(_timetableRepository.GetTimetables());
         }
