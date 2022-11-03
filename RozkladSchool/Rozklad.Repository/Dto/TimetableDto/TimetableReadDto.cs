@@ -23,6 +23,7 @@ namespace Rozklad.Repository.Dto.TimetableDto
         public string? PupilName { get; set; }
         public string? ClassRoomName { get; set; }
         public string? LessonName { get; set; }
+        public string? UserId { get; set; }
 
     }
 }

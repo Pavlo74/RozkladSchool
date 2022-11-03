@@ -23,6 +23,10 @@ namespace Rozklad.Core
         public Cabinet? Cabinet { get; set; }
         public int LessonId { get; set; }
         public Lesson? Lesson { get; set; }
+        
+        
+        public string? UserId { get; set; }
+        public User? User { get; set; }
 
 
 

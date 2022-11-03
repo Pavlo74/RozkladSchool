@@ -16,5 +16,6 @@ namespace Rozklad.Core
         
         public virtual ICollection<Pupil>? Pupils { get; set; }
         
+
     }
 }

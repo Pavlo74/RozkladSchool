@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Rozklad.Core;
+using Rozklad.Repository;
 using Rozklad.Repository.Dto.TimetableDto;
 using Rozklad.Repository.Repositories;
 using RozkladSchool.Models;
@@ -17,8 +19,12 @@ namespace RozkladSchool.Controllers
         private readonly TeacherRepository _teacherRepository;
         private readonly PupilRepository _pupilRepository;
         private readonly LessonRepository _lessonRepository;
+        private readonly UsersRepository _usersRepository;
+
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         public TimetableController(ILogger<TimetableController> logger, TimetableRepository timetableRepository, ClassRoomRepository classRoomRepository, CabinetRepository cabinetRepository,
-            DisciplineRepository disciplineRepository, TeacherRepository teacherRepository, PupilRepository pupilRepository, LessonRepository lessonRepository)
+            DisciplineRepository disciplineRepository, TeacherRepository teacherRepository, UsersRepository usersRepository, UserManager<User> userManager, SignInManager<User> signInManager, PupilRepository pupilRepository, LessonRepository lessonRepository)
         {
             _logger = logger;
             _timetableRepository = timetableRepository;
@@ -28,6 +34,9 @@ namespace RozkladSchool.Controllers
             _teacherRepository = teacherRepository;
             _pupilRepository = pupilRepository;
             _lessonRepository = lessonRepository;
+            _usersRepository = usersRepository;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index()
@@ -48,7 +57,7 @@ namespace RozkladSchool.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> AddRozklad(TimetableCreateDto timetableDto, string cabinetName, string className,
+        public async Task<IActionResult> AddRozklad(TimetableCreateDto timetableDto, string cabinetName, string classRoomName,
             string teacherName, string lessonName, string disciplineName, string pupilName)
         {
             ViewBag.Cabinets = _cabinetRepository.GetCabinets();
@@ -58,8 +67,7 @@ namespace RozkladSchool.Controllers
             ViewBag.Pupils = _pupilRepository.GetPupils();
             ViewBag.Lessons = _lessonRepository.GetLessons();
 
-            if (ModelState.IsValid)
-            {
+            
                 var cabinet = _cabinetRepository.GetCabinetByName(cabinetName);
                 if (cabinet == null)
                 {
@@ -81,6 +89,19 @@ namespace RozkladSchool.Controllers
                     pupil = await _pupilRepository.AddPupilAsync(pupil);
                 }
 
+                var user = _usersRepository.GetUserByEmail(User.Identity.Name);
+                if (user == null)
+                {
+                    user = new User() { Email = User.Identity.Name };
+                }
+
+                var clas = _classRoomRepository.GetClassByName(classRoomName);
+                if (clas == null)
+                {
+                    clas = new ClassRoom() { ClassRoomName = classRoomName };
+                    clas = await _classRoomRepository.AddClassAsync(clas);
+                }
+
                 var teacher = _teacherRepository.GetTeacherByName(teacherName);
                 if (teacher == null)
                 {
@@ -99,14 +120,17 @@ namespace RozkladSchool.Controllers
                 {
                     Cabinet = cabinet,
                     Lesson = lesson,
+                    //Pupil = pupil,
+                    //ClassRoom = clas,
                     LessonNumber = timetableDto.LessonNumber,
                     Day = timetableDto.Day,
                     TimeStart = timetableDto.TimeStart,
                     TimeEnd = timetableDto.TimeEnd,
+                    User = user
 
                 });
                 return RedirectToAction("Index", "Timetable", new { id = timetable.TimetableId });
-            }
+            
             return View(timetableDto);
         }
 

@@ -17,5 +17,6 @@ namespace Rozklad.Core
         public ClassRoom? ClassRoom { get; set; }
         public string? IconPath { get; set; }
         public virtual ICollection<Lesson>? Lessons { get; set; }
+        
     }
 }

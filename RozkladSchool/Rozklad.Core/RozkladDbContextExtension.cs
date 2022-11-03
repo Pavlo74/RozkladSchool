@@ -272,7 +272,10 @@ namespace Rozklad.Core
                  TimeStart = "9:00",
                  TimeEnd = "9:45",
                  CabinetId = 1,
-                 LessonId = 1
+                 LessonId = 1,
+                 UserId = ADMIN_ID
+                 
+                 
                  
              },
              new Timetable
@@ -284,7 +287,8 @@ namespace Rozklad.Core
                  TimeStart = "10:00",
                  TimeEnd = "10:45",
                  CabinetId = 2,
-                 LessonId = 2
+                 LessonId = 2,
+                 UserId = ADMIN_ID
                  
 
              },
@@ -298,9 +302,9 @@ namespace Rozklad.Core
                   TimeStart = "11:00",
                   TimeEnd = "11:45",
                   CabinetId = 3,
-                  LessonId = 3
+                  LessonId = 3,
+                  UserId = ADMIN_ID
                   
-
               }
              );
 
