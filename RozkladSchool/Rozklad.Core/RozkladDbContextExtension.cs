@@ -95,95 +95,17 @@ namespace Rozklad.Core
                 });
 
 
-<<<<<<< HEAD
-            builder.Entity<Day>().HasData(
-               new Day
-               {
-                  
-                   DayId = 1,
-                   DayName = "Понеділок",
-                // TimetableId=1
-                
 
 
 
-               },
-               new Day
-               {
-                   DayId = 2,
-                   DayName = "Вівторок",
-                  // TimetableId = 2
-
-               },
-               new Day
-               {
-                   DayId = 3,
-                   DayName = "Середа",
-                  // TimetableId = 3
-               },
-               new Day
-               {
-                   DayId = 4,
-                   DayName = "Четвер",
-                  // TimetableId = 4
-               },
-               new Day
-               {
-                   DayId = 5,
-                   DayName = "Пятниця",
-                  // TimetableId = 5
-               });
-
-            builder.Entity<Lesson>().HasData(
-               new Lesson
-               {
-                   LessonId = 1,
-                   LessonNumber = 1,
-                   StartTime = "12.00",
-                   EndTime = "12.45",
-                   // TimetableId = 1
-               },
-               new Lesson
-               {
-                   LessonId = 2,
-                   LessonNumber = 2,
-                   StartTime = "13.00",
-                   EndTime = "13.45",
-                   // TimetableId = 2
-               },
-                new Lesson
-                  {
-                    LessonId = 3,
-                    LessonNumber = 3,
-                    StartTime = "14.00",
-                    EndTime = "14.45",
-                    // TimetableId = 3
-                },
-                new Lesson
-                     {
-                    LessonId = 4,
-                    LessonNumber = 4,
-                    StartTime = "15.00 ",
-                    EndTime = "15.45",
-                    // TimetableId = 4
-                },
-                new Lesson
-                        {
-                    LessonId = 5,
-                    LessonNumber = 5,
-                    StartTime = "16.00",
-                    EndTime = "16.45",
-                    //TimetableId = 5
-                }
-=======
 
             builder.Entity<Teacher>().HasData(
              new Teacher
              {
                  TeacherId = 1,
                  TeacherName = "Kvashuk O.V.",
-                 
-              },
+
+             },
 
                        new Teacher
                        {
@@ -196,7 +118,6 @@ namespace Rozklad.Core
                             TeacherName = "Popchuk M.A.",
                         }
              );
->>>>>>> admin
 
             builder.Entity<Pupil>().HasData(
            new Pupil
@@ -229,7 +150,7 @@ namespace Rozklad.Core
              }
            );
 
-           
+
 
             builder.Entity<ClassRoom>().HasData(
            new ClassRoom
@@ -237,7 +158,7 @@ namespace Rozklad.Core
                ClassRoomId = 1,
                ClassRoomName = "1-A",
                Year = 1
-               
+
 
            },
 
@@ -246,7 +167,7 @@ namespace Rozklad.Core
                ClassRoomId = 2,
                ClassRoomName = "1-B",
                Year = 1
-               
+
 
            },
            new ClassRoom
@@ -254,15 +175,15 @@ namespace Rozklad.Core
                ClassRoomId = 3,
                ClassRoomName = "2-A",
                Year = 2
-               
+
 
            });
 
             builder.Entity<Cabinet>().HasData(
                new Cabinet
                {
-                  CabinetId = 1,
-                  CabinetName="GeographyLab",
+                   CabinetId = 1,
+                   CabinetName = "GeographyLab",
                },
                        new Cabinet
                        {
@@ -274,67 +195,30 @@ namespace Rozklad.Core
                                    CabinetId = 3,
                                    CabinetName = "MathLab",
                                }
-                                       
+
                );
 
             builder.Entity<Discipline>().HasData(
               new Discipline
               {
-                  DisciplineId=1,
-                  DisciplineName="Geography"
-                  
+                  DisciplineId = 1,
+                  DisciplineName = "Geography"
+
               },
                  new Discipline
                  {
                      DisciplineId = 2,
                      DisciplineName = "Biology"
-                    
+
                  },
                    new Discipline
                    {
                        DisciplineId = 3,
                        DisciplineName = "Math"
-                      
-                   } 
+
+                   }
               );
 
-<<<<<<< HEAD
-
-            builder.Entity<Class>().HasData(
-             new Class
-             { 
-                 ClassId=1,
-                 ClassName = "1-A",
-                 //TimetableId = 1
-
-
-
-             },
-               new Class
-               {
-                   ClassId = 2,
-                   ClassName = "1-B",
-                   // TimetableId = 2
-               }, new Class
-               {
-                   ClassId = 3,
-                   ClassName = "2-A",
-                   // TimetableId = 3
-               }, new Class
-               {
-                   ClassId = 4,
-                   ClassName = "2-B",
-                   //TimetableId = 4
-               }, new Class
-               {
-                   ClassId = 5,
-                   ClassName = "3-A",
-                   // TimetableId = 5
-               }
-
-
-
-=======
             builder.Entity<Lesson>().HasData(
              new Lesson
              {
@@ -347,7 +231,7 @@ namespace Rozklad.Core
              },
                 new Lesson
                 {
-                    LessonId= 2,
+                    LessonId = 2,
                     LessonName = "Biology, 1-st year, 1-B clas",
                     Year = 1,
                     DisciplineId = 2,
@@ -360,71 +244,52 @@ namespace Rozklad.Core
                       LessonName = "Math, 2-st year, 2-A clas",
                       Year = 2,
                       DisciplineId = 3,
-                      TeacherId=3,
+                      TeacherId = 3,
                       PupilId = 3
                   }
->>>>>>> admin
              );
 
             builder.Entity<Timetable>().HasData(
              new Timetable
              {
-<<<<<<< HEAD
-
                  TimetableId = 1,
-                 ClassId = 1,
-                 LessonId = 1,
-                 DayId = 1,
-                 IconPath = @"Images\1200h790_1-4_klass_t.png",
-                 DisciplineId = 1,
-                 CabinetId = 1,
 
-                
-=======
-                 TimetableId= 1,
-                 
                  Day = "Monday",
-                 LessonNumber=1,
+                 LessonNumber = 1,
                  TimeStart = "9:00",
                  TimeEnd = "9:45",
                  CabinetId = 1,
-                 LessonId = 1,
-                 UserId = ADMIN_ID
-                 
-                 
-                 
->>>>>>> admin
+                 LessonId = 1
+
              },
              new Timetable
              {
                  TimetableId = 2,
-                
+
                  Day = "Tuesday",
                  LessonNumber = 2,
                  TimeStart = "10:00",
                  TimeEnd = "10:45",
                  CabinetId = 2,
-                 LessonId = 2,
-                 UserId = ADMIN_ID
-                 
+                 LessonId = 2
+
 
              },
 
               new Timetable
               {
                   TimetableId = 3,
-                 
-                  LessonNumber =3,
+
+                  LessonNumber = 3,
                   Day = "Wednesday",
                   TimeStart = "11:00",
                   TimeEnd = "11:45",
                   CabinetId = 3,
-                  LessonId = 3,
-                  UserId = ADMIN_ID
-                  
+                  LessonId = 3
+
+
               }
              );
-
         }
     }
 }
