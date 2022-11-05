@@ -1,6 +1,6 @@
-﻿@using Rozklad.Repository.Dto.ClassDto
+﻿@using Rozklad.Repository.Dto.LessonDto
 
-@model ClassRoomReadDto
+@model LessonReadDto
 
 @{
 }
@@ -9,13 +9,13 @@
 <h1>Видалити користувача?</h1>
 <hr />
 
-<p>@Model.ClassRoomId @Model.ClassRoomName</p>
+<p>@Model.LessonId @Model.LessonName</p>
 
 
 <hr />
 <form asp-action="ConfirmDelete" class="col-md-4">
     @Html.AntiForgeryToken()
-    <input asp-for="ClassRoomId" type="hidden" />
+    <input asp-for="LessonId" type="hidden" />
     <button type="submit" class="btn btn-danger">Видалити користувача!!!</button>
     <a href="/users/index" class="btn btn-outline-dark">Повернутися до списку / Відмінити</a>
 </form>
