@@ -28,10 +28,17 @@ namespace Rozklad.Repository.Repositories
 
         public Timetable GetTimetable(int id)
         {
-            return _ctx.Timetables.Include(x => x.Lesson).ThenInclude(x => x.Teacher).Include(x => x.Lesson).ThenInclude(x => x.Discipline).Include(x => x.Lesson).ThenInclude(x => x.Pupil).
-                Include(x => x.Cabinet).
-                Include(x => x.User).
-                 FirstOrDefault(x => x.TimetableId == id);
+                        return _ctx.Timetables.Include(x => x.Lesson).ThenInclude(x => x.Teacher).
+               Include(x => x.Lesson).
+               ThenInclude(x => x.Discipline).
+               Include(x => x.Lesson).
+               ThenInclude(x => x.Pupil).
+               Include(x => x.Cabinet).
+               Include(x => x.Lesson).
+               ThenInclude(x => x.Pupil).
+               ThenInclude(x => x.ClassRoom).
+               
+               FirstOrDefault();
         }
 
         public List<Timetable> GetTimetables()
