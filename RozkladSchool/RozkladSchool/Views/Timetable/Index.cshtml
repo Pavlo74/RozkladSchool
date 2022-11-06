@@ -36,6 +36,7 @@
                <th>Вчитель</th>      
                      <th>Початок</th>
                      <th>Закінчення</th>
+
                     
         </tr>
     </thead>
@@ -51,7 +52,10 @@
                  <td>@u.Lesson.Teacher.TeacherName  </td>
                  <td>@u.TimeStart  </td>
                  <td>@u.TimeEnd  </td>
-                
+                 <td>
+                    <a href="/users/edit/@u.TimetableId" class="btn btn-warning">Редагувати</a>
+                    <a href="/timetable/delete/@u.TimetableId" class="btn btn-danger">Видалити</a>
+                </td>
                    
             </tr>
         }

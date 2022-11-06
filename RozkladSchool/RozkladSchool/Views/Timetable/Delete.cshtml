@@ -1,0 +1,16 @@
+﻿@using Rozklad.Repository.Dto.TimetableDto
+
+@model TimetableReadDto
+
+<h1>Confirm delete</h1>
+<hr/>
+
+<p> @Model.DisciplineName @Model.CabinetName @Model.LessonName @Model.TeacherName </p>
+
+<hr />
+<form asp-action="ConfirmDelete" class="col-mb-4">
+    @Html.AntiForgeryToken()
+    <input asp-for="TimetableId" type="hidden"/>
+    <button type="submit" class="btn btn-warning">Видалити оголошення</button>
+</form>
+<a href="/Home/Index" class="btn btn-outline-dark">Повернутися до списку</a>

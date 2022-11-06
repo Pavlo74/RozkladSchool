@@ -18,13 +18,12 @@ namespace Rozklad.Core
         public string? Day { get; set; }
         public string? TimeStart { get; set; }
         public string? TimeEnd { get; set; }
-        //public string? IconPath { get; set; }
+        
         public int CabinetId { get; set; }
         public Cabinet? Cabinet { get; set; }
         public int LessonId { get; set; }
         public Lesson? Lesson { get; set; }
-        
-        
+     
         public string? UserId { get; set; }
         public User? User { get; set; }
 
