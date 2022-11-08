@@ -2,30 +2,32 @@
 @model IEnumerable<UserReadDto>
 
 @{
+    Layout = "/Views/Shared/_DashminBlankLayout.cshtml";
 }
 
-<div class="float-end">
-    <a href="/users/create" class="btn btn-outline-primary">Додати користувача</a>
-</div>
 
-
-<h1>Список користувачів</h1>
-<hr />
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Confirmed</th>
-            <th>Roles</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Користувачі</h6>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                       <th scope="col"><input class="form-check-input" type="checkbox"></th>
+                                        <th scope="col"> FullName</th>
+                                        <th scope="col"> Email</th>
+                                        <th scope="col"> Confirmed</th>
+                                        <th scope="col"> Roles</th>
+                                        <th scope="col"> Actions</th>
+                                        <th scope="col"> </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
         @foreach(var u in Model)
         {
             <tr>
+                <td><input class="form-check-input" type="checkbox"></td>
                 <td>@u.FirstName @u.LastName</td>
                 <td>@u.Email</td>
                 <td>@u.IsConfirmed</td>
@@ -33,10 +35,11 @@
                     @string.Join(", ", u.Roles.Select(x=> x.Name))
                 </td>
                 <td>
-                    <a href="/users/edit/@u.Id" class="btn btn-warning">Редагувати</a>
-                    <a href="/users/delete/@u.Id" class="btn btn-danger">Видалити</a>
+                    <a href="/users/edit/@u.Id" class="btn btn-sm btn-primary">Редагувати</a>
+                    <a href="/users/delete/@u.Id" class="btn btn-sm btn-danger">Видалити</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a href="/users/create" class="btn  btn-primary">Додати користувача</a>

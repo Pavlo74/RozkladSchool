@@ -1,16 +1,33 @@
 ﻿@using Rozklad.Repository.Dto.TimetableDto
 
 @model TimetableReadDto
-
+@{Layout = "/Views/Shared/_DashminBlankLayout.cshtml";}
 <h1>Confirm delete</h1>
 <hr/>
 
 <p> @Model.DisciplineName @Model.CabinetName @Model.LessonName @Model.TeacherName </p>
 
 <hr />
+<div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
 <form asp-action="ConfirmDelete" class="col-mb-4">
     @Html.AntiForgeryToken()
     <input asp-for="TimetableId" type="hidden"/>
-    <button type="submit" class="btn btn-warning">Видалити оголошення</button>
+    <button type="submit" class="btn  btn-primary">Видалити оголошення</button>
 </form>
 <a href="/Home/Index" class="btn btn-outline-dark">Повернутися до списку</a>
+
+@section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(function () {
+            $(".form-select").select2();
+        });
+    </script>
+}

@@ -3,21 +3,20 @@
 @model IEnumerable<ClassRoom>
 
 @{
+    Layout = "/Views/Shared/_DashminBlankLayout.cshtml";
 }
 
-<div class="float-end">
-    <a href="/users/create" class="btn btn-outline-primary">Додати класс</a>
-</div>
-
-
-<h1>Список класів</h1>
-<hr />
-
-<table class="table table-bordered">
-    <thead>
+<div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">List Classes</h6>
+                            <table class="table">
+                                <thead>
         <tr>
-            <th>ClassId</th>
-            <th>ClassName</th>
+            <th scope="col"><input class="form-check-input" type="checkbox"></th>
+            <th scope="col">ClassId</th>
+            <th scope="col">ClassName</th>
             
         </tr>
     </thead>
@@ -25,14 +24,10 @@
         @foreach(var u in Model)
         {
             <tr>
+                <td><input class="form-check-input" type="checkbox"></td>
                  <td>@u.ClassRoomId </td>
                 <td>@u.ClassRoomName </td>
                 
-                
-                <td>
-                    <a href="/users/edit/@u.ClassRoomId" class="btn btn-warning">Редагувати</a>
-                    <a href="/users/delete/@u.ClassRoomId" class="btn btn-danger">Видалити</a>
-                </td>
             </tr>
         }
     </tbody>
