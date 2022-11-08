@@ -1,0 +1,16 @@
+﻿@using Rozklad.Repository.Dto.DisciplineDto
+
+@model DisciplineReadDto
+
+<h1>Confirm delete</h1>
+<hr/>
+
+<p>@Model.DisciplineId @Model.DisciplineName</p>
+
+<hr />
+<form asp-action="ConfirmDelete" class="col-mb-4">
+    @Html.AntiForgeryToken()
+    <input asp-for="DisciplineId" type="hidden"/>
+    <button type="submit" class="btn btn-warning">Видалити оголошення</button>
+    <a href="/Discipline" class="btn btn-outline-dark">Повернутися до списку</a>
+</form>
