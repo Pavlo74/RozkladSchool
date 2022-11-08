@@ -98,14 +98,15 @@ namespace Rozklad.Core
 
 
 
+           
 
             builder.Entity<Teacher>().HasData(
              new Teacher
              {
                  TeacherId = 1,
                  TeacherName = "Kvashuk O.V.",
-
-             },
+                 
+              },
 
                        new Teacher
                        {
@@ -119,6 +120,7 @@ namespace Rozklad.Core
                         }
              );
 
+
             builder.Entity<Pupil>().HasData(
            new Pupil
            {
@@ -127,7 +129,6 @@ namespace Rozklad.Core
                Year = 1,
                ClassRoomId = 1,
                IconPath = @"Images\1200h790_1-4_klass_t.png"
-               //SectionId = 1
            },
 
             new Pupil
@@ -150,7 +151,7 @@ namespace Rozklad.Core
              }
            );
 
-
+           
 
             builder.Entity<ClassRoom>().HasData(
            new ClassRoom
@@ -158,7 +159,7 @@ namespace Rozklad.Core
                ClassRoomId = 1,
                ClassRoomName = "1-A",
                Year = 1
-
+               
 
            },
 
@@ -167,7 +168,7 @@ namespace Rozklad.Core
                ClassRoomId = 2,
                ClassRoomName = "1-B",
                Year = 1
-
+               
 
            },
            new ClassRoom
@@ -175,15 +176,15 @@ namespace Rozklad.Core
                ClassRoomId = 3,
                ClassRoomName = "2-A",
                Year = 2
-
+               
 
            });
 
             builder.Entity<Cabinet>().HasData(
                new Cabinet
                {
-                   CabinetId = 1,
-                   CabinetName = "GeographyLab",
+                  CabinetId = 1,
+                  CabinetName="GeographyLab",
                },
                        new Cabinet
                        {
@@ -195,29 +196,31 @@ namespace Rozklad.Core
                                    CabinetId = 3,
                                    CabinetName = "MathLab",
                                }
-
+                                       
                );
 
             builder.Entity<Discipline>().HasData(
               new Discipline
               {
-                  DisciplineId = 1,
-                  DisciplineName = "Geography"
-
+                  DisciplineId=1,
+                  DisciplineName="Geography"
+                  
               },
                  new Discipline
                  {
                      DisciplineId = 2,
                      DisciplineName = "Biology"
-
+                    
                  },
                    new Discipline
                    {
                        DisciplineId = 3,
                        DisciplineName = "Math"
-
-                   }
+                      
+                   } 
               );
+
+
 
             builder.Entity<Lesson>().HasData(
              new Lesson
@@ -231,7 +234,7 @@ namespace Rozklad.Core
              },
                 new Lesson
                 {
-                    LessonId = 2,
+                    LessonId= 2,
                     LessonName = "Biology, 1-st year, 1-B clas",
                     Year = 1,
                     DisciplineId = 2,
@@ -244,9 +247,10 @@ namespace Rozklad.Core
                       LessonName = "Math, 2-st year, 2-A clas",
                       Year = 2,
                       DisciplineId = 3,
-                      TeacherId = 3,
+                      TeacherId=3,
                       PupilId = 3
                   }
+
              );
 
             builder.Entity<Timetable>().HasData(
@@ -254,42 +258,46 @@ namespace Rozklad.Core
              {
                  TimetableId = 1,
 
-                 Day = "Monday",
+                 Day = "Tuesday",
                  LessonNumber = 1,
-                 TimeStart = "9:00",
-                 TimeEnd = "9:45",
+                 TimeStart = "10:00",
+                 TimeEnd = "10:45",
                  CabinetId = 1,
-                 LessonId = 1
+                 LessonId = 1,
+                 UserId = ADMIN_ID
+
 
              },
              new Timetable
              {
                  TimetableId = 2,
-
+                
                  Day = "Tuesday",
                  LessonNumber = 2,
                  TimeStart = "10:00",
                  TimeEnd = "10:45",
                  CabinetId = 2,
-                 LessonId = 2
-
+                 LessonId = 2,
+                 UserId = ADMIN_ID
+                 
 
              },
 
               new Timetable
               {
                   TimetableId = 3,
-
-                  LessonNumber = 3,
+                 
+                  LessonNumber =3,
                   Day = "Wednesday",
                   TimeStart = "11:00",
                   TimeEnd = "11:45",
                   CabinetId = 3,
-                  LessonId = 3
-
-
+                  LessonId = 3,
+                  UserId = ADMIN_ID
+                  
               }
              );
+
         }
     }
 }

@@ -28,17 +28,7 @@ namespace Rozklad.Repository.Repositories
 
         public Timetable GetTimetable(int id)
         {
-                        return _ctx.Timetables.Include(x => x.Lesson).ThenInclude(x => x.Teacher).
-               Include(x => x.Lesson).
-               ThenInclude(x => x.Discipline).
-               Include(x => x.Lesson).
-               ThenInclude(x => x.Pupil).
-               Include(x => x.Cabinet).
-               Include(x => x.Lesson).
-               ThenInclude(x => x.Pupil).
-               ThenInclude(x => x.ClassRoom).
-               
-               FirstOrDefault();
+
         }
 
         public List<Timetable> GetTimetables()
@@ -63,14 +53,12 @@ namespace Rozklad.Repository.Repositories
                 Day = v.Day,
                 TimeStart = v.TimeStart,
                 TimeEnd = v.TimeEnd,
-                
-                TeacherName = v.Lesson.Teacher.TeacherName,
+                DisciplineName = v.Lesson.Discipline.DisciplineName,
                 PupilName = v.Lesson.Pupil.PupilName,
+                TeacherName = v.Lesson.Teacher.TeacherName,
                 LessonName = v.Lesson?.LessonName,
                 CabinetName = v.Cabinet?.CabinetName,
                 UserId = v.UserId
-
-
             };
             return timetableDto;
         }
@@ -96,8 +84,8 @@ namespace Rozklad.Repository.Repositories
             if (timetable.Lesson.Pupil.PupilName != pupilName)
                 timetable.Lesson.Pupil = _ctx.Pupils.FirstOrDefault(x => x.PupilName == pupilName);
 
-            //if (timetable.Pupil.ClassRoom.ClassRoomName != classRoomName)
-               // timetable.Pupil.ClassRoom = _ctx.ClassRooms.FirstOrDefault(x => x.ClassRoomName == classRoomName);
+            //if (timetable.Lesson.Pupil.ClassRoom.ClassRoomName != classRoomName)
+                //timetable.Lesson.Pupil.ClassRoom = _ctx.ClassRooms.FirstOrDefault(x => x.ClassRoomName == classRoomName);
 
             if (timetable.Day != timetableDto.Day)
                 timetable.Day = timetableDto.Day;

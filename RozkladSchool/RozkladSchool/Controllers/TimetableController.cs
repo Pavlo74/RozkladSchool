@@ -1,8 +1,6 @@
-
-﻿using Microsoft.AspNetCore.Mvc;
-
-﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+
 using Rozklad.Core;
 using Rozklad.Repository;
 using Rozklad.Repository.Dto.TimetableDto;
@@ -25,8 +23,11 @@ namespace RozkladSchool.Controllers
         private readonly TeacherRepository _teacherRepository;
         private readonly PupilRepository _pupilRepository;
         private readonly LessonRepository _lessonRepository;
+        private readonly UsersRepository _usersRepository;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
         public TimetableController(ILogger<TimetableController> logger, TimetableRepository timetableRepository, ClassRoomRepository classRoomRepository, CabinetRepository cabinetRepository,
-            DisciplineRepository disciplineRepository, TeacherRepository teacherRepository, PupilRepository pupilRepository, LessonRepository lessonRepository)
+            DisciplineRepository disciplineRepository, TeacherRepository teacherRepository, UsersRepository usersRepository, PupilRepository pupilRepository, UserManager<User> userManager, SignInManager<User> signInManager, LessonRepository lessonRepository)
         {
             _logger = logger;
             _timetableRepository = timetableRepository;
@@ -36,6 +37,9 @@ namespace RozkladSchool.Controllers
             _teacherRepository = teacherRepository;
             _pupilRepository = pupilRepository;
             _lessonRepository = lessonRepository;
+            _usersRepository = usersRepository;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public IActionResult Index()
@@ -103,6 +107,12 @@ namespace RozkladSchool.Controllers
                 lesson = await _lessonRepository.AddLessonAsync(lesson);
             }
 
+            var user = _usersRepository.GetUserByEmail(User.Identity.Name);
+            if (user == null)
+            {
+                user = new User() { Email = User.Identity.Name };
+            }
+
             var timetable = await _timetableRepository.AddTimetableAsync(new Timetable
             {
                 Cabinet = cabinet,
@@ -111,6 +121,7 @@ namespace RozkladSchool.Controllers
                 Day = timetableDto.Day,
                 TimeStart = timetableDto.TimeStart,
                 TimeEnd = timetableDto.TimeEnd,
+                User = user
 
             });
             return RedirectToAction("Index", "Timetable", new { id = timetable.TimetableId });
@@ -178,7 +189,3 @@ namespace RozkladSchool.Controllers
     }
 
 }
-
-
-
-    
